@@ -227,9 +227,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service \
-    power.sdm710
+    android.hardware.power@1.2-service.xiaomi_sdm710
 
 # QTI
 PRODUCT_COPY_FILES += \
