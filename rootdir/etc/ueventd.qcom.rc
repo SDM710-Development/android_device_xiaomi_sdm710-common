@@ -379,6 +379,9 @@ firmware_directories /vendor/firmware_mnt/image/
 # Elliptic
 /dev/elliptic0                 0644   system       system
 /dev/elliptic1                 0644   system       system
+
+/sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
+
 # sys-fs display
 /sys/class/graphics/fb*     hpd                      0664    system  graphics
 /sys/class/graphics/fb*     res_info                 0664    system  graphics
@@ -409,5 +412,3 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/class/graphics/fb0     mode                     0664    system  graphics
 /sys/class/graphics/fb0     msm_cmd_autorefresh_en   0664    system  graphics
 /sys/class/graphics/fb0     dynamic_bitclk           0664    system  graphics
-
-/sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
