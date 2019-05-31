@@ -787,6 +787,7 @@ service vendor-sensor-sh /vendor/bin/init.qcom.sensors.sh
     class core
     user root
     oneshot
+    disabled
 
 service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
