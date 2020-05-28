@@ -28,6 +28,9 @@
 /(vendor|system/vendor)/bin/mtd@1\.2             u:object_r:hal_mtdservice_default_exec:s0
 /(vendor|system/vendor)/bin/nv_mac               u:object_r:wcnss_service_exec:s0
 
+# FOD
+/sys/devices/platform/soc/soc:qcom,dsi-display.*/fod_ui u:object_r:sysfs_fod:s0
+
 # Fingerprint devices
 /dev/goodix_fp                                u:object_r:fingerprint_device:s0
 /dev/vfsspi                                   u:object_r:fingerprint_device:s0
