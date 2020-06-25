@@ -21,6 +21,7 @@
 #include <hidl/HidlTransportSupport.h>
 
 #include "SunlightEnhancement.h"
+#include "livedisplay/sdm/SDMController.h"
 
 using android::OK;
 using android::sp;
@@ -28,12 +29,14 @@ using android::status_t;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
+using ::vendor::lineage::livedisplay::V2_0::sdm::SDMController;
 using ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement;
 using ::vendor::lineage::livedisplay::V2_0::implementation::SunlightEnhancement;
 
 int main() {
     sp<SunlightEnhancement> sunlightEnhancement;
-    status_t status;
+    std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
+    status_t status = OK;
 
     LOG(INFO) << "LiveDisplay HAL custom service is starting.";
 
