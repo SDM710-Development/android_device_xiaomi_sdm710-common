@@ -34,18 +34,12 @@ using ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement;
 using ::vendor::lineage::livedisplay::V2_0::implementation::SunlightEnhancement;
 
 int main() {
-    sp<SunlightEnhancement> sunlightEnhancement;
+    sp<SunlightEnhancement> sunlightEnhancement = new SunlightEnhancement();
     std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
     status_t status = OK;
 
     LOG(INFO) << "LiveDisplay HAL custom service is starting.";
 
-    sunlightEnhancement = new SunlightEnhancement();
-    if (sunlightEnhancement == nullptr) {
-        LOG(ERROR) << "Can not create an instance of LiveDisplay HAL SunlightEnhancement Iface,"
-                   << "exiting.";
-        goto shutdown;
-    }
 
     if (!sunlightEnhancement->isSupported()) {
         LOG(ERROR) << "SunlightEnhancement Iface is not supported, gracefully bailing out.";
