@@ -394,7 +394,10 @@ on post-fs-data
 
     #Make MTU adjusting
     write /proc/sys/net/ipv4/tcp_mtu_probing 1
-    
+
+    start vendor.qcrild
+    start vendor.qcrild2
+
     #Start move time data to /data/vendor once post-fs-data done
     start vendor.move_time_data
 
@@ -529,31 +532,6 @@ on property:vendor.bluetooth.startwdsdaemon=true
 on property:vendor.bluetooth.startwdsdaemon=false
     stop vendor.bt_wdsdaemon
 
-service qcom-c_core-sh  /vendor/bin/init.qcom.class_core.sh
-    class core
-    user root
-    oneshot
-
-service qcom-c_main-sh /vendor/bin/init.class_main.sh
-    class main
-    user root
-    oneshot
-
-service qcom-c_late-sh /vendor/bin/init.class_late.sh
-    class late_start
-    user root 
-    oneshot
-
-#xiaomi bsp-wifi: start vendor.cnss_diag is added by bsp-wifi
-on property:vold.decrypt=trigger_restart_framework
-    start qcom-c_main-sh
-    start wcnss-service
-    start vendor.cnss_diag
-    start qcom-c_late-sh
-
-on property:persist.env.fastdorm.enabled=true
-    setprop persist.radio.data_no_toggle 1
-
 service vendor.cnd /system/vendor/bin/cnd
     class main
     user system
@@ -624,25 +602,10 @@ service vendor.port-bridge /system/vendor/bin/port-bridge
     class main
     user radio
     group radio system inet
-    disabled
     oneshot
-
-service qmiproxy /system/bin/qmiproxy
-    class main
-    user radio
-    group radio diag
-    disabled
-
-# QMUX must be in multiple groups to support external process connections
-service vendor.qmuxd /system/vendor/bin/qmuxd
-    class main
-    user root
-    group radio audio bluetooth gps nfc diag
-    disabled
 
 service vendor.netmgrd /system/vendor/bin/netmgrd
     class main
-    disabled
 
 service vendor.ipacm-diag /system/vendor/bin/ipacm-diag
     class main
@@ -655,19 +618,16 @@ service vendor.ipacm /system/vendor/bin/ipacm
     class main
     user radio
     group radio inet
-    disabled
 
 service vendor.dataqti /system/vendor/bin/qti
     class main
     user radio
     group radio oem_2901 diag usb net_admin
-    disabled
 
 service vendor.dataadpl /system/vendor/bin/adpl
     class main
     user radio
     group radio oem_2901 diag usb net_admin
-    disabled
 
 service vendor.sensors /vendor/bin/sscrpcd
     class core
