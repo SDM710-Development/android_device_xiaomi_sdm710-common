@@ -26,6 +26,7 @@ vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
 
 # Audio
 vendor/lib64/hw/audio.primary.sdm710.so
+vendor/lib/liba2dpoffload.so
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
@@ -36,6 +37,7 @@ vendor/lib64/libaudioroute_ext.so
 vendor/lib64/libqtigef.so
 vendor/lib64/libtinycompress_vendor.so
 vendor/lib/hw/audio.primary.sdm710.so
+vendor/lib/liba2dpoffload.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
