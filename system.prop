@@ -1,7 +1,18 @@
 # Audio
+audio.offload.gapless.enabled=true
 audio.deep_buffer.media=true
 audio.offload.min.duration.secs=30
 audio.offload.video=true
+persist.audio.fluence.speaker=true
+persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicerec=false
+persist.vendor.audio.ambisonic.auto.profile=false
+persist.vendor.audio.ambisonic.capture=false
+persist.vendor.audio.avs.afe_api_version=2
+persist.vendor.audio.fluence.audiorec=false
+persist.vendor.audio.fluence.tmic.enabled=false
+persist.vendor.audio.hifi.int_codec=true
+persist.vendor.audio.spv3.enable=true
 ro.af.client_heap_size_kbyte=7168
 ro.config.media_vol_steps=25
 ro.config.vc_call_vol_steps=11
@@ -10,22 +21,36 @@ ro.config.vc_call_vol_steps=11
 ro.kernel.ebpf.supported=true
 
 # Bluetooth
+bt.max.hfpclient.connections=1
 persist.bluetooth.a2dp_offload.disabled=false
+persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac
 persist.vendor.bt.a2dp.aac_whitelist=false
+persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
+persist.vendor.btstack.enable.splita2dp=true
 persist.vendor.btstack.enable.twsplus=true
 persist.vendor.btstack.enable.twsplussho=true
 ro.bluetooth.a2dp_offload.supported=true
 ro.bluetooth.library_name=libbluetooth_qti.so
-vendor.bluetooth.soc=cherokee
 
 # Camera
 camera.disable_zsl_mode=true
+persist.vendor.camera.multicam.fpsmatch=TRUE
+persist.vendor.camera.multicam.framesync=1
+persist.vendor.camera.multicam.hwsync=TRUE
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+
+# Charger
+persist.chg.max_volt_mv=9000
 
 # Data modules
 persist.data.df.dev_name=rmnet_usb0
 persist.vendor.data.mode=concurrent
 ro.vendor.use_data_netmgrd=true
+
+# Display
+ro.surface_flinger.use_color_management=true
+ro.surface_flinger.wcg_composition_dataspace=143261696
 
 # Display post-processing
 ro.qualcomm.cabl=0
@@ -54,29 +79,53 @@ sdm.debug.disable_inline_rotator_secure=1
 persist.vendor.ims.disableUserAgent=0
 
 # Media
-debug.stagefright.omx_default_rank.sw-audio=1
+av.offload.enable=true
 debug.stagefright.omx_default_rank=0
+debug.stagefright.omx_default_rank.sw-audio=1
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+media.stagefright.enable-aac=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-http=true
+media.stagefright.enable-player=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-scan=true
+media.stagefright.thumbnail.prefer_hw_codecs=true
+mm.enable.smoothstreaming=true
+mmp.enable.3g2=true
+persist.mm.enable.prefetch=true
 
 # Memory optimizations
 ro.vendor.qti.sys.fw.bservice_enable=true
 
 # Netflix custom property
-ro.netflix.bsp_rev=Q845-05000-1
+ro.netflix.bsp_rev=Q670-14477-1
+
+# Network
+persist.data.netmgrd.qos.enable=true
 
 # QC framework value-adds
 ro.vendor.qti.va_aosp.support=1
+
+# Radio
+persist.radio.VT_CAM_INTERFACE=1
+persist.radio.VT_HYBRID_ENABLE=1
 
 # RCS
 persist.rcs.supported=0
 
 # RIL
 DEVICE_PROVISIONED=1
+persist.radio.dynamic_sar=false
+persist.radio.charge_sar_control=false
+persist.radio.modem_dynamic_sar_state=close
 persist.radio.multisim.config=dsds
+persist.radio.NO_STAPA=1
+persist.radio.sar_sar_sensor=true
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.custom_ecc=1
-persist.vendor.radio.flexmap_type=none
+persist.vendor.radio.data_con_rprt=1
 persist.vendor.radio.force_on_dc=true
+persist.vendor.radio.manual_nw_rej_ct=1
 persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.redir_party_num=1
@@ -84,8 +133,12 @@ persist.vendor.radio.report_codec=1
 persist.vendor.radio.sib16_support=1
 ril.subscription.types=NV,RUIM
 ro.com.android.dataroaming=true
+ro.telephony.default_cdma_sub=0
 ro.telephony.default_network=22,22
 telephony.lteOnCdmaDevice=1
+
+# WiFi Display
+persist.sys.wfd.virtual=0
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true
