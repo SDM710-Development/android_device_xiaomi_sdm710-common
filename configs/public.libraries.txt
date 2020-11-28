@@ -1,32 +1,32 @@
-libadsprpc.so
-libcdsprpc.so
-libsdsprpc.so
-libqvrservice_client.so
-libtzcom.so
-libfastcvopt.so
-liblistenjni.so
-liblistensoundmodel2.so
 libOpenCL.so
-libmpbase.so
-libmialgoengine.so
 libVDClearShot.so
-libVDDualCameraClearShot.so
-libHalSuperSensorServer.so
-libSuperSensor.so
-libSuperSensorCPU.so
-libSuperSensor_skel.so
+libVDDualCameraClearShot.so 64
+libVDSuperPhotoAPI.so
+libadsprpc.so
+libaix.so
+libalCFR.so
+libalhLDC.so
 libarcsoft_beautyshot.so
+libarcsoft_bodyslim.so
+libarcsoft_distortion_correction.so
 libarcsoft_dualcam_refocus.so
-libarcsoft_dualcam_refocus_rear_t.so
-libarcsoft_dualcam_refocus_rear_w.so
-libarcsoft_dualcam_refocus_front.so
-libarcsoft_portrait_lighting.so
-libarcsoft_portrait_lighting_c.so
+libarcsoft_dualcam_refocus_front.so 64
+libarcsoft_dualcam_refocus_rear_t.so 64
+libarcsoft_dualcam_refocus_rear_w.so 64
 libarcsoft_high_dynamic_range.so
 libarcsoft_low_light_hdr.so
-libarcsoft_supernight.so
-libmisegment_front_845.so
-libalCFR.so
-libbeauty.so
-libprotobuf-cpp-full.so
-libprotobuf-cpp-lite.so
+libarcsoft_portrait_lighting.so
+libarcsoft_portrait_lighting_c.so
+libcdsprpc.so
+libfastcvopt.so
+libhta_controller.so
+libhta_hexagon_runtime.so
+liblistenjni.so
+liblistensoundmodel2.so
+libmialgoengine.so 64
+libmibokeh_712.so
+libmpbase.so
+libnpu.so
+libqti-perfd-client.so
+libsdsprpc.so
+unnhal-acc-hta.so
