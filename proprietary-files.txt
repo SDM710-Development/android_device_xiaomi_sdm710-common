@@ -703,7 +703,7 @@ vendor/lib/libqmiservices.so
 product/etc/permissions/qcrilhook.xml
 product/etc/permissions/telephonyservice.xml
 product/framework/qcrilhook.jar
-product/framework/qti-telephony-common.jar
+product/framework/qti-telephony-common.jar|02c2107f50c26903db94b7660e9ae5566b0d96c3
 product/framework/QtiTelephonyServicelibrary.jar
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -vendor/app/IWlanService/IWlanService.apk
