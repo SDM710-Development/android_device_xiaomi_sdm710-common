@@ -54,12 +54,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Netflix custom property
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.netflix.bsp_rev=Q845-05000-1
+    ro.netflix.bsp_rev=Q670-14477-1
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.core_ctl_min_cpu=2 \
-    ro.vendor.qti.core_ctl_max_cpu=4 \
+    ro.vendor.qti.core_ctl_min_cpu=4 \
+    ro.vendor.qti.core_ctl_max_cpu=6 \
     vendor.iop.enable_prefetch_ofr=0 \
     vendor.iop.enable_uxe=0
 

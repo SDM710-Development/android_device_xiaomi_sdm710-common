@@ -26,7 +26,7 @@ source "${HELPER}"
 setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${LINEAGE_ROOT}" true
 
 # Copyright headers and guards
-write_headers "beryllium dipper equuleus perseus polaris ursa"
+write_headers "grus pyxis sirius vela"
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
