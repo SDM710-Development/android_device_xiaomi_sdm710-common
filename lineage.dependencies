@@ -4,7 +4,7 @@
     "target_path": "hardware/xiaomi"
   },
   {
-    "repository": "android_kernel_xiaomi_sdm845",
-    "target_path": "kernel/xiaomi/sdm845"
+    "repository": "android_kernel_xiaomi_sdm710",
+    "target_path": "kernel/xiaomi/sdm710"
   }
 ]
