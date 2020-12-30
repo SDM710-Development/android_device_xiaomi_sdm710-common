@@ -91,7 +91,7 @@ function set_density_by_fb() {
 
 target=`getprop ro.board.platform`
 case "$target" in
-    "sdm845")
+    "sdm710")
         case "$soc_hwplatform" in
             *)
                 if [ $fb_width -le 1600 ]; then

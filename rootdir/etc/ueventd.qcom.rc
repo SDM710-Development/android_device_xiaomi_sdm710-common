@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2015, 2017-2018, The Linux Foundation. All rights reserved.
+# Copyright (c) 2012-2015, 2017-2019, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -55,6 +55,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/dpl_ctrl             0660   usb        usb
 /dev/ipa_odl_ctl          0660   radio      radio
 /dev/ipa_adpl             0660   system     oem_2905
+/dev/synx_device          0660   root       camera
 
 #permissions for CSVT
 /dev/smd11                0660   radio      radio
@@ -141,7 +142,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/cryptoapp            0660   system     system
 /dev/spdaemon_ssr         0660   system     system
 /dev/spu_hal_ssr          0660   system     system
-/dev/cam-hyp-intf*        0660   system     camera
 /dev/iuicc                0660   system     system
 /dev/iuicc0               0660   system     system
 /dev/iuicc1               0660   system     system
@@ -172,6 +172,10 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/byte-cntr            0660   system    oem_2902
 /dev/mhi_qdss             0660   system    oem_2902
 /sys/class/qdss_bridge/mhi_qdss  mode      0660     system   oem_2902
+
+#qg
+/dev/qg                   0660  system     system
+/dev/qg_battery           0660  system     system
 
 #qvr
 /dev/qvr_external_sensor_ioctl      0660  system  system
@@ -351,7 +355,9 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/ramdump*             0640   system     system
 
 # Fingerprint device
-/dev/qbt1000              0660   system     system
+/dev/qbt*                 0660   system     system
+/sys/class/fts/touch_aoi aoi_set 0660 root system
+/sys/class/fts/touch_aoi power_set 0660 root system
 
 #ImproveTouch device
 /dev/hbtp_input           0660   system     system
@@ -393,6 +399,10 @@ firmware_directories /vendor/firmware_mnt/image/
 
 #Memory Offline
 /sys/devices/system/memory/memory* state    0660 system system
+
+# Elliptic
+/dev/elliptic0                 0644   system       system
+/dev/elliptic1                 0644   system       system
 
 /sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
 
