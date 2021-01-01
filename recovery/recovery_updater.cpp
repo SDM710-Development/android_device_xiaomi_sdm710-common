@@ -118,8 +118,8 @@ static char* bm_search(const char* str, size_t str_len, const char* pat, size_t 
     return NULL;
 }
 
-static int get_info(char* str, size_t len, char* lookup_str, size_t lookup_str_len,
-                    char* part_path) {
+static int get_info(char* str, size_t len, const char* lookup_str,
+                    size_t lookup_str_len, const char* part_path) {
     int ret = 0;
     int fd;
     off64_t size;
