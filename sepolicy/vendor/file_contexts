@@ -40,12 +40,16 @@
 # Leds nodes
 /sys/devices/platform/soc/[a-z0-9]+.i2c/i2c-[0-9]/[0-9]-[a-z0-9]+/leds/ir(/.*)?                         u:object_r:sysfs_leds:s0
 
+# IR device node
+/dev/lirc[0-9]*         u:object_r:lirc_device:s0
+
 # HALs
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_sdm710                   u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm710                                     u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr                                      u:object_r:hal_power_default_exec:s0
 /vendor/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_sdm710            u:object_r:hal_lineage_fod_sdm710_exec:s0
 /vendor/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.xiaomi_sdm710                                 u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/vendor/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi                                               u:object_r:hal_ir_default_exec:s0
 
 # Persist files
 /mnt/vendor/persist/audio(/.*)?               u:object_r:persist_audio_file:s0
