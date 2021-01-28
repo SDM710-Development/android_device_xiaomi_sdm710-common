@@ -68,8 +68,8 @@ on init
     write /sys/block/dm-2/queue/read_ahead_kb 2048
 
 on fs
-    wait /dev/block/platform/soc/1d84000.ufshc
-    symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
     mount_all /vendor/etc/fstab.qcom
     mkdir /mnt/vendor/persist 0771 root system
     chown root system /mnt/vendor/persist
