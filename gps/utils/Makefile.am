@@ -8,7 +8,7 @@ AM_CFLAGS = -Wundef \
         -fno-short-enums \
         -fpic \
          -I./ \
-         -std=c++14 \
+         -std=c++11 \
          $(LOCPLA_CFLAGS)
 
 libgps_utils_la_h_sources = \
@@ -23,15 +23,12 @@ libgps_utils_la_h_sources = \
         LocThread.h \
         LocTimer.h \
         LocIpc.h \
-        SkipList.h\
         loc_misc_utils.h \
         loc_nmea.h \
         gps_extended_c.h \
         gps_extended.h \
         loc_gps.h \
-        log_util.h \
-        LocSharedLock.h \
-        LocUnorderedSetMap.h
+        log_util.h
 
 libgps_utils_la_c_sources = \
         linked_list.c \
@@ -43,7 +40,6 @@ libgps_utils_la_c_sources = \
         LocTimer.cpp \
         LocThread.cpp \
         LocIpc.cpp \
-        LogBuffer.cpp \
         MsgTask.cpp \
         loc_misc_utils.cpp \
         loc_nmea.cpp
@@ -64,7 +60,7 @@ libgps_utils_la_LDFLAGS = -Wl,-z,defs -lpthread -shared -version-info 1:0:0
 libgps_utils_la_CPPFLAGS = $(AM_CFLAGS) $(AM_CPPFLAGS)
 endif
 
-libgps_utils_la_LIBADD = $(CUTILS_LIBS) -ldl
+libgps_utils_la_LIBADD = $(CUTILS_LIBS)
 
 #Create and Install libraries
 lib_LTLIBRARIES = libgps_utils.la
