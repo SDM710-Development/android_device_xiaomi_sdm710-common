@@ -38,9 +38,9 @@
 #define FOD_STATUS_ON 1
 #define FOD_STATUS_OFF 0
 
-#define FOD_SENSOR_X 445
-#define FOD_SENSOR_Y 1910
-#define FOD_SENSOR_SIZE 190
+#define FOD_DEFAULT_X 445
+#define FOD_DEFAULT_Y 1910
+#define FOD_DEFAULT_SIZE 190
 
 namespace {
 
@@ -97,18 +97,34 @@ namespace implementation {
 
 FingerprintInscreen::FingerprintInscreen() {
     xiaomiFingerprintService = IXiaomiFingerprint::getService();
+
+    std::vector<int32_t> ints { FOD_DEFAULT_X, FOD_DEFAULT_Y };
+
+    ints = GetIntListProperty("persist.vendor.sys.fp.fod.location.X_Y", ints);
+    fodPosX = ints[0];
+    fodPosY = ints[1];
+
+    ints = { FOD_DEFAULT_SIZE, FOD_DEFAULT_SIZE };
+    ints = GetIntListProperty("persist.vendor.sys.fp.fod.size.width_height", ints);
+    if (ints[0] != ints[1])
+           LOG(WARNING) << "FoD size should be square but it is not (width = "
+                        << ints[0] << ", height = " << ints[1] << "\n";
+    fodSize = std::max(ints[0], ints[1]);
+
+    LOG(INFO) << "FoD is located at " << fodPosX << "," << fodPosY
+              << " with size " << fodSize << "pixels\n";
 }
 
 Return<int32_t> FingerprintInscreen::getPositionX() {
-    return FOD_SENSOR_X;
+    return fodPosX;
 }
 
 Return<int32_t> FingerprintInscreen::getPositionY() {
-    return FOD_SENSOR_Y;
+    return fodPosY;
 }
 
 Return<int32_t> FingerprintInscreen::getSize() {
-    return FOD_SENSOR_SIZE;
+    return fodSize;
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
