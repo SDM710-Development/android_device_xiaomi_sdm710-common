@@ -70,6 +70,9 @@ TARGET_ENABLE_MEDIADRM_64 := true
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
+# Fingerprint on display
+TARGET_SURFACEFLINGER_FOD_LIB := //$(COMMON_PATH):libfod_extension.xiaomi_sdm710
+
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := true
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
