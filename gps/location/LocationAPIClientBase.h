@@ -488,7 +488,6 @@ private:
             for (size_t i = 0; i < count; i++) {
                 ids[i] = mAPI.mGeofenceBiDict.getId(sessions[i]);
             }
-            LOC_LOGD("%s:]Returned geofence-id: %d in add geofence", __FUNCTION__, *ids);
             mAPI.onAddGeofencesCb(count, errors, ids);
             free(ids);
         }
@@ -506,7 +505,6 @@ private:
                 for (size_t i = 0; i < count; i++) {
                     ids[i] = mRemovedGeofenceBiDict->getId(sessions[i]);
                 }
-                LOC_LOGD("%s:]Returned geofence-id: %d in remove geofence", __FUNCTION__, *ids);
                 mAPI.onRemoveGeofencesCb(count, errors, ids);
                 free(ids);
                 delete(mRemovedGeofenceBiDict);

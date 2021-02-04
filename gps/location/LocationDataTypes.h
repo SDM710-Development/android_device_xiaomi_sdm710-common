@@ -175,8 +175,6 @@ typedef enum {
     GNSS_LOCATION_INFO_NUM_SV_USED_IN_POSITION_BIT      = (1<<24), // number of SV used in position
     GNSS_LOCATION_INFO_CALIBRATION_CONFIDENCE_BIT       = (1<<25), // valid sensor cal confidence
     GNSS_LOCATION_INFO_CALIBRATION_STATUS_BIT           = (1<<26), // valid sensor cal status
-    GNSS_LOCATION_INFO_OUTPUT_ENG_TYPE_BIT              = (1<<27), // valid output engine type
-    GNSS_LOCATION_INFO_OUTPUT_ENG_MASK_BIT              = (1<<28), // valid output engine mask
 } GnssLocationInfoFlagBits;
 
 typedef enum {
@@ -248,7 +246,6 @@ typedef enum {
     GNSS_CONFIG_SUPL_VERSION_1_0_0 = 1,
     GNSS_CONFIG_SUPL_VERSION_2_0_0,
     GNSS_CONFIG_SUPL_VERSION_2_0_2,
-    GNSS_CONFIG_SUPL_VERSION_2_0_4,
 } GnssConfigSuplVersion;
 
 // LTE Positioning Profile
@@ -568,32 +565,28 @@ typedef enum {
     GNSS_SIGNAL_GALILEO_E5A         = (1<<7),
     /** GALILEO E5B RF Band */
     GNSS_SIGNAL_GALILEO_E5B         = (1<<8),
-    /** BEIDOU B1 RF Band */
-    GNSS_SIGNAL_BEIDOU_B1           = (1<<9),
-    /** BEIDOU B2 RF Band */
-    GNSS_SIGNAL_BEIDOU_B2           = (1<<10),
-    /** QZSS L1CA RF Band */
-    GNSS_SIGNAL_QZSS_L1CA           = (1<<11),
-    /** QZSS L1S RF Band */
-    GNSS_SIGNAL_QZSS_L1S            = (1<<12),
-    /** QZSS L2 RF Band */
-    GNSS_SIGNAL_QZSS_L2             = (1<<13),
-    /** QZSS L5 RF Band */
-    GNSS_SIGNAL_QZSS_L5             = (1<<14),
-    /** SBAS L1 RF Band */
-    GNSS_SIGNAL_SBAS_L1             = (1<<15),
-    /** BEIDOU B1I RF Band */
-    GNSS_SIGNAL_BEIDOU_B1I          = (1<<16),
+    /** BEIDOU B1_I RF Band */
+    GNSS_SIGNAL_BEIDOU_B1I          = (1<<9),
     /** BEIDOU B1C RF Band */
-    GNSS_SIGNAL_BEIDOU_B1C          = (1<<17),
-    /** BEIDOU B2I RF Band */
-    GNSS_SIGNAL_BEIDOU_B2I          = (1<<18),
-    /** BEIDOU B2AI RF Band */
-    GNSS_SIGNAL_BEIDOU_B2AI         = (1<<19),
+    GNSS_SIGNAL_BEIDOU_B1C          = (1<<10),
+    /** BEIDOU B2_I RF Band */
+    GNSS_SIGNAL_BEIDOU_B2I          = (1<<11),
+    /** BEIDOU B2A_I RF Band */
+    GNSS_SIGNAL_BEIDOU_B2AI         = (1<<12),
+    /** QZSS L1CA RF Band */
+    GNSS_SIGNAL_QZSS_L1CA           = (1<<13),
+    /** QZSS L1S RF Band */
+    GNSS_SIGNAL_QZSS_L1S            = (1<<14),
+    /** QZSS L2 RF Band */
+    GNSS_SIGNAL_QZSS_L2             = (1<<15),
+    /** QZSS L5 RF Band */
+    GNSS_SIGNAL_QZSS_L5             = (1<<16),
+    /** SBAS L1 RF Band */
+    GNSS_SIGNAL_SBAS_L1             = (1<<17),
     /** NAVIC L5 RF Band */
-    GNSS_SIGNAL_NAVIC_L5            = (1<<20),
+    GNSS_SIGNAL_NAVIC_L5            = (1<<18),
     /** BEIDOU B2A_Q RF Band */
-    GNSS_SIGNAL_BEIDOU_B2AQ         = (1<<21),
+    GNSS_SIGNAL_BEIDOU_B2AQ         = (1<<19)
 } GnssSignalTypeBits;
 
 #define GNSS_SIGNAL_TYPE_MASK_ALL\
@@ -653,15 +646,6 @@ typedef enum {
     GNSS_LOC_MAX_NUMBER_OF_SIGNAL_TYPES = 20    /**<  Maximum number of signal types */
 } Gnss_LocSignalEnumType;
 
-typedef uint32_t PositioningEngineMask;
-typedef enum {
-    STANDARD_POSITIONING_ENGINE = (1 << 0),
-    DEAD_RECKONING_ENGINE       = (1 << 1),
-    PRECISE_POSITIONING_ENGINE  = (1 << 2)
-} PositioningEngineBits;
-#define POSITION_ENGINE_MASK_ALL \
-        (STANDARD_POSITIONING_ENGINE|DEAD_RECKONING_ENGINE|PRECISE_POSITIONING_ENGINE)
-
 typedef uint64_t GnssDataMask;
 typedef enum {
     // Jammer Indicator is available
@@ -714,7 +698,6 @@ typedef struct {
     bool deleteAll;              // if true, delete all aiding data and ignore other params
     GnssAidingDataSv sv;         // SV specific aiding data
     GnssAidingDataCommon common; // common aiding data
-    PositioningEngineMask posEngineMask; // engines to perform the delete operation on.
 } GnssAidingData;
 
 typedef uint16_t DrCalibrationStatusMask;
@@ -748,35 +731,15 @@ typedef struct {
     LocationSpoofMask      spoofMask;
 } Location;
 
-typedef enum {
-    LOC_REQ_ENGINE_FUSED_BIT = (1<<0),
-    LOC_REQ_ENGINE_SPE_BIT   = (1<<1),
-    LOC_REQ_ENGINE_PPE_BIT   = (1<<2),
-} LocReqEngineTypeMask;
-
-typedef enum {
-    LOC_OUTPUT_ENGINE_FUSED   = 0,
-    /** This is the GNSS fix from modem */
-    LOC_OUTPUT_ENGINE_SPE     = 1,
-    /** This is the GNSS fix with correction PPP/RTK correction */
-    LOC_OUTPUT_ENGINE_PPE     = 2,
-    LOC_OUTPUT_ENGINE_COUNT,
-} LocOutputEngineType;
-
 struct LocationOptions {
     uint32_t size;          // set to sizeof(LocationOptions)
     uint32_t minInterval; // in milliseconds
     uint32_t minDistance; // in meters. if minDistance > 0, gnssSvCallback/gnssNmeaCallback/
                           // gnssMeasurementsCallback may not be called
     GnssSuplMode mode;    // Standalone/MS-Based/MS-Assisted
-    // behavior when this field is 0:
-    //  if engine hub is running, this will be fused fix,
-    //  if engine hub is not running, this will be SPE fix
-    LocReqEngineTypeMask locReqEngTypeMask;
 
     inline LocationOptions() :
-            size(0), minInterval(0), minDistance(0), mode(GNSS_SUPL_MODE_STANDALONE),
-            locReqEngTypeMask((LocReqEngineTypeMask)0) {}
+            size(0), minInterval(0), minDistance(0), mode(GNSS_SUPL_MODE_STANDALONE) {}
 };
 
 typedef enum {
@@ -801,11 +764,9 @@ struct TrackingOptions : LocationOptions {
     inline TrackingOptions(const LocationOptions& options) :
             LocationOptions(options), powerMode(GNSS_POWER_MODE_INVALID), tbm(0) {}
     inline void setLocationOptions(const LocationOptions& options) {
-        size = sizeof(TrackingOptions);
         minInterval = options.minInterval;
         minDistance = options.minDistance;
         mode = options.mode;
-        locReqEngTypeMask = options.locReqEngTypeMask;
     }
     inline LocationOptions getLocationOptions() {
         LocationOptions locOption;
@@ -813,7 +774,6 @@ struct TrackingOptions : LocationOptions {
         locOption.minDistance = minDistance;
         locOption.minInterval = minInterval;
         locOption.mode = mode;
-        locOption.locReqEngTypeMask = locReqEngTypeMask;
         return locOption;
     }
 };
@@ -1037,15 +997,6 @@ typedef struct {
     uint8_t calibrationConfidence;                // Sensor calibration confidence percent,
                                                   // in range of [0, 100]
     DrCalibrationStatusMask calibrationStatus;    // Sensor calibration status
-    // location engine type. When the fix. when the type is set to
-    // LOC_ENGINE_SRC_FUSED, the fix is the propagated/aggregated
-    // reports from all engines running on the system (e.g.:
-    // DR/SPE/PPE). To check which location engine contributes to
-    // the fused output, check for locOutputEngMask.
-    LocOutputEngineType locOutputEngType;
-    // when loc output eng type is set to fused, this field
-    // indicates the set of engines contribute to the fix.
-    PositioningEngineMask locOutputEngMask;
 } GnssLocationInfoNotification;
 
 typedef struct {
@@ -1189,13 +1140,6 @@ typedef struct {
     // GAL - SV 301 maps to bit 0
 #define GNSS_SV_CONFIG_GAL_INITIAL_SV_ID 301
     uint64_t galBlacklistSvMask;
-
-    // SBAS - SV 120 to 158, maps to 0 to 38
-    //        SV 183 to 191, maps to 39 to 47
-#define GNSS_SV_CONFIG_SBAS_INITIAL_SV_ID     120
-#define GNSS_SV_CONFIG_SBAS_INITIAL_SV_LENGTH 39
-#define GNSS_SV_CONFIG_SBAS_INITIAL2_SV_ID    183
-    uint64_t sbasBlacklistSvMask;
 } GnssSvIdConfig;
 
 struct GnssConfig{
@@ -1323,66 +1267,6 @@ struct LocationSystemInfo {
     LeapSecondSystemInfo   leapSecondSysInfo;
 };
 
-/* Mask indicating enabled or disabled constellations */
-typedef uint64_t GnssSvTypesMask;
-typedef enum {
-    GNSS_SV_TYPES_MASK_GLO_BIT  = (1<<0),
-    GNSS_SV_TYPES_MASK_BDS_BIT  = (1<<1),
-    GNSS_SV_TYPES_MASK_QZSS_BIT = (1<<2),
-    GNSS_SV_TYPES_MASK_GAL_BIT  = (1<<3),
-    GNSS_SV_TYPES_MASK_NAVIC_BIT  = (1<<4),
-} GnssSvTypesMaskBits;
-
-/* This SV Type config is injected directly to GNSS Adapter
- * bypassing Location API */
-typedef struct {
-    uint32_t size; // set to sizeof(GnssSvTypeConfig)
-    // Enabled Constellations
-    GnssSvTypesMask enabledSvTypesMask;
-    // Disabled Constellations
-    GnssSvTypesMask blacklistedSvTypesMask;
-} GnssSvTypeConfig;
-
-// Specify parameters related to lever arm
-struct LeverArmParams {
-    // Offset along the vehicle forward axis
-    float forwardOffsetMeters;
-    // Offset along the vehicle starboard axis
-    float sidewaysOffsetMeters;
-    // Offset along the vehicle up axis
-    float upOffsetMeters;
-};
-
-typedef uint32_t LeverArmTypeMask;
-
-enum LeverArmTypeBits {
-    // Lever arm regarding the VRP (Vehicle Reference Point) w.r.t
-    // the origin (at the GPS Antenna)
-    LEVER_ARM_TYPE_GNSS_TO_VRP_BIT = (1<<0),
-    // Lever arm regarding GNSS Antenna w.r.t the origin at the IMU
-    // e.g.: inertial measurement unit for DR (dead reckoning
-    // engine)
-    LEVER_ARM_TYPE_DR_IMU_TO_GNSS_BIT = (1<<1),
-    // Lever arm regarding GNSS Antenna w.r.t the origin at the
-    // IMU (inertial measurement unit) for VEPP (vision enhanced
-    // precise positioning engine)
-    LEVER_ARM_TYPE_VEPP_IMU_TO_GNSS_BIT = (1<<2)
-};
-
-struct LeverArmConfigInfo {
-    // Valid mask for the types of lever arm parameters provided
-    LeverArmTypeMask leverArmValidMask;
-    // Lever arm regarding the VRP (Vehicle Reference Point) w.r.t the origin
-    // (at the GPS Antenna)
-    LeverArmParams   gnssToVRP;
-    // Lever arm parameters regarding GNSS Antenna w.r.t the origin at the IMU
-    // (inertial measurement unit) for DR (dead reckoning engine)
-    LeverArmParams   drImuToGnss;
-    // Lever arm regarding GNSS Antenna w.r.t the origin at the IMU
-    // (inertial measurement unit) for VEPP (vision enhanced precise position engine)
-    LeverArmParams   veppImuToGnss;
-};
-
 /* Provides the capabilities of the system
    capabilities callback is called once soon after createInstance is called */
 typedef std::function<void(
@@ -1432,20 +1316,6 @@ typedef std::function<void(
 typedef std::function<void(
     GnssLocationInfoNotification gnssLocationInfoNotification
 )> gnssLocationInfoCallback;
-
-/* Gives default combined location information from all engines and
-   location information individually from selected engines.
-   This callback is only used when there are multiple engines
-   running in the system.
-
-   optional can be NULL
-
-   engineLocationsInfoCallback is called only during a tracking session
-   broadcasted to all clients, no matter if a session has started by client */
-typedef std::function<void(
-    uint32_t count,
-    GnssLocationInfoNotification* engineLocationInfoNotification
-)> engineLocationsInfoCallback;
 
 /* Used for addGeofences API, optional can be NULL
    geofenceBreachCallback is called when any number of geofences have a state change */
@@ -1533,7 +1403,6 @@ typedef struct {
     gnssMeasurementsCallback gnssMeasurementsCb;     // optional
     batchingStatusCallback batchingStatusCb;         // optional
     locationSystemInfoCallback locationSystemInfoCb; // optional
-    engineLocationsInfoCallback engineLocationsInfoCb;     // optional
 } LocationCallbacks;
 
 #endif /* LOCATIONDATATYPES_H */

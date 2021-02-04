@@ -345,6 +345,7 @@ void LocApiBase::reportPosition(UlpLocation& location,
     TO_ALL_LOCADAPTERS(
         mLocAdapters[i]->reportPositionEvent(location, locationExtended,
                                              status, loc_technology_mask,
+                                             false,
                                              pDataNotify, msInWeek)
     );
 }
@@ -756,27 +757,24 @@ DEFAULT_IMPL()
 void LocApiBase::getBlacklistSv()
 DEFAULT_IMPL()
 
-void LocApiBase::setConstellationControl(const GnssSvTypeConfig& /*config*/,
-                                         LocApiResponse* /*adapterResponse*/)
+void LocApiBase::setConstellationControl(const GnssSvTypeConfig& /*config*/)
 DEFAULT_IMPL()
 
 void LocApiBase::getConstellationControl()
 DEFAULT_IMPL()
 
-void LocApiBase::resetConstellationControl(LocApiResponse* /*adapterResponse*/)
+void LocApiBase::resetConstellationControl()
 DEFAULT_IMPL()
 
-void LocApiBase::
+LocationError LocApiBase::
     setConstrainedTuncMode(bool /*enabled*/,
                            float /*tuncConstraint*/,
-                           uint32_t /*energyBudget*/,
-                           LocApiResponse* /*adapterResponse*/)
-DEFAULT_IMPL()
+                           uint32_t /*energyBudget*/)
+DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 
-void LocApiBase::
-    setPositionAssistedClockEstimatorMode(bool /*enabled*/,
-                                          LocApiResponse* /*adapterResponse*/)
-DEFAULT_IMPL()
+LocationError LocApiBase::
+    setPositionAssistedClockEstimatorMode(bool /*enabled*/)
+DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 
 LocationError LocApiBase::getGnssEnergyConsumed()
 DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
@@ -876,7 +874,5 @@ DEFAULT_IMPL()
 void LocApiBase::addToCallQueue(LocApiResponse* /*adapterResponse*/)
 DEFAULT_IMPL()
 
-void LocApiBase::updateSystemPowerState(PowerStateType /*powerState*/)
-DEFAULT_IMPL()
 
 } // namespace loc_core

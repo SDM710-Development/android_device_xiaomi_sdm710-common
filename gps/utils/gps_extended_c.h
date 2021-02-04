@@ -384,13 +384,6 @@ typedef uint64_t GpsLocationExtendedFlags;
 #define GPS_LOCATION_EXTENDED_HAS_CALIBRATION_CONFIDENCE 0x800000000
 /** GpsLocationExtended has sensor calibration status */
 #define GPS_LOCATION_EXTENDED_HAS_CALIBRATION_STATUS     0x1000000000
-/** GpsLocationExtended has the engine type that produced this
- *  position, the bit mask will only be set when there are two
- *  or more position engines running in the system */
-#define GPS_LOCATION_EXTENDED_HAS_OUTPUT_ENG_TYPE       0x2000000000
- /** GpsLocationExtended has the engine mask that indicates the
-  *     set of engines contribute to the fix. */
-#define GPS_LOCATION_EXTENDED_HAS_OUTPUT_ENG_MASK       0x4000000000
 
 typedef uint32_t LocNavSolutionMask;
 /* Bitmask to specify whether SBAS ionospheric correction is used  */
@@ -449,7 +442,7 @@ typedef uint32_t GnssAdditionalSystemInfoMask;
 #define QZSS_SV_PRN_MIN     193
 #define QZSS_SV_PRN_MAX     197
 #define BDS_SV_PRN_MIN      201
-#define BDS_SV_PRN_MAX      237
+#define BDS_SV_PRN_MAX      235
 #define GAL_SV_PRN_MIN      301
 #define GAL_SV_PRN_MAX      336
 #define NAVIC_SV_PRN_MIN    401
@@ -572,6 +565,49 @@ typedef uint8_t CarrierPhaseAmbiguityType;
 #define CARRIER_PHASE_AMBIGUITY_RESOLUTION_NONE ((CarrierPhaseAmbiguityType)0)
 #define CARRIER_PHASE_AMBIGUITY_RESOLUTION_FLOAT ((CarrierPhaseAmbiguityType)1)
 #define CARRIER_PHASE_AMBIGUITY_RESOLUTION_FIXED ((CarrierPhaseAmbiguityType)2)
+
+/** GNSS Signal Type and RF Band */
+typedef uint32_t GnssSignalTypeMask;
+/** GPS L1CA Signal */
+#define GNSS_SIGNAL_GPS_L1CA     ((GnssSignalTypeMask)0x00000001ul)
+/** GPS L1C Signal */
+#define GNSS_SIGNAL_GPS_L1C      ((GnssSignalTypeMask)0x00000002ul)
+/** GPS L2 RF Band */
+#define GNSS_SIGNAL_GPS_L2       ((GnssSignalTypeMask)0x00000004ul)
+/** GPS L5 RF Band */
+#define GNSS_SIGNAL_GPS_L5       ((GnssSignalTypeMask)0x00000008ul)
+/** GLONASS G1 (L1OF) RF Band */
+#define GNSS_SIGNAL_GLONASS_G1   ((GnssSignalTypeMask)0x00000010ul)
+/** GLONASS G2 (L2OF) RF Band */
+#define GNSS_SIGNAL_GLONASS_G2   ((GnssSignalTypeMask)0x00000020ul)
+/** GALILEO E1 RF Band */
+#define GNSS_SIGNAL_GALILEO_E1   ((GnssSignalTypeMask)0x00000040ul)
+/** GALILEO E5A RF Band */
+#define GNSS_SIGNAL_GALILEO_E5A  ((GnssSignalTypeMask)0x00000080ul)
+/** GALILEO E5B RF Band */
+#define GNSS_SIGNAL_GALILIEO_E5B ((GnssSignalTypeMask)0x00000100ul)
+/** BEIDOU B1_I RF Band */
+#define GNSS_SIGNAL_BEIDOU_B1I    ((GnssSignalTypeMask)0x00000200ul)
+/** BEIDOU B1C RF Band */
+#define GNSS_SIGNAL_BEIDOU_B1C    ((GnssSignalTypeMask)0x00000400ul)
+/** BEIDOU B2_I RF Band */
+#define GNSS_SIGNAL_BEIDOU_B2I    ((GnssSignalTypeMask)0x00000800ul)
+/** BEIDOU B2A_I RF Band */
+#define GNSS_SIGNAL_BEIDOU_B2AI   ((GnssSignalTypeMask)0x00001000ul)
+/** QZSS L1CA RF Band */
+#define GNSS_SIGNAL_QZSS_L1CA     ((GnssSignalTypeMask)0x00002000ul)
+/** QZSS L1S RF Band */
+#define GNSS_SIGNAL_QZSS_L1S      ((GnssSignalTypeMask)0x00004000ul)
+/** QZSS L2 RF Band */
+#define GNSS_SIGNAL_QZSS_L2      ((GnssSignalTypeMask)0x00008000ul)
+/** QZSS L5 RF Band */
+#define GNSS_SIGNAL_QZSS_L5      ((GnssSignalTypeMask)0x00010000ul)
+/** SBAS L1 RF Band */
+#define GNSS_SIGNAL_SBAS_L1      ((GnssSignalTypeMask)0x00020000ul)
+/** NAVIC L5 RF Band */
+#define GNSS_SIGNAL_NAVIC_L5     ((GnssSignalTypeMask)0x00040000ul)
+/** BEIDOU B2A_Q RF Band */
+#define GNSS_SIGNAL_BEIDOU_B2AQ   ((GnssSignalTypeMask)0x00080000ul)
 
 typedef uint16_t GnssMeasUsageStatusBitMask;
 /** Used in fix */
@@ -761,15 +797,6 @@ typedef struct {
     /** Sensor calibration confidence percent. Range: 0 - 100 */
     uint8_t calibrationConfidence;
     DrCalibrationStatusMask calibrationStatus;
-    /* location engine type. When the fix. when the type is set to
-        LOC_ENGINE_SRC_FUSED, the fix is the propagated/aggregated
-        reports from all engines running on the system (e.g.:
-        DR/SPE/PPE). To check which location engine contributes to
-        the fused output, check for locOutputEngMask. */
-    LocOutputEngineType locOutputEngType;
-    /* when loc output eng type is set to fused, this field
-        indicates the set of engines contribute to the fix. */
-    PositioningEngineMask locOutputEngMask;
 } GpsLocationExtended;
 
 enum loc_sess_status {
@@ -777,13 +804,6 @@ enum loc_sess_status {
     LOC_SESS_INTERMEDIATE,
     LOC_SESS_FAILURE
 };
-
-// struct that contains complete position info from engine
-typedef struct {
-    UlpLocation location;
-    GpsLocationExtended locationExtended;
-    enum loc_sess_status sessionStatus;
-} EngineLocationInfo;
 
 // Nmea sentence types mask
 typedef uint32_t NmeaSentenceTypesMask;
@@ -2089,6 +2109,26 @@ typedef struct
     Gnss_Srn_MacAddr_Type  macAddrType; /* SRN AP MAC Address type */
 } GnssSrnDataReq;
 
+/* Mask indicating enabled or disabled constellations */
+typedef uint64_t GnssSvTypesMask;
+typedef enum {
+    GNSS_SV_TYPES_MASK_GLO_BIT    = (1<<0),
+    GNSS_SV_TYPES_MASK_BDS_BIT    = (1<<1),
+    GNSS_SV_TYPES_MASK_QZSS_BIT   = (1<<2),
+    GNSS_SV_TYPES_MASK_GAL_BIT    = (1<<3),
+    GNSS_SV_TYPES_MASK_NAVIC_BIT  = (1<<4),
+} GnssSvTypesMaskBits;
+
+/* This SV Type config is injected directly to GNSS Adapter
+ * bypassing Location API */
+typedef struct {
+    uint32_t size; // set to sizeof(GnssSvTypeConfig)
+    // Enabled Constellations
+    GnssSvTypesMask enabledSvTypesMask;
+    // Disabled Constellations
+    GnssSvTypesMask blacklistedSvTypesMask;
+} GnssSvTypeConfig;
+
 /* Provides the current GNSS SV Type configuration to the client.
  * This is fetched via direct call to GNSS Adapter bypassing
  * Location API */
@@ -2203,13 +2243,6 @@ typedef void (*LocAgpsOpenResultCb)(bool isSuccess, AGpsExtType agpsType, const 
 
 typedef void (*LocAgpsCloseResultCb)(bool isSuccess, AGpsExtType agpsType, void* userDataPtr);
 
-enum PowerStateType {
-    POWER_STATE_UNKNOWN = 0,
-    POWER_STATE_SUSPEND = 1,
-    POWER_STATE_RESUME  = 2,
-    POWER_STATE_SHUTDOWN = 3
-};
-
 /* Shared resources of LocIpc */
 #define LOC_IPC_HAL                    "/dev/socket/location/socket_hal"
 #define LOC_IPC_XTRA                   "/dev/socket/location/xtra/socket_xtra"
@@ -2222,7 +2255,6 @@ enum PowerStateType {
 #define EAP_LOC_CLIENT_DIR             "/data/vendor/location/extap_locclient/"
 
 #define LOC_CLIENT_NAME_PREFIX         "toclient"
-#define LOC_INTAPI_NAME_PREFIX         "toIntapiClient"
 
 typedef uint64_t NetworkHandle;
 #define NETWORK_HANDLE_UNKNOWN  ~0
