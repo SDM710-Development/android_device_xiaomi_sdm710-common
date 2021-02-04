@@ -9,11 +9,9 @@ include $(CLEAR_VARS)
 
 ## Libs
 LOCAL_SHARED_LIBRARIES := \
-    libdl \
     libutils \
     libcutils \
-    liblog \
-    libprocessgroup
+    liblog
 
 LOCAL_SRC_FILES += \
     loc_log.cpp \
@@ -27,8 +25,7 @@ LOCAL_SRC_FILES += \
     MsgTask.cpp \
     loc_misc_utils.cpp \
     loc_nmea.cpp \
-    LocIpc.cpp \
-    LogBuffer.cpp
+    LocIpc.cpp
 
 # Flag -std=c++11 is not accepted by compiler when LOCAL_CLANG is set to true
 LOCAL_CFLAGS += \
@@ -48,9 +45,6 @@ LOCAL_HEADER_LIBRARIES := \
     liblocation_api_headers
 
 LOCAL_MODULE := libgps.utils
-LOCAL_SANITIZE += $(GNSS_SANITIZE)
-# activate the following line for debug purposes only, comment out for production
-#LOCAL_SANITIZE_DIAG += $(GNSS_SANITIZE_DIAG)
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_TAGS := optional
 
