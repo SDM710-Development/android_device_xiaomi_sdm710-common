@@ -481,6 +481,9 @@ on property:persist.debug.trace=1
     write /proc/sys/vm/swappiness 100
     write /proc/sys/vm/watermark_scale_factor 120
 
+on property:vendor.media.target.version=*
+    setprop vendor.sys.media.target.version ${vendor.media.target.version}
+
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
     user vendor_qrtr
