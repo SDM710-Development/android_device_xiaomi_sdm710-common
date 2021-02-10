@@ -71,6 +71,7 @@ on init
     # It is per cpu tunable
     write /sys/devices/system/cpu/cpu6/sched_load_boost -6
     write /sys/devices/system/cpu/cpu7/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_load 85
 
     # Set default schedTune value for foreground/top-app
     write /dev/stune/foreground/schedtune.prefer_idle 1
