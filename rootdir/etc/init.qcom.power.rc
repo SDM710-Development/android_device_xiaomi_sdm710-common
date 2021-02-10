@@ -129,7 +129,6 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 0
     write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 0
     write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq 1209600
-    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/pl 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 576000
 
     # Configure governor settings for big cluster
@@ -137,7 +136,6 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/up_rate_limit_us 0
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/down_rate_limit_us 0
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_freq 1344400
-    write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/pl 1
     write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 652000
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:1209600"
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
