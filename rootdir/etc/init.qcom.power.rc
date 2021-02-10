@@ -67,6 +67,8 @@ on init
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/up_rate_limit_us 500
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/down_rate_limit_us 20000
 
+    write /sys/devices/system/cpu/cpu6/sched_load_boost -6
+
     # Set default schedTune value for foreground/top-app
     write /dev/stune/foreground/schedtune.prefer_idle 1
     write /dev/stune/top-app/schedtune.boost 10
