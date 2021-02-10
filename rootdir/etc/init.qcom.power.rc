@@ -143,7 +143,10 @@ on enable-low-power
     write /sys/module/cpu_boost/parameters/input_boost_ms 120
     write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 652000
 
+    # Sched_load_boost as -6 is equivalent to target load as 85.
+    # It is per cpu tunable
     write /sys/devices/system/cpu/cpu6/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu7/sched_load_boost -6
 
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
