@@ -142,6 +142,8 @@ on enable-low-power
     write /sys/module/cpu_boost/parameters/input_boost_ms 120
     write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 652000
 
+    write /sys/devices/system/cpu/cpu6/sched_load_boost -6
+
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
     write /sys/class/devfreq/soc:qcom,cpubw/polling_interval 50
