@@ -146,6 +146,7 @@ on enable-low-power
     # It is per cpu tunable
     write /sys/devices/system/cpu/cpu6/sched_load_boost -6
     write /sys/devices/system/cpu/cpu7/sched_load_boost -6
+    write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_load 85
 
     # Enable bus-dcvs
     write /sys/class/devfreq/soc:qcom,cpubw/governor "bw_hwmon"
