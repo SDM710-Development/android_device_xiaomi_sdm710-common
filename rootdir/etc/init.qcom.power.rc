@@ -184,9 +184,6 @@ on enable-low-power
     write /sys/class/devfreq/soc:qcom,l3-cdsp/governor "userspace"
     chown system /sys/class/devfreq/soc:qcom,l3-cdsp/userspace/set_freq
 
-    # Gold L3 ratio ceil
-    write /sys/class/devfreq/soc:qcom,l3-cpu6/mem_latency/ratio_ceil 4000
-
     write /sys/class/devfreq/soc:qcom,mincpubw/governor "cpufreq"
 
     # Set cpuset parameters
@@ -217,6 +214,7 @@ on enable-low-power
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
 
+    write /sys/module/vmpressure/parameters/allocstall_threshold 0
     write /proc/sys/vm/swappiness 100
     write /proc/sys/vm/watermark_scale_factor 120
 
