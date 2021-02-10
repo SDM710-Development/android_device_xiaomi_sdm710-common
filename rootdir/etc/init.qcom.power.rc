@@ -109,6 +109,7 @@ on enable-low-power
     write /proc/irq/default_smp_affinity "3f"
 
     # Core control parameters on silver
+    write /sys/devices/system/cpu/cpu0/core_ctl/not_preferred "0 0 0 0 1 1"
     write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 4
     write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 60
     write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 40
