@@ -51,6 +51,10 @@
 /mnt/vendor/persist/audio(/.*)?               u:object_r:persist_audio_file:s0
 /mnt/vendor/persist/camera(/.*)?              u:object_r:persist_camera_file:s0
 
+# Symlinks in root directory
+/persist                                      u:object_r:mnt_vendor_file:s0
+/tombstones                                   u:object_r:tombstone_data_file:s0
+
 # Sockets
 /dev/socket/audio_hw_socket                   u:object_r:audio_socket:s0
 /dev/socket/gps                               u:object_r:gps_socket:s0
