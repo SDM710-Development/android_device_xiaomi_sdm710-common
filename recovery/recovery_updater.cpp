@@ -36,7 +36,7 @@
 
 #define ALPHABET_LEN 256
 
-#define XBL_PART_PATH "/dev/block/bootdevice/by-name/xbl_a"
+#define TZ_PART_PATH "/dev/block/bootdevice/by-name/tz"
 #define TZ_VER_STR "QC_IMAGE_VERSION_STRING=TZ."
 #define TZ_VER_STR_LEN 27
 #define TZ_VER_BUF_LEN 255
@@ -165,8 +165,8 @@ Value* VerifyTrustZoneFn(const char* name, State* state,
     char current_tz_version[TZ_VER_BUF_LEN];
     int ret;
 
-    ret = get_info(current_tz_version, TZ_VER_BUF_LEN, TZ_VER_STR, TZ_VER_STR_LEN,
-                   XBL_PART_PATH);
+    ret = get_info(current_tz_version, TZ_VER_BUF_LEN, TZ_VER_STR,
+                   TZ_VER_STR_LEN, TZ_PART_PATH);
     if (ret) {
         return ErrorAbort(state, kFreadFailure,
                           "%s() failed to read current TZ version: %d", name, ret);
