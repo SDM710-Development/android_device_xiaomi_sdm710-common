@@ -419,7 +419,7 @@ on post-fs-data
     mkdir /data/vendor/vpp 0770 media media
 
     # Create dir for TUI
-    mkdir /data/vendor/tui 0700 system system
+    mkdir /data/vendor/tui 0700 system drmrpc
 
     # Make MTU adjusting
     write /proc/sys/net/ipv4/tcp_mtu_probing 1
