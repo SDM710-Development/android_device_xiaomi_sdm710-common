@@ -55,9 +55,9 @@ on init
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    mount_all /vendor/etc/fstab.qcom
     mkdir /mnt/vendor/persist 0771 root system
     chown root system /mnt/vendor/persist
+    mount_all /vendor/etc/fstab.qcom
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/audio 0755 system system
