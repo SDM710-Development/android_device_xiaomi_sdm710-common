@@ -416,7 +416,9 @@ on property:persist.vendor.sys.pil_proxy_timeout=*
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
 
-    # Reset read ahead for dm-0, dm-1 and dm-2 to 512kb
+    # Reset read ahead back to 512kb
+    write /sys/block/sda/queue/read_ahead_kb 512
+    write /sys/block/sdf/queue/read_ahead_kb 512
     write /sys/block/dm-0/queue/read_ahead_kb 512
     write /sys/block/dm-1/queue/read_ahead_kb 512
     write /sys/block/dm-2/queue/read_ahead_kb 512
