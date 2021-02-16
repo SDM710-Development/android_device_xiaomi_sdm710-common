@@ -265,7 +265,6 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
 
     mkdir /data/vendor/diag 2771 root log
-    mkdir /data/vendor/mac_addr 0770 system wifi
     mkdir /data/vendor/misc 01771 system system
     mkdir /data/vendor/misc/display 0771 system system
     mkdir /data/vendor/misc/touch 0771 root system
