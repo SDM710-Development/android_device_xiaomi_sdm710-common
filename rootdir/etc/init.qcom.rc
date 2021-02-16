@@ -450,12 +450,6 @@ service vendor.tftp_server /vendor/bin/tftp_server
    class core
    user root
 
-service vendor.sensors /vendor/bin/sscrpcd sensorspd
-    class early_hal
-    user system
-    group system wakelock
-    capabilities BLOCK_SUSPEND
-
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
     user system
@@ -510,11 +504,6 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
 
-service mmbn-daemon /vendor/bin/mmbn-daemon
-    class main
-    disabled
-    oneshot
-
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     class core
     user root
@@ -531,13 +520,6 @@ service seemp_healthd /vendor/bin/seemp_healthd
     class late_start
     user system
     group system
-
-service chre /vendor/bin/chre
-    class late_start
-    user system
-    group system
-    socket chre seqpacket 0660 root system
-    shutdown critical
 
 # Set GPU OpenGL ES version
 on property:vendor.opengles.version=*
@@ -597,11 +579,6 @@ service vendor.per_proxy /vendor/bin/pm-proxy
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
     stop vendor.ims_rtp_daemon
-
-service spdaemon /vendor/bin/spdaemon
-    class core
-    user system
-    group system
 
 service ppd /vendor/bin/mm-pp-dpps
     class late_start
