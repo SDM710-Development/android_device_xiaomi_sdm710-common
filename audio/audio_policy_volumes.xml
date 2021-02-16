@@ -70,7 +70,7 @@ volume index from 0 to 100.
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_HEADSET">
         <point>1,-6500</point>
         <point>33,-4500</point>
-        <point>73,-1500</point>
+        <point>73,-1200</point>
         <point>100,0</point>
     </volume>
     <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_SPEAKER"
@@ -104,9 +104,9 @@ volume index from 0 to 100.
     <volume stream="AUDIO_STREAM_NOTIFICATION" deviceCategory="DEVICE_CATEGORY_EXT_MEDIA"
                                                ref="DEFAULT_DEVICE_CATEGORY_EXT_MEDIA_VOLUME_CURVE"/>
     <volume stream="AUDIO_STREAM_BLUETOOTH_SCO" deviceCategory="DEVICE_CATEGORY_HEADSET">
-        <point>0,-420</point>
-        <point>33,-280</point>
-        <point>66,-140</point>
+        <point>0,-4200</point>
+        <point>33,-2800</point>
+        <point>66,-1400</point>
         <point>100,0</point>
     </volume>
     <volume stream="AUDIO_STREAM_BLUETOOTH_SCO" deviceCategory="DEVICE_CATEGORY_SPEAKER">
@@ -208,3 +208,4 @@ volume index from 0 to 100.
         <point>100,0</point>
     </reference>
 </volumes>
+
