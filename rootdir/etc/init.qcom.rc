@@ -436,11 +436,6 @@ on property:persist.debug.trace=1
     mkdir /data/core 0777 root root
     write /proc/sys/kernel/core_pattern "/data/core/%E.%p.%e"
 
-    # Enable ZRAM on boot_complete
-    rm /data/unecrypted/zram_swap
-    swapon_all /vendor/etc/fstab.qcom
-    write /proc/sys/vm/swappiness 100
-    write /proc/sys/vm/watermark_scale_factor 120
 
 on property:vendor.media.target.version=*
     setprop vendor.sys.media.target.version ${vendor.media.target.version}
