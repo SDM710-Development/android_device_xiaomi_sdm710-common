@@ -16,3 +16,5 @@ get_prop(hal_camera_default, camera_ro_prop)
 userdebug_or_eng(`
   get_prop(hal_camera_default, sensors_dbg_prop)
 ')
+
+dontaudit hal_camera_default property_type:file { getattr open };
