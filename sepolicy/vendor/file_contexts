@@ -11,6 +11,7 @@
 /data/vendor/syna(/.*)?                       u:object_r:fingerprint_data_file:s0
 /data/vendor/mac_addr(/.*)?                   u:object_r:wifi_vendor_data_file:s0
 /data/vendor/thermal(/.*)?                    u:object_r:thermal_data_file:s0
+/mnt/vendor/persist/goodix(/.*)?              u:object_r:fingerprint_data_file:s0
 
 # Executables
 /vendor/bin/mlipayd@1\.1                      u:object_r:hal_mlipay_default_exec:s0
