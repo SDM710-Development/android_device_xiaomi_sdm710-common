@@ -74,6 +74,7 @@ get_attr() {
 
 # Get panel and touch device attributes
 panel_color=$(get_attr panel_color)
+panel_display=$(get_attr panel_display)
 panel_vendor=$(get_attr panel_vendor)
 touch_vendor=$(get_attr touch_vendor)
 
@@ -92,6 +93,21 @@ case "$panel_color" in
 	A) setprop sys.panel.color SLIVER_BLUE ;;
 	B) setprop sys.panel.color CORAL_BLUE ;;
 	*) setprop sys.panel.color UNKNOWN ;;
+esac
+
+# Translate panel display value and set sys.panel.display property
+case "$panel_display" in
+	1) setprop sys.panel.display JDI ;;
+	2) setprop sys.panel.display LGD ;;
+	3) setprop sys.panel.display SHARP ;;
+	4) setprop sys.panel.display AUO ;;
+	5) setprop sys.panel.display BOE ;;
+	6) setprop sys.panel.display TIANMA ;;
+	7) setprop sys.panel.display EBBG ;;
+	8) setprop sys.panel.display SDC ;;
+	9) setprop sys.panel.display EDO ;;
+	0) setprop sys.panel.display OFILM ;;
+	*) setprop sys.panel.display UNKNOWN ;;
 esac
 
 # Translate panel vendor value and set sys.panel.vendor property
