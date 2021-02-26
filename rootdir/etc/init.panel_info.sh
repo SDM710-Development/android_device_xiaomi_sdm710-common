@@ -1,5 +1,6 @@
 #!/vendor/bin/sh
 # Copyright (c) 2009-2015, The Linux Foundation. All rights reserved.
+# Copyright (c) 2021 Ivan Vecera <ivan@cera.cz>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,232 +27,102 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-# Update the panel color property and Leds brightness
-for i in $(seq 5); do
-    if [ -f /sys/bus/i2c/devices/3-0049/panel_color ]; then
-	# St
-	color=`cat /sys/bus/i2c/devices/3-0049/panel_color`
-	if [ -n "$color" ]; then
-	    /system/bin/log -p i -t panel-info-sh Get panel_color successfully from 3-0049 $color
-	    break
-	else
-	    /system/bin/log -p i -t panel-info-sh Get panel_color unsuccessfully, try again...
-	    sleep 1
-	    continue
-	fi
-	#Synaptics
-    elif [ -f /sys/bus/i2c/devices/3-0020/panel_color ]; then
-	color=`cat /sys/bus/i2c/devices/3-0020/panel_color`
-	if [ -n "$color" ]; then
-	    /system/bin/log -p i -t panel-info-sh Get panel_color successfully from 3-0020 $color
-	    break
-	else
-	    /system/bin/log -p i -t panel-info-sh Get panel_color unsuccessfully, try again...
-	    sleep 1
-	    continue
-	fi
-	#Focal
-    elif [ -f /sys/bus/i2c/devices/3-0038/panel_color ]; then
-	color=`cat /sys/bus/i2c/devices/3-0038/panel_color`
-	if [ -n "$color" ]; then
-	    /system/bin/log -p i -t panel-info-sh Get panel_color successfully from 3-0038 $color
-	    break
-	else
-	    /system/bin/log -p i -t panel-info-sh Get panel_color unsuccessfully, try again...
-	    sleep 1
-	    continue
-	fi
-    else
-	color="0"
-	/system/bin/log -p i -t panel-info-sh Get panel_color unsuccessfully, try again...
-	sleep 1
-    fi
-done
+DEV_PATHS="bus/i2c/devices/{3-0049,3-0020,3-0038,3-004a,3-0062}
+           class/touch/touch_dev"
 
-for i in $(seq 5); do
-    if [ -f /sys/bus/i2c/devices/3-0049/panel_vendor ]; then
-	# St
-	panel_vendor=`cat /sys/bus/i2c/devices/3-0049/panel_vendor`
-	if [ -n "$panel_vendor" ]; then
-	    /system/bin/log -p i -t panel-info-sh Get panel_vendor successfully from 3-0049 $panel_vendor
-	    break
-	else
-	    /system/bin/log -p i -t panel-info-sh Get panel_vendor unsuccessfully, try again...
-	    sleep 1
-	    continue
-	fi
-	#Synaptics
-    elif [ -f /sys/bus/i2c/devices/3-0020/panel_vendor ]; then
-	panel_vendor=`cat /sys/bus/i2c/devices/3-0020/panel_vendor`
-	if [ -n "$panel_vendor" ]; then
-	    /system/bin/log -p i -t panel-info-sh Get panel_vendor successfully from 3-0020 $panel_vendor
-	    break
-	else
-	    /system/bin/log -p i -t panel-info-sh Get panel_vendor unsuccessfully, try again...
-	    sleep 1
-	    continue
-	fi
-	#Focal
-    elif [ -f /sys/bus/i2c/devices/3-0038/panel_vendor ]; then
-	panel_vendor=`cat /sys/bus/i2c/devices/3-0038/panel_vendor`
-	if [ -n "$panel_vendor" ]; then
-	    /system/bin/log -p i -t panel-info-sh Get panel_vendor successfully from 3-0038 $panel_vendor
-	    break
-	else
-	    /system/bin/log -p i -t panel-info-sh Get panel_vendor unsuccessfully, try again...
-	    sleep 1
-	    continue
-	fi
-    else
-	panel_vendor="0"
-	/system/bin/log -p i -t panel-info-sh Get panel_vendor unsuccessfully, try again...
-	sleep 1
-    fi
-done
-for i in $(seq 5); do
-        if [ -f /sys/class/touch/touch_dev/touch_vendor ]; then
-		touch_vendor=`cat /sys/class/touch/touch_dev/touch_vendor`
-		if [ -n "$touch_vendor" ]; then
-			/system/bin/log -p i -t panel-info-sh Get touch_vendor successfully from $touch_vendor
-			break;
-		else
-			/system/bin/log -p i -t panel-info-sh Get touch_vendor unsuccessfully, try again...
-		        sleep 1
+find_attr() {
+	attr="$1"
+
+	for dev in $DEV_PATHS; do
+		path="/sys/$dev/$attr"
+		test -f "$path" && break
+		path=""
+	done
+
+	test -n "$path" && echo "$path"
+
+	return $?
+}
+
+log() {
+	/system/bin/log -p i -t panel-info-sh "$1"
+}
+
+get_attr() {
+	attr="$1"	# attribute name
+	value="$2"	# default value if not found
+
+	for i in $(seq 5); do
+		path=$(find_attr "$attr") || {
+			log "No panel found yet. Trying again..."
+			sleep 1
 			continue
-		fi
-	else
-		touch_vendor="0"
-		/system/bin/log -p i -t panel-info-sh Get touch_vendor unsuccessfully, try again...
-		sleep 1
-	fi
-done
+		}
+		value=$(cat "$path")
+		test -z "$value" && {
+			log "Empty value for '$attr'. Trying again..."
+			sleep 1
+			continue
+		}
 
-case "$color" in
-    "1")
-        setprop sys.panel.color WHITE
-        ;;
-    "2")
-        setprop sys.panel.color BLACK
-        ;;
-    "3")
-        setprop sys.panel.color RED
-        ;;
-    "4")
-        setprop sys.panel.color YELLOW
-        ;;
-    "5")
-        setprop sys.panel.color GREEN
-        ;;
-    "6")
-        setprop sys.panel.color PINK
-        ;;
-    "7")
-        setprop sys.panel.color PURPLE
-        ;;
-    "8")
-        setprop sys.panel.color GOLDEN
-        ;;
-    "9")
-        setprop sys.panel.color SLIVER
-        ;;
-    "@")
-        setprop sys.panel.color GRAY
-        ;;
-    "A")
-        setprop sys.panel.color SLIVER_BLUE
-        ;;
-    "B")
-        setprop sys.panel.color CORAL_BLUE
-        ;;
-    *)
-        setprop sys.panel.color UNKNOWN
-        ;;
+		log "Succeeded to read '$attr' value='$value'"
+		break
+	done
+
+	echo $value
+}
+
+# Get panel and touch device attributes
+panel_color=$(get_attr panel_color)
+panel_vendor=$(get_attr panel_vendor)
+touch_vendor=$(get_attr touch_vendor)
+
+# Translate panel color value and set sys.panel.color property
+case "$panel_color" in
+	1) setprop sys.panel.color WHITE ;;
+	2) setprop sys.panel.color BLACK ;;
+	3) setprop sys.panel.color RED ;;
+	4) setprop sys.panel.color YELLOW ;;
+	5) setprop sys.panel.color GREEN ;;
+	6) setprop sys.panel.color PINK ;;
+	7) setprop sys.panel.color PURPLE ;;
+	8) setprop sys.panel.color GOLDEN ;;
+	9) setprop sys.panel.color SLIVER ;;
+	@) setprop sys.panel.color GRAY ;;
+	A) setprop sys.panel.color SLIVER_BLUE ;;
+	B) setprop sys.panel.color CORAL_BLUE ;;
+	*) setprop sys.panel.color UNKNOWN ;;
 esac
+
+# Translate panel vendor value and set sys.panel.vendor property
 case "$panel_vendor" in
-    "1")
-        setprop sys.panel.vendor BIELTPB
-        ;;
-    "2")
-        setprop sys.panel.vendor LENS
-        ;;
-    "3")
-        setprop sys.panel.vendor WINTEK
-        ;;
-    "4")
-        setprop sys.panel.vendor OFILM
-        ;;
-    "5")
-        setprop sys.panel.vendor BIELD1
-        ;;
-    "6")
-        setprop sys.panel.vendor TPK
-        ;;
-    "7")
-        setprop sys.panel.vendor LAIBAO
-        ;;
-    "8")
-        setprop sys.panel.vendor SHARP
-        ;;
-    "9")
-        setprop sys.panel.vendor JDI
-		;;
-    "@")
-        setprop sys.panel.vendor EELY
-        ;;
-    "A")
-        setprop sys.panel.vendor GISEBBG
-        ;;
-    "B")
-        setprop sys.panel.vendor LGD
-        ;;
-    "C")
-        setprop sys.panel.vendor AUO
-        ;;
-    "D")
-        setprop sys.panel.vendor BOE
-        ;;
-    "E")
-        setprop sys.panel.vendor DSMUDONG
-        ;;
-    "F")
-        setprop sys.panel.vendor TIANMA
-        ;;
-    "G")
-        setprop sys.panel.vendor TRULY
-        ;;
-    "H")
-        setprop sys.panel.vendor SDC
-        ;;
-    "I")
-        setprop sys.panel.vendor PRIMAX
-        ;;
-    "P")
-        setprop sys.panel.vendor SZZC
-        ;;
-    "Q")
-        setprop sys.panel.vendor GVO
-        ;;
-    "R")
-        setprop sys.panel.vendor VITALINK
-        ;;
-    *)
-        setprop sys.panel.vendor UNKNOWN
-        ;;
+	1) setprop sys.panel.vendor BIELTPB ;;
+	2) setprop sys.panel.vendor LENS ;;
+	3) setprop sys.panel.vendor WINTEK ;;
+	4) setprop sys.panel.vendor OFILM ;;
+	5) setprop sys.panel.vendor BIELD1 ;;
+	6) setprop sys.panel.vendor TPK ;;
+	7) setprop sys.panel.vendor LAIBAO ;;
+	8) setprop sys.panel.vendor SHARP ;;
+	9) setprop sys.panel.vendor JDI ;;
+	@) setprop sys.panel.vendor EELY ;;
+	A) setprop sys.panel.vendor GISEBBG ;;
+	B) setprop sys.panel.vendor LGD ;;
+	C) setprop sys.panel.vendor AUO ;;
+	D) setprop sys.panel.vendor BOE ;;
+	E) setprop sys.panel.vendor DSMUDONG ;;
+	F) setprop sys.panel.vendor TIANMA ;;
+	G) setprop sys.panel.vendor TRULY ;;
+	H) setprop sys.panel.vendor SDC ;;
+	I) setprop sys.panel.vendor PRIMAX ;;
+	P) setprop sys.panel.vendor SZZC ;;
+	Q) setprop sys.panel.vendor GVO ;;
+	R) setprop sys.panel.vendor VITALINK ;;
+	*) setprop sys.panel.vendor UNKNOWN ;;
 esac
+
+# Translate panel touch vendor value and set sys.panel.touch_vendor value
 case "$touch_vendor" in
-    "1")
-        setprop sys.panel.touch_vendor 1
-        ;;
-    "2")
-        setprop sys.panel.touch_vendor 2
-        ;;
-    "3")
-        setprop sys.panel.touch_vendor 3
-        ;;
-    "4")
-        setprop sys.panel.touch_vendor 4
-        ;;
-    *)
-        setprop sys.panel.touch_vendor UNKNOWN
-        ;;
+	1|2|3|4) setprop sys.panel.touch_vendor $touch_vendor ;;
+              *) setprop sys.panel.touch_vendor UNKNOWN ;;
 esac
