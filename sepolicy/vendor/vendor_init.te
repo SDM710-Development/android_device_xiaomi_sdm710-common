@@ -16,7 +16,7 @@ allow vendor_init proc_sysctl_autogroup:file w_file_perms;
 allow vendor_init proc_sysctl_schedboost:file w_file_perms;
 
 # /data/tombstones stuff in init.qcom.rc
-allow vendor_init tombstone_data_file:dir { ioctl open read search setattr };
+allow vendor_init tombstone_data_file:dir create_dir_perms;
 allow vendor_init tombstone_data_file:lnk_file read;
 
 # Allow to set fingerprint properties
