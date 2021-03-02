@@ -94,10 +94,9 @@ case "$target" in
     "sdm710")
         case "$soc_hwplatform" in
             *)
-                if [ $fb_width -le 1600 ]; then
-                    setprop vendor.display.lcd_density 560
-                else
-                    setprop vendor.display.lcd_density 640
+                sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
+                if [ $sku_ver -eq 1 ]; then
+                    setprop vendor.media.target.version 1
                 fi
                 ;;
         esac
@@ -140,6 +139,10 @@ then
 else
     set_perms /sys/devices/virtual/hdcp/msm_hdcp/min_level_change system.graphics 0660
 fi
+
+# allow system_graphics group to access pmic secure_mode node
+set_perms /sys/class/lcd_bias/secure_mode system.graphics 0660
+set_perms /sys/class/leds/wled/secure_mode system.graphics 0660
 
 boot_reason=`cat /proc/sys/kernel/boot_reason`
 reboot_reason=`getprop ro.boot.alarmboot`
