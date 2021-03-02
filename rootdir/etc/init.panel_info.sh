@@ -45,7 +45,7 @@ find_attr() {
 }
 
 log() {
-	/system/bin/log -p i -t panel-info-sh "$1"
+	/vendor/bin/log -p i -t panel-info-sh "$1"
 }
 
 get_attr() {
