@@ -1,2 +1,20 @@
+typeattribute vendor_init data_between_core_and_vendor_violators;
+
+# Allow to setattr to /dev/block/bootdevice/by-name/rawdump
+allow vendor_init block_device:lnk_file setattr;
+
+# Allow to set ro.vendor.gpu.available_frequencies
+allow vendor_init freq_prop:property_service set;
+
+# Allow to read persist.debug.trace
+allow vendor_init persist_debug_prop:file read;
+
 # Allow vendor_init to write to sysfs_ssr_toggle
 allow vendor_init sysfs_ssr_toggle:file w_file_perms;
+
+# /data/tombstones stuff in init.qcom.rc
+allow vendor_init tombstone_data_file:dir create_dir_perms;
+allow vendor_init tombstone_data_file:lnk_file read;
+
+# Allow to set fingerprint properties
+allow vendor_init vendor_fp_prop:property_service set;

@@ -11,8 +11,10 @@
 /data/vendor/syna(/.*)?                       u:object_r:fingerprint_data_file:s0
 /data/vendor/mac_addr(/.*)?                   u:object_r:wifi_vendor_data_file:s0
 /data/vendor/thermal(/.*)?                    u:object_r:thermal_data_file:s0
+/mnt/vendor/persist/goodix(/.*)?              u:object_r:fingerprint_data_file:s0
 
 # Executables
+/vendor/bin/init.panel_info.sh                u:object_r:qti_init_shell_exec:s0
 /vendor/bin/mlipayd@1\.1                      u:object_r:hal_mlipay_default_exec:s0
 /vendor/bin/nv_mac                            u:object_r:wcnss_service_exec:s0
 
@@ -30,6 +32,7 @@
 /sys/devices/platform/soc/[0-9]+\.spi/spi_master/spi[0-9]+/spi[0-9]+\.0/nstandby   u:object_r:sysfs_gps:s0
 
 # Graphics nodes
+/sys/class/kgsl(/.*)?                         u:object_r:sysfs_kgsl:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/disp_param        u:object_r:sysfs_graphics:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/hbm_status        u:object_r:sysfs_graphics:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/panel_info        u:object_r:sysfs_graphics:s0

@@ -2,6 +2,7 @@
 camera.                     u:object_r:camera_prop:s0
 persist.camera.             u:object_r:camera_prop:s0
 persist.vendor.camera.      u:object_r:camera_prop:s0
+vendor.camera.              u:object_r:camera_prop:s0
 vidhance.                   u:object_r:camera_prop:s0
 
 # Display post processing
@@ -17,6 +18,7 @@ gf.debug.dump_bigdata_data u:object_r:vendor_fp_prop:s0
 persist.sys.fp.goodix.     u:object_r:vendor_fp_prop:s0
 persist.vendor.sys.fp.     u:object_r:vendor_fp_prop:s0
 ro.hardware.fp             u:object_r:vendor_fp_prop:s0
+sys.panel.                 u:object_r:vendor_fp_prop:s0
 vendor.fps_hal.            u:object_r:vendor_fp_prop:s0
 
 # Google camera hal read only props
@@ -33,8 +35,16 @@ ro.miui.cust_variant       u:object_r:exported_default_prop:s0
 # Mlipay
 persist.vendor.sys.pay.ifaa              u:object_r:vendor_tee_listener_prop:s0
 
+# Recovery
+ro.build.expect.           u:object_r:exported_default_prop:s0
+
 # Sensors
 persist.sensor.sardisable  u:object_r:sensors_prop:s0
 
 # Thermal
 persist.sys.thermal.       u:object_r:thermal_engine_prop:s0
+sys.thermal.               u:object_r:thermal_engine_prop:s0
+
+# WiFi
+vendor.wlan.driver.version      u:object_r:vendor_wifi_version:s0
+vendor.wlan.firmware.version    u:object_r:vendor_wifi_version:s0

@@ -1,0 +1,11 @@
+# Allow UVC configuration from init.qcom.usb.sh
+allow qti_init_shell configfs:dir { add_name create write };
+allow qti_init_shell configfs:file create;
+allow qti_init_shell configfs:lnk_file create;
+
+# Allow chown /sys/class/leds/*/secure_mode
+allow qti_init_shell sysfs:file setattr;
+allow qti_init_shell sysfs_leds:file setattr;
+
+# Allow to set fingerprint properties from init.panel_info.sh
+allow qti_init_shell vendor_fp_prop:property_service set;

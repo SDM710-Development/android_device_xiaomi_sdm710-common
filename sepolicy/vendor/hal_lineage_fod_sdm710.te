@@ -10,4 +10,6 @@ allow hal_lineage_fod_sdm710 sysfs_graphics:file rw_file_perms;
 
 binder_call(hal_lineage_fod_sdm710, hal_fingerprint_default)
 
+get_prop(hal_lineage_fod_sdm710, vendor_fp_prop)
+
 hal_client_domain(hal_lineage_fod_sdm710, hal_fingerprint)
