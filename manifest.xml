@@ -571,7 +571,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>vppService</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl">
         <name>vendor.qti.hardware.wifidisplaysession</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
