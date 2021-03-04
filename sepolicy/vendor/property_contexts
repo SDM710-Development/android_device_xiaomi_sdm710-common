@@ -36,6 +36,9 @@ ro.miui.cust_variant       u:object_r:exported_default_prop:s0
 # Mlipay
 persist.vendor.sys.pay.ifaa              u:object_r:vendor_tee_listener_prop:s0
 
+# NFC
+persist.nfc.               u:object_r:nfc_prop:s0
+
 # PowerHAL
 vendor.powerhal.           u:object_r:vendor_power_prop:s0
 
