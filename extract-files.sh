@@ -39,7 +39,8 @@ function blob_fixup() {
             sed -i "s/name=\"android.hidl.manager-V1.0-java/name=\"android.hidl.manager@1.0-java/g" "${2}"
             ;;
         system_ext/lib64/libdpmframework.so)
-            sed -i "s/libhidltransport.so/libcutils-v29.so\x00\x00\x00/" "${2}"
+            ${PATCHELF} --replace-needed libcutils.so libcutils-v29.so "${2}"
+            ${PATCHELF} --add-needed libcutils.so "${2}"
             ;;
     esac
 }
