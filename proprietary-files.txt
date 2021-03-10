@@ -404,6 +404,7 @@ vendor/lib64/libjnihelper.so
 vendor/lib64/liblistenjni.so
 vendor/lib64/liblistensoundmodel2.so
 vendor/lib64/libmulawdec.so
+vendor/lib64/librice.so
 vendor/lib/hw/sound_trigger.primary.sdm710.so
 vendor/lib/libadpcmdec.so
 vendor/lib/libcapiv2svacnn.so
@@ -416,6 +417,7 @@ vendor/lib/libjnihelper.so
 vendor/lib/liblistenjni.so
 vendor/lib/liblistensoundmodel2.so
 vendor/lib/libmulawdec.so
+vendor/lib/librice.so
 vendor/lib/libsmwrapper.so
 
 # Mink-Lowi Interface daemon
