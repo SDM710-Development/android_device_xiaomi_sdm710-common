@@ -20,12 +20,12 @@
 /mnt/vendor/persist/goodix(/.*)?              u:object_r:fingerprint_data_file:s0
 
 # Executables
-/vendor/bin/glgps                             u:object_r:glgps_exec:s0
-/vendor/bin/ignss_2_0                         u:object_r:hal_gnss_default_exec:s0
-/vendor/bin/init.panel_info.sh                u:object_r:qti_init_shell_exec:s0
-/vendor/bin/lhd                               u:object_r:lhd_exec:s0
-/vendor/bin/mlipayd@1\.1                      u:object_r:hal_mlipay_default_exec:s0
-/vendor/bin/nv_mac                            u:object_r:wcnss_service_exec:s0
+/(vendor|system/vendor)/bin/glgps                u:object_r:glgps_exec:s0
+/(vendor|system/vendor)/bin/ignss_2_0            u:object_r:hal_gnss_default_exec:s0
+/(vendor|system/vendor)/bin/init.panel_info.sh   u:object_r:qti_init_shell_exec:s0
+/(vendor|system/vendor)/bin/lhd                  u:object_r:lhd_exec:s0
+/(vendor|system/vendor)/bin/mlipayd@1\.1         u:object_r:hal_mlipay_default_exec:s0
+/(vendor|system/vendor)/bin/nv_mac               u:object_r:wcnss_service_exec:s0
 
 # Fingerprint devices
 /dev/goodix_fp                                u:object_r:fingerprint_device:s0
@@ -53,12 +53,12 @@
 /dev/lirc[0-9]*         u:object_r:lirc_device:s0
 
 # HALs
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_sdm710                   u:object_r:hal_fingerprint_default_exec:s0
-/vendor/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm710                                     u:object_r:hal_light_default_exec:s0
-/vendor/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr                                      u:object_r:hal_power_default_exec:s0
-/vendor/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_sdm710            u:object_r:hal_lineage_fod_sdm710_exec:s0
-/vendor/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.xiaomi_sdm710                                 u:object_r:hal_lineage_livedisplay_qti_exec:s0
-/vendor/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi                                               u:object_r:hal_ir_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_sdm710          u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm710                            u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr                                      u:object_r:hal_power_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_sdm710   u:object_r:hal_lineage_fod_sdm710_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.xiaomi_sdm710                        u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi                                      u:object_r:hal_ir_default_exec:s0
 
 # Persist files
 /mnt/vendor/persist/audio(/.*)?               u:object_r:persist_audio_file:s0
