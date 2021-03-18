@@ -1,0 +1,2 @@
+# Allow access to the qteeconnector
+hal_client_domain(hal_secure_element_default, vendor_hal_qteeconnector)
