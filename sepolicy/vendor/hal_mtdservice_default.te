@@ -17,3 +17,5 @@ allow hal_mtdservice_default persist_drm_file:dir create_dir_perms;
 allow hal_mtdservice_default tee_device:chr_file rw_file_perms;
 
 set_prop(hal_mtdservice_default, vendor_tee_listener_prop)
+
+dontaudit hal_mtdservice_default self:capability dac_override;
