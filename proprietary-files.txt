@@ -1,3 +1,5 @@
+# Common proprietary files - from pyxis MIUI package V12.0.6.0.QFCEUXM
+
 # ADSP
 vendor/bin/adsprpcd
 vendor/lib64/libadsp_default_listener.so
