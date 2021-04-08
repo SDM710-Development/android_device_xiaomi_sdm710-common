@@ -67,16 +67,22 @@ static uint32_t getBrightness(const LightState& state) {
 }
 
 Light::Light() {
-    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleNotification, this, std::placeholders::_1, 0));
-    mLights.emplace(Type::BATTERY, std::bind(&Light::handleBattery, this, std::placeholders::_1));
-    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleNotification, this, std::placeholders::_1, 1));
+    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleNotification,
+                                               this, std::placeholders::_1,
+                                               std::placeholders::_2, 0));
+    mLights.emplace(Type::BATTERY, std::bind(&Light::handleBattery,
+                                             this, std::placeholders::_1,
+                                             std::placeholders::_2));
+    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleNotification,
+                                                   this, std::placeholders::_1,
+                                                   std::placeholders::_2, 1));
 
     if (isLedExist("white")) {
         mLeds.push_back("white");
     }
 }
 
-void Light::handleBattery(const LightState& state) {
+void Light::handleBattery(int led, const LightState& state) {
     uint32_t whiteBrightness = getBrightness(state);
 
     uint32_t onMs = state.flashMode == Flash::TIMED ? state.flashOnMs : 0;
@@ -99,7 +105,7 @@ void Light::handleBattery(const LightState& state) {
     };
 
     // Disable blinking to start
-    setLedParam(0, "blink", 0);
+    setLedParam(led, "blink", 0);
 
     if (onMs > 0 && offMs > 0) {
         uint32_t pauseLo, pauseHi, stepDuration;
@@ -111,20 +117,20 @@ void Light::handleBattery(const LightState& state) {
             pauseLo = offMs - kRampSteps * stepDuration;
         }
 
-        setLedParam(0, "start_idx", 0);
-        setLedParam(0, "duty_pcts", getScaledDutyPercent(whiteBrightness));
-        setLedParam(0, "pause_lo", pauseLo);
-        setLedParam(0, "pause_hi", pauseHi);
-        setLedParam(0, "ramp_step_ms", stepDuration);
+        setLedParam(led, "start_idx", 0);
+        setLedParam(led, "duty_pcts", getScaledDutyPercent(whiteBrightness));
+        setLedParam(led, "pause_lo", pauseLo);
+        setLedParam(led, "pause_hi", pauseHi);
+        setLedParam(led, "ramp_step_ms", stepDuration);
 
         // Start blinking
-        setLedParam(0, "blink", 1);
+        setLedParam(led, "blink", 1);
     } else {
-        setLedParam(0, "brightness", whiteBrightness);
+        setLedParam(led, "brightness", whiteBrightness);
     }
 }
 
-void Light::handleNotification(const LightState& state, size_t index) {
+void Light::handleNotification(int led, const LightState& state, size_t index) {
     mLightStates.at(index) = state;
 
     LightState stateToUse = mLightStates.front();
@@ -152,7 +158,7 @@ void Light::handleNotification(const LightState& state, size_t index) {
     };
 
     // Disable blinking to start
-    setLedParam(0, "blink", 0);
+    setLedParam(led, "blink", 0);
 
     if (onMs > 0 && offMs > 0) {
         uint32_t pauseLo, pauseHi, stepDuration;
@@ -165,16 +171,16 @@ void Light::handleNotification(const LightState& state, size_t index) {
             pauseLo = offMs - kRampSteps * stepDuration;
         }
 
-        setLedParam(0, "start_idx", 0);
-        setLedParam(0, "duty_pcts", getScaledDutyPercent(whiteBrightness));
-        setLedParam(0, "pause_lo", pauseLo);
-        setLedParam(0, "pause_hi", pauseHi);
-        setLedParam(0, "ramp_step_ms", stepDuration);
+        setLedParam(led, "start_idx", 0);
+        setLedParam(led, "duty_pcts", getScaledDutyPercent(whiteBrightness));
+        setLedParam(led, "pause_lo", pauseLo);
+        setLedParam(led, "pause_hi", pauseHi);
+        setLedParam(led, "ramp_step_ms", stepDuration);
 
         // Start blinking
-        setLedParam(0, "blink", 1);
+        setLedParam(led, "blink", 1);
     } else {
-        setLedParam(0, "brightness", whiteBrightness);
+        setLedParam(led, "brightness", whiteBrightness);
     }
 }
 
@@ -200,7 +206,7 @@ Return<Status> Light::setLight(Type type, const LightState& state) {
     // Lock global mutex until light state is updated.
     std::lock_guard<std::mutex> lock(mLock);
 
-    it->second(state);
+    it->second(0, state);
 
     return Status::SUCCESS;
 }
