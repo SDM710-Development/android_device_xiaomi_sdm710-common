@@ -32,6 +32,19 @@ static constexpr int kDefaultMaxBrightness = 255;
 static constexpr int kRampSteps = 8;
 static constexpr int kRampMaxStepDurationMs = 50;
 
+static bool isLedExist(const std::string& led)
+{
+    std::string path = "/sys/class/leds/";
+    std::ofstream file;
+
+    path += led + "/brightness";
+
+    // try to open for write
+    file.open(path);
+
+    return !file.fail();
+}
+
 static uint32_t getBrightness(const LightState& state) {
     uint32_t alpha, red, green, blue;
 
@@ -57,6 +70,10 @@ Light::Light() {
     mLights.emplace(Type::ATTENTION, std::bind(&Light::handleWhiteLed, this, std::placeholders::_1, 0));
     mLights.emplace(Type::BATTERY, std::bind(&Light::handleWhiteLed, this, std::placeholders::_1, 2));
     mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleWhiteLed, this, std::placeholders::_1, 1));
+
+    if (isLedExist("white")) {
+        mLeds.push_back("white");
+    }
 }
 
 void Light::handleWhiteLed(const LightState& state, size_t index) {
@@ -84,7 +101,7 @@ void Light::handleWhiteLed(const LightState& state, size_t index) {
     };
 
     // Disable blinking to start
-    setLedParam("blink", 0);
+    setLedParam(0, "blink", 0);
 
     if (stateToUse.flashMode == Flash::TIMED) {
         // If the flashOnMs duration is not long enough to fit ramping up and down
@@ -98,26 +115,29 @@ void Light::handleWhiteLed(const LightState& state, size_t index) {
             pauseHi = 0;
         }
 
-        setLedParam("start_idx", 0);
-        setLedParam("duty_pcts", getScaledDutyPercent(whiteBrightness));
-        setLedParam("pause_lo", pauseLo);
-        setLedParam("pause_hi", pauseHi);
-        setLedParam("ramp_step_ms", stepDuration);
+        setLedParam(0, "start_idx", 0);
+        setLedParam(0, "duty_pcts", getScaledDutyPercent(whiteBrightness));
+        setLedParam(0, "pause_lo", pauseLo);
+        setLedParam(0, "pause_hi", pauseHi);
+        setLedParam(0, "ramp_step_ms", stepDuration);
 
         // Start blinking
-        setLedParam("blink", 1);
+        setLedParam(0, "blink", 1);
     } else {
-        setLedParam("brightness", whiteBrightness);
+        setLedParam(0, "brightness", whiteBrightness);
     }
 }
 
 template <typename T>
-void Light::setLedParam(const std::string& param, const T& value)
+void Light::setLedParam(int led, const std::string& param, const T& value)
 {
-    std::string path = "/sys/class/leds/white/";
-    std::ofstream file(path + param);
+    std::string path = "/sys/class/leds/";
 
-    file << value;
+    if (led < mLeds.size()) {
+        std::ofstream file(path + mLeds[led] + "/" + param);
+
+        file << value;
+    }
 }
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
