@@ -19,9 +19,6 @@
 #include "FingerprintInscreen.h"
 
 #include <android-base/logging.h>
-#include <android-base/parseint.h>
-#include <android-base/properties.h>
-#include <android-base/strings.h>
 
 #include <cmath>
 #include <fstream>
@@ -43,9 +40,9 @@
 
 #define FOD_UI_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui"
 
-#define FOD_DEFAULT_X 445
-#define FOD_DEFAULT_Y 1910
-#define FOD_DEFAULT_SIZE 190
+#define FOD_SENSOR_X 445
+#define FOD_SENSOR_Y 1910
+#define FOD_SENSOR_SIZE 190
 
 namespace {
 
@@ -72,41 +69,6 @@ static bool readBool(int fd) {
     }
 
     return c != '0';
-}
-
-static std::vector<std::string> GetListProperty(const std::string& key)
-{
-    return android::base::Split(android::base::GetProperty(key, ""), ",");
-}
-
-template <typename T>
-static std::vector<T> GetIntListProperty(const std::string& key,
-                                         const std::vector<T> default_values,
-                                         T min = std::numeric_limits<T>::min(),
-                                         T max = std::numeric_limits<T>::max())
-{
-    std::vector<std::string> strings = GetListProperty(key);
-    std::vector<std::string>::const_iterator it;
-    std::vector<T> values;
-    T value;
-
-    if (strings.size() != default_values.size())
-            goto unexpected;
-
-    for (it = strings.begin(); it != strings.end(); it++) {
-        if (!android::base::ParseInt(*it, &value, min, max))
-                goto unexpected;
-
-        values.push_back(value);
-    }
-
-    return values;
-
-unexpected:
-    LOG(WARNING) << "property '" << key
-                 << "' does not exist or has an unexpected value\n";
-
-    return default_values;
 }
 
 }  // anonymous namespace
@@ -146,34 +108,18 @@ FingerprintInscreen::FingerprintInscreen() {
                     readBool(fd) ? PARAM_NIT_FOD : PARAM_NIT_NONE);
         }
     }).detach();
-
-    std::vector<int32_t> ints { FOD_DEFAULT_X, FOD_DEFAULT_Y };
-
-    ints = GetIntListProperty("persist.vendor.sys.fp.fod.location.X_Y", ints);
-    fodPosX = ints[0];
-    fodPosY = ints[1];
-
-    ints = { FOD_DEFAULT_SIZE, FOD_DEFAULT_SIZE };
-    ints = GetIntListProperty("persist.vendor.sys.fp.fod.size.width_height", ints);
-    if (ints[0] != ints[1])
-           LOG(WARNING) << "FoD size should be square but it is not (width = "
-                        << ints[0] << ", height = " << ints[1] << "\n";
-    fodSize = std::max(ints[0], ints[1]);
-
-    LOG(INFO) << "FoD is located at " << fodPosX << "," << fodPosY
-              << " with size " << fodSize << "pixels\n";
 }
 
 Return<int32_t> FingerprintInscreen::getPositionX() {
-    return fodPosX;
+    return FOD_SENSOR_X;
 }
 
 Return<int32_t> FingerprintInscreen::getPositionY() {
-    return fodPosY;
+    return FOD_SENSOR_Y;
 }
 
 Return<int32_t> FingerprintInscreen::getSize() {
-    return fodSize;
+    return FOD_SENSOR_SIZE;
 }
 
 Return<void> FingerprintInscreen::onStartEnroll() {
