@@ -45,7 +45,14 @@ static bool isLedExist(const std::string& led)
     return !file.fail();
 }
 
-static uint32_t getBrightness(const LightState& state) {
+/*
+ * Returns brightness for specified component where for
+ * component == 0 ... blue modulated by alpha,
+ * component == 1 ... green modulated by alpha,
+ * component == 2 ... red modulated by alpha,
+ * otherwise ... RGB mix modulated by alpha
+ */
+static uint32_t getBrightness(int component, const LightState& state) {
     uint32_t alpha, red, green, blue;
 
     // Extract brightness from AARRGGBB
@@ -61,6 +68,12 @@ static uint32_t getBrightness(const LightState& state) {
         red = red * alpha / 0xff;
         green = green * alpha / 0xff;
         blue = blue * alpha / 0xff;
+    }
+
+    switch (component) {
+    case 0: return blue;
+    case 1: return green;
+    case 2: return red;
     }
 
     return (77 * red + 150 * green + 29 * blue) >> 8;
@@ -83,7 +96,7 @@ Light::Light() {
 }
 
 void Light::handleBattery(int led, const LightState& state) {
-    uint32_t whiteBrightness = getBrightness(state);
+    uint32_t whiteBrightness = getBrightness(-1, state);
 
     uint32_t onMs = state.flashMode == Flash::TIMED ? state.flashOnMs : 0;
     uint32_t offMs = state.flashMode == Flash::TIMED ? state.flashOffMs : 0;
@@ -141,7 +154,7 @@ void Light::handleNotification(int led, const LightState& state, size_t index) {
         }
     }
 
-    uint32_t whiteBrightness = getBrightness(stateToUse);
+    uint32_t whiteBrightness = getBrightness(-1, stateToUse);
 
     uint32_t onMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOnMs : 0;
     uint32_t offMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOffMs : 0;
