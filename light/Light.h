@@ -49,11 +49,12 @@ class Light : public ILight {
     void handleNotification(const LightState& state, size_t index);
 
     template <typename T>
-    void setLedParam(const std::string& param, const T& value);
+    void setLedParam(int led, const std::string& param, const T& value);
 
     std::mutex mLock;
     std::unordered_map<Type, std::function<void(const LightState&)>> mLights;
     std::array<LightState, 2> mLightStates;
+    std::vector<std::string> mLeds;
 };
 
 }  // namespace implementation
