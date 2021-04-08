@@ -45,13 +45,15 @@ class Light : public ILight {
     Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
 
   private:
-    void handleWhiteLed(const LightState& state, size_t index);
+    void handleWhiteLed(int led, const LightState& state, size_t index);
 
     template <typename T>
     void setLedParam(int led, const std::string& param, const T& value);
 
+    typedef std::function<void(int, const LightState&)> lightHandler;
+
     std::mutex mLock;
-    std::unordered_map<Type, std::function<void(const LightState&)>> mLights;
+    std::unordered_map<Type, lightHandler> mLights;
     std::array<LightState, 3> mLightStates;
     std::vector<std::string> mLeds;
 };
