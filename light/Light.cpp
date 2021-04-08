@@ -80,22 +80,26 @@ static uint32_t getBrightness(int component, const LightState& state) {
 }
 
 Light::Light() {
-    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleWhiteLed, this,
+    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleLed, this,
                                                std::placeholders::_1,
                                                std::placeholders::_2, 0));
-    mLights.emplace(Type::BATTERY, std::bind(&Light::handleWhiteLed, this,
+    mLights.emplace(Type::BATTERY, std::bind(&Light::handleLed, this,
                                              std::placeholders::_1,
                                              std::placeholders::_2, 2));
-    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleWhiteLed, this,
+    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleLed, this,
                                                    std::placeholders::_1,
                                                    std::placeholders::_2, 1));
 
-    if (isLedExist("white")) {
+    if (isLedExist("blue") && isLedExist("green") && isLedExist("red")) {
+        mLeds.push_back("blue");
+        mLeds.push_back("green");
+        mLeds.push_back("red");
+    } else if (isLedExist("white")) {
         mLeds.push_back("white");
     }
 }
 
-void Light::handleWhiteLed(int led, const LightState& state, size_t index) {
+void Light::handleLed(int led, const LightState& state, size_t index) {
     mLightStates.at(index) = state;
 
     LightState stateToUse = mLightStates.front();
@@ -106,15 +110,18 @@ void Light::handleWhiteLed(int led, const LightState& state, size_t index) {
         }
     }
 
-    uint32_t whiteBrightness = getBrightness(-1, stateToUse);
+    // if number of leds is 1 then request brightness for RGB mix
+    // otherwise get brightness for color component
+    uint32_t brightness = getBrightness(mLeds.size() > 1 ? led : -1, stateToUse);
 
-    auto getScaledDutyPercent = [](int brightness) -> std::string {
+    auto getScaledDutyPercent = [](int value) -> std::string {
         std::string output;
         for (int i = 0; i <= kRampSteps; i++) {
             if (i != 0) {
                 output += ",";
             }
-            output += std::to_string(i * 100 * brightness / (kDefaultMaxBrightness * kRampSteps));
+            output += std::to_string(i * 100 * value /
+                                     (kDefaultMaxBrightness * kRampSteps));
         }
         return output;
     };
@@ -135,7 +142,7 @@ void Light::handleWhiteLed(int led, const LightState& state, size_t index) {
         }
 
         setLedParam(led, "start_idx", 0);
-        setLedParam(led, "duty_pcts", getScaledDutyPercent(whiteBrightness));
+        setLedParam(led, "duty_pcts", getScaledDutyPercent(brightness));
         setLedParam(led, "pause_lo", pauseLo);
         setLedParam(led, "pause_hi", pauseHi);
         setLedParam(led, "ramp_step_ms", stepDuration);
@@ -143,7 +150,7 @@ void Light::handleWhiteLed(int led, const LightState& state, size_t index) {
         // Start blinking
         setLedParam(led, "blink", 1);
     } else {
-        setLedParam(led, "brightness", whiteBrightness);
+        setLedParam(led, "brightness", brightness);
     }
 }
 
@@ -169,7 +176,8 @@ Return<Status> Light::setLight(Type type, const LightState& state) {
     // Lock global mutex until light state is updated.
     std::lock_guard<std::mutex> lock(mLock);
 
-    it->second(0, state);
+    for (int led = 0; led < mLeds.size(); led++)
+        it->second(led, state);
 
     return Status::SUCCESS;
 }
