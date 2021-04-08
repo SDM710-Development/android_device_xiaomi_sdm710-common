@@ -91,7 +91,7 @@ void Light::handleBattery(const LightState& state) {
     };
 
     // Disable blinking to start
-    set("/sys/class/leds/white/blink", 0);
+    setLedParam("blink", 0);
 
     if (onMs > 0 && offMs > 0) {
         uint32_t pauseLo, pauseHi, stepDuration;
@@ -103,16 +103,16 @@ void Light::handleBattery(const LightState& state) {
             pauseLo = offMs - kRampSteps * stepDuration;
         }
 
-        set("/sys/class/leds/white/start_idx", 0);
-        set("/sys/class/leds/white/duty_pcts", getScaledDutyPercent(whiteBrightness));
-        set("/sys/class/leds/white/pause_lo", pauseLo);
-        set("/sys/class/leds/white/pause_hi", pauseHi);
-        set("/sys/class/leds/white/ramp_step_ms", stepDuration);
+        setLedParam("start_idx", 0);
+        setLedParam("duty_pcts", getScaledDutyPercent(whiteBrightness));
+        setLedParam("pause_lo", pauseLo);
+        setLedParam("pause_hi", pauseHi);
+        setLedParam("ramp_step_ms", stepDuration);
 
         // Start blinking
-        set("/sys/class/leds/white/blink", 1);
+        setLedParam("blink", 1);
     } else {
-        set("/sys/class/leds/white/brightness", whiteBrightness);
+        setLedParam("brightness", whiteBrightness);
     }
 }
 
@@ -144,7 +144,7 @@ void Light::handleNotification(const LightState& state, size_t index) {
     };
 
     // Disable blinking to start
-    set("/sys/class/leds/white/blink", 0);
+    setLedParam("blink", 0);
 
     if (onMs > 0 && offMs > 0) {
         uint32_t pauseLo, pauseHi, stepDuration;
@@ -157,17 +157,26 @@ void Light::handleNotification(const LightState& state, size_t index) {
             pauseLo = offMs - kRampSteps * stepDuration;
         }
 
-        set("/sys/class/leds/white/start_idx", 0);
-        set("/sys/class/leds/white/duty_pcts", getScaledDutyPercent(whiteBrightness));
-        set("/sys/class/leds/white/pause_lo", pauseLo);
-        set("/sys/class/leds/white/pause_hi", pauseHi);
-        set("/sys/class/leds/white/ramp_step_ms", stepDuration);
+        setLedParam("start_idx", 0);
+        setLedParam("duty_pcts", getScaledDutyPercent(whiteBrightness));
+        setLedParam("pause_lo", pauseLo);
+        setLedParam("pause_hi", pauseHi);
+        setLedParam("ramp_step_ms", stepDuration);
 
         // Start blinking
-        set("/sys/class/leds/white/blink", 1);
+        setLedParam("blink", 1);
     } else {
-        set("/sys/class/leds/white/brightness", whiteBrightness);
+        setLedParam("brightness", whiteBrightness);
     }
+}
+
+template <typename T>
+void Light::setLedParam(const std::string& param, const T& value)
+{
+    std::string path = "/sys/class/leds/white/";
+    std::ofstream file(path + param);
+
+    file << value;
 }
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
