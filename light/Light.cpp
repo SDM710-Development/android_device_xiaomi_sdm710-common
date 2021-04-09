@@ -28,20 +28,31 @@ namespace light {
 namespace V2_0 {
 namespace implementation {
 
-/*
- * Write value to path and close file.
- */
-template <typename T>
-static void set(const std::string& path, const T& value) {
-    std::ofstream file(path);
-    file << value;
-}
-
 static constexpr int kDefaultMaxBrightness = 255;
 static constexpr int kRampSteps = 50;
 static constexpr int kRampMaxStepDurationMs = 5;
 
-static uint32_t getBrightness(const LightState& state) {
+static bool isLedExist(const std::string& led)
+{
+    std::string path = "/sys/class/leds/";
+    std::ofstream file;
+
+    path += led + "/brightness";
+
+    // try to open for write
+    file.open(path);
+
+    return !file.fail();
+}
+
+/*
+ * Returns brightness for specified component where for
+ * component == 0 ... blue modulated by alpha,
+ * component == 1 ... green modulated by alpha,
+ * component == 2 ... red modulated by alpha,
+ * otherwise ... RGB mix modulated by alpha
+ */
+static uint32_t getBrightness(int component, const LightState& state) {
     uint32_t alpha, red, green, blue;
 
     // Extract brightness from AARRGGBB
@@ -59,22 +70,44 @@ static uint32_t getBrightness(const LightState& state) {
         blue = blue * alpha / 0xff;
     }
 
+    switch (component) {
+    case 0: return blue;
+    case 1: return green;
+    case 2: return red;
+    }
+
     return (77 * red + 150 * green + 29 * blue) >> 8;
 }
 
 Light::Light() {
-    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleNotification, this, std::placeholders::_1, 0));
-    mLights.emplace(Type::BATTERY, std::bind(&Light::handleBattery, this, std::placeholders::_1));
-    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleNotification, this, std::placeholders::_1, 1));
+    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleNotification,
+                                               this, std::placeholders::_1,
+                                               std::placeholders::_2, 0));
+    mLights.emplace(Type::BATTERY, std::bind(&Light::handleBattery,
+                                             this, std::placeholders::_1,
+                                             std::placeholders::_2));
+    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleNotification,
+                                                   this, std::placeholders::_1,
+                                                   std::placeholders::_2, 1));
+
+    if (isLedExist("blue") && isLedExist("green") && isLedExist("red")) {
+        mLeds.push_back("blue");
+        mLeds.push_back("green");
+        mLeds.push_back("red");
+    } else if (isLedExist("white")) {
+        mLeds.push_back("white");
+    }
 }
 
-void Light::handleBattery(const LightState& state) {
-    uint32_t whiteBrightness = getBrightness(state);
+void Light::handleBattery(int led, const LightState& state) {
+    // if number of leds is 1 then request brightness for RGB mix
+    // otherwise get brightness for color component
+    uint32_t brightness = getBrightness(mLeds.size() > 1 ? led : -1, state);
 
     uint32_t onMs = state.flashMode == Flash::TIMED ? state.flashOnMs : 0;
     uint32_t offMs = state.flashMode == Flash::TIMED ? state.flashOffMs : 0;
 
-    auto getScaledDutyPercent = [](int brightness) -> std::string {
+    auto getScaledDutyPercent = [](int value) -> std::string {
         std::string output;
         for (int i = 0; i <= kRampSteps; i++) {
             if (i != 0) {
@@ -83,7 +116,7 @@ void Light::handleBattery(const LightState& state) {
             if (i <= kRampSteps / 2) {
                 output += "0";
             } else {
-                output += std::to_string((i - kRampSteps / 2) * 100 * brightness /
+                output += std::to_string((i - kRampSteps / 2) * 100 * value /
                                          (kDefaultMaxBrightness * (kRampSteps/2)));
             }
         }
@@ -91,7 +124,7 @@ void Light::handleBattery(const LightState& state) {
     };
 
     // Disable blinking to start
-    set("/sys/class/leds/white/blink", 0);
+    setLedParam(led, "blink", 0);
 
     if (onMs > 0 && offMs > 0) {
         uint32_t pauseLo, pauseHi, stepDuration;
@@ -103,20 +136,20 @@ void Light::handleBattery(const LightState& state) {
             pauseLo = offMs - kRampSteps * stepDuration;
         }
 
-        set("/sys/class/leds/white/start_idx", 0);
-        set("/sys/class/leds/white/duty_pcts", getScaledDutyPercent(whiteBrightness));
-        set("/sys/class/leds/white/pause_lo", pauseLo);
-        set("/sys/class/leds/white/pause_hi", pauseHi);
-        set("/sys/class/leds/white/ramp_step_ms", stepDuration);
+        setLedParam(led, "start_idx", 0);
+        setLedParam(led, "duty_pcts", getScaledDutyPercent(brightness));
+        setLedParam(led, "pause_lo", pauseLo);
+        setLedParam(led, "pause_hi", pauseHi);
+        setLedParam(led, "ramp_step_ms", stepDuration);
 
         // Start blinking
-        set("/sys/class/leds/white/blink", 1);
+        setLedParam(led, "blink", 1);
     } else {
-        set("/sys/class/leds/white/brightness", whiteBrightness);
+        setLedParam(led, "brightness", brightness);
     }
 }
 
-void Light::handleNotification(const LightState& state, size_t index) {
+void Light::handleNotification(int led, const LightState& state, size_t index) {
     mLightStates.at(index) = state;
 
     LightState stateToUse = mLightStates.front();
@@ -127,24 +160,27 @@ void Light::handleNotification(const LightState& state, size_t index) {
         }
     }
 
-    uint32_t whiteBrightness = getBrightness(stateToUse);
+    // if number of leds is 1 then request brightness for RGB mix
+    // otherwise get brightness for color component
+    uint32_t brightness = getBrightness(mLeds.size() > 1 ? led : -1, stateToUse);
 
     uint32_t onMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOnMs : 0;
     uint32_t offMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOffMs : 0;
 
-    auto getScaledDutyPercent = [](int brightness) -> std::string {
+    auto getScaledDutyPercent = [](int value) -> std::string {
         std::string output;
         for (int i = 0; i <= kRampSteps; i++) {
             if (i != 0) {
                 output += ",";
             }
-            output += std::to_string(i * 100 * brightness / (kDefaultMaxBrightness * kRampSteps));
+            output += std::to_string(i * 100 * value /
+                                     (kDefaultMaxBrightness * kRampSteps));
         }
         return output;
     };
 
     // Disable blinking to start
-    set("/sys/class/leds/white/blink", 0);
+    setLedParam(led, "blink", 0);
 
     if (onMs > 0 && offMs > 0) {
         uint32_t pauseLo, pauseHi, stepDuration;
@@ -157,16 +193,28 @@ void Light::handleNotification(const LightState& state, size_t index) {
             pauseLo = offMs - kRampSteps * stepDuration;
         }
 
-        set("/sys/class/leds/white/start_idx", 0);
-        set("/sys/class/leds/white/duty_pcts", getScaledDutyPercent(whiteBrightness));
-        set("/sys/class/leds/white/pause_lo", pauseLo);
-        set("/sys/class/leds/white/pause_hi", pauseHi);
-        set("/sys/class/leds/white/ramp_step_ms", stepDuration);
+        setLedParam(led, "start_idx", 0);
+        setLedParam(led, "duty_pcts", getScaledDutyPercent(brightness));
+        setLedParam(led, "pause_lo", pauseLo);
+        setLedParam(led, "pause_hi", pauseHi);
+        setLedParam(led, "ramp_step_ms", stepDuration);
 
         // Start blinking
-        set("/sys/class/leds/white/blink", 1);
+        setLedParam(led, "blink", 1);
     } else {
-        set("/sys/class/leds/white/brightness", whiteBrightness);
+        setLedParam(led, "brightness", brightness);
+    }
+}
+
+template <typename T>
+void Light::setLedParam(int led, const std::string& param, const T& value)
+{
+    std::string path = "/sys/class/leds/";
+
+    if (led < mLeds.size()) {
+        std::ofstream file(path + mLeds[led] + "/" + param);
+
+        file << value;
     }
 }
 
@@ -180,7 +228,8 @@ Return<Status> Light::setLight(Type type, const LightState& state) {
     // Lock global mutex until light state is updated.
     std::lock_guard<std::mutex> lock(mLock);
 
-    it->second(state);
+    for (int led = 0; led < mLeds.size(); led++)
+        it->second(led, state);
 
     return Status::SUCCESS;
 }
