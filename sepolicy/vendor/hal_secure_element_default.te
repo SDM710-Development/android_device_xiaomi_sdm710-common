@@ -1,2 +1,11 @@
+# Allow to add nxpese_hwservice
+add_hwservice(hal_secure_element_default, nxpese_hwservice)
+
+# Allow access to NFC
+hal_client_domain(hal_secure_element_default, hal_nfc)
+
 # Allow access to the qteeconnector
 hal_client_domain(hal_secure_element_default, vendor_hal_qteeconnector)
+
+# Allow to find nxpnfc_hwservice
+allow hal_secure_element_default nxpnfc_hwservice:hwservice_manager find;
