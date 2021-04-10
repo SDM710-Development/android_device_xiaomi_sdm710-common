@@ -7,6 +7,7 @@ init_daemon_domain(hal_lineage_fod_sdm710)
 allow hal_lineage_fod_sdm710 sysfs_fod:file rw_file_perms;
 allow hal_lineage_fod_sdm710 sysfs_graphics:dir r_dir_perms;
 allow hal_lineage_fod_sdm710 sysfs_graphics:file rw_file_perms;
+allow hal_lineage_fod_sdm710 sysfs:file { read };
 
 binder_call(hal_lineage_fod_sdm710, hal_fingerprint_default)
 
