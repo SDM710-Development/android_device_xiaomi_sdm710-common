@@ -296,14 +296,14 @@ vendor/lib64/libllvm-glnext.so|c11e3f0f5b6d21d1badcca3bc8cac947c781deeb
 vendor/lib64/libllvm-qcom.so|a80c58c8f316af15a7a2d089536f824836f6c056
 vendor/lib64/libpvr.so|ac4805ba7a7c78570a60340d01248d258046e456
 
-# Graphics (Adreno firmware)
-vendor/firmware/a615_zap.b00
-vendor/firmware/a615_zap.b01
-vendor/firmware/a615_zap.b02
-vendor/firmware/a615_zap.elf
-vendor/firmware/a615_zap.mdt
-vendor/firmware/a630_gmu.bin
-vendor/firmware/a630_sqe.fw
+# Graphics (Adreno firmware) - from grus - V12.5.1.0.RFBCNXM
+vendor/firmware/a615_zap.b00|f378b1e8c467fd07fa7c12e3a884ba9a3c226d73
+vendor/firmware/a615_zap.b01|2d552312c072f82b76314edc363f48534d8ec884
+vendor/firmware/a615_zap.b02|4ae54047f9629f2470a5d58f3940c5eb51298b96
+vendor/firmware/a615_zap.elf|244d1fc4a9c9368052564ad2ae6e424cb89558d2
+vendor/firmware/a615_zap.mdt|1fce789f6d67b965eea924d6783cb93db4f2230a
+vendor/firmware/a630_gmu.bin|32bb4acc7767c47ddb487ed7cb998d465ee462f2
+vendor/firmware/a630_sqe.fw|e25094f97b44244775cc38a9d909fba6bd4cf76b
 
 # Graphics (Vulkan) - from PNX - RKQ1.200906.002
 vendor/lib/hw/vulkan.adreno.so|b2680e5b899d75fa3f82b457635e15c6998202a4
