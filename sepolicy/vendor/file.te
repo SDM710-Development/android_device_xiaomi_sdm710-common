@@ -15,6 +15,7 @@ type proc_tp, proc_type, fs_type;
 type sysfs_fingerprint, sysfs_type, fs_type;
 type sysfs_fod, sysfs_type, fs_type;
 type sysfs_gps, sysfs_type, fs_type;
+type sysfs_iio, sysfs_type, fs_type;
 type sysfs_msm_subsys, sysfs_type, fs_type;
 type sysfs_rpm, sysfs_type, fs_type;
 type sysfs_system_sleep_stats, sysfs_type, fs_type;
