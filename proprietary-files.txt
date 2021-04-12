@@ -70,21 +70,23 @@ vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
 product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
-# CDSP
-vendor/bin/cdsprpcd
-vendor/lib64/libcdsp_default_listener.so
-vendor/lib64/libcdsprpc.so
-vendor/lib64/libfastrpc_utf_stub.so
-vendor/lib64/libsdsprpc.so
-vendor/lib64/libsysmon_cdsp_skel.so
-vendor/lib64/libmdsprpc.so
-vendor/lib/libcdsp_default_listener.so
-vendor/lib/libcdsprpc.so
-vendor/lib/libfastcrc.so
-vendor/lib/libfastrpc_utf_stub.so
-vendor/lib/libsdsprpc.so
-vendor/lib/libsysmon_cdsp_skel.so
-vendor/lib/libmdsprpc.so
+# CDSP - from grus - V12.5.1.0.RFBCNXM
+vendor/bin/cdsprpcd|8f541eab74d52bff8d73f7f280e085c4bf706e99
+vendor/lib/libcdsp_default_listener.so|3af8e9fbe0b154574ac0a709d1af401960922471
+vendor/lib/libcdsprpc.so|10dee10f945e61310a6e6395537b7e66dc137f5e
+vendor/lib/libfastcrc.so|893b4b886cc892bb67291f064f2df6a4a67aa039
+vendor/lib/libfastrpc_utf_stub.so|b7df4310dec92972bd92116fed5e932d90825d76
+vendor/lib/libmdsprpc.so|68fb7732dd93dec1c87acc9570cb0ffceb4cad45
+vendor/lib/libsdsprpc.so|42c4b3a5bc618e2bbd5e6cf20c1a01d70a8234d5
+vendor/lib/libsysmon_cdsp_skel.so|d30f7863f72cbcb6d5f657ab780bb53e02e1aaa4
+vendor/lib/vendor.qti.hardware.dsp@1.0.so|e553aafebc4b5f2908fc03f29b086cd1261aa454
+vendor/lib64/libcdsp_default_listener.so|c639e68a44537450a7aabb3549ac9edb5b940641
+vendor/lib64/libcdsprpc.so|91c088c734f71506902db9a4c0b7f102996ac83a
+vendor/lib64/libfastrpc_utf_stub.so|f689fe4deb2f9b37aa6c008182e21895762e41cb
+vendor/lib64/libmdsprpc.so|4abbca2cb130cd3a558eb9d56e2d3332ee9620ed
+vendor/lib64/libsdsprpc.so|868910927b4011ec680ee6f79a1345848fe82f3a
+vendor/lib64/libsysmon_cdsp_skel.so|e5ba4d173b0e09d736b16474ed2f57874cb91916
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so|5f30d9c5fff738e6194a36a5b93372fa32ec0471
 
 # Charger
 vendor/bin/hvdcp_opti
