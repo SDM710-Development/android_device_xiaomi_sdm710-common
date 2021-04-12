@@ -18,6 +18,7 @@
 /(vendor|system/vendor)/bin/mlipayd@1\.1         u:object_r:hal_mlipay_default_exec:s0
 /(vendor|system/vendor)/bin/mtd@1\.2             u:object_r:hal_mtdservice_default_exec:s0
 /(vendor|system/vendor)/bin/nv_mac               u:object_r:wcnss_service_exec:s0
+
 # Fingerprint devices
 /dev/goodix_fp                                u:object_r:fingerprint_device:s0
 /dev/vfsspi                                   u:object_r:fingerprint_device:s0
@@ -46,7 +47,6 @@
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_sdm710          u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm710                            u:object_r:hal_light_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-qti                              u:object_r:hal_neuralnetworks_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_sdm710   u:object_r:hal_lineage_fod_sdm710_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.xiaomi_sdm710                        u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi                                      u:object_r:hal_ir_default_exec:s0
