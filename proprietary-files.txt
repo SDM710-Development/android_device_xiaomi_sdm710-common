@@ -14,35 +14,34 @@ vendor/lib/rfsa/adsp/libapps_mem_heap.so|26ac189fbdd6a893172a2781b90cbaf96eba0c7
 vendor/lib/rfsa/adsp/libsns_device_mode_skel.so|733a5b8861bb6eb1285bb8982992531c94800997
 vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so|c30bb30eecf968e02f72c055d3cc13a7f769644f
 
-# Audio
-vendor/lib64/libaudioalsa.so
-vendor/lib64/libaudio_log_utils.so
-vendor/lib64/libaudioparsers.so
-vendor/lib64/libqtigef.so
-vendor/lib/vndk/libxlog.so
-vendor/lib/libadm.so
-vendor/lib/libaudioalsa.so
-vendor/lib/libaudio_log_utils.so
-vendor/lib/libaudioparsers.so
-vendor/lib/libqtigef.so
+# Audio - from grus - V12.5.1.0.RFBCNXM
+vendor/lib/libadm.so|fd0c0a2a1864023c221a23bc4587fb85134e4e28
+vendor/lib/libaudio_log_utils.so|df3362525f612e00988a16307c4a3781e564516d
+vendor/lib/libaudioalsa.so|89665aca431ac6de9f0848ff23fba585e70820e5
+vendor/lib/libaudioparsers.so|11ad61b7e57e57fe45929a66310c101984c3b341
+vendor/lib/libqtigef.so|759a87141061d2b9adbb05d2e829fac481c94cc1
+vendor/lib/vndk/libxlog.so|bdb3d8d8b37bd4e1e84f59d912457690e7388f2e
+vendor/lib64/libaudio_log_utils.so|987862da75a584802bc69d3d5fa94f03aedef27f
+vendor/lib64/libaudioalsa.so|5a3d2400b25d073be45cc777a2dada281d9e9aa9
+vendor/lib64/libaudioparsers.so|364bf4dbadc81ac2d44918c28d5f1ddc676bdee4
+vendor/lib64/libqtigef.so|44fa67fed2b432df92bfc840f555a15206c2265f
 
-# Audio extensions
-vendor/lib64/libcomprcapture.so
-vendor/lib64/libexthwplugin.so
-vendor/lib64/libhdmiedid.so
-vendor/lib/libcomprcapture.so
-vendor/lib/libexthwplugin.so
-vendor/lib/libhdmiedid.so
+# Audio extensions - from grus - V12.5.1.0.RFBCNXM
+vendor/lib/libcomprcapture.so|7f89dc4c34ca7b7c9d27780c25f34b13a07eb4b7
+vendor/lib/libexthwplugin.so|48e4e85c7946e58c35ae41385e9dc95ae3f0e4f8
+vendor/lib/libhdmiedid.so|1583adc0af81c71722f3dcad8239d8e0742aa09b
+vendor/lib64/libcomprcapture.so|4fe24af4578561fbeb6ac1a1e97bc4b6793c1803
+vendor/lib64/libexthwplugin.so|0c46ae2909167b6c30487289bf383153b06094f7
+vendor/lib64/libhdmiedid.so|10cf8e37e0a383046846bbde78696350a2c00095
 
-# Audio FX modules
-system/etc/permissions/audiosphere.xml
-system/framework/audiosphere.jar
-vendor/lib64/soundfx/libasphere.so
-vendor/lib64/soundfx/libdirac.so
-vendor/lib64/soundfx/libshoebox.so
-vendor/lib/soundfx/libasphere.so
-vendor/lib/soundfx/libdirac.so
-vendor/lib/soundfx/libshoebox.so
+# Audio FX modules - from grus - V12.5.1.0.RFBCNXM
+system/etc/permissions/audiosphere.xml|3c6d8f14bd99e52a424282fd5d0a5b9b06485dea
+system/framework/audiosphere.jar|c1679f5aca56f0cb24745b3f7d219acd04833bed
+vendor/lib/soundfx/libasphere.so|b16636ad3a2d5b4bf575012ed212b8e51269c7d5
+vendor/lib/soundfx/libmisoundfx.so|5a29f4b6d1200225756373682fa3ae407f7d96a1
+vendor/lib/soundfx/libshoebox.so|bdfa1159e0ca064f0f55cee1d5f29f4677f0c0df
+vendor/lib64/soundfx/libasphere.so|a404102354aebb0486c6a829d546e60e83b8217b
+vendor/lib64/soundfx/libshoebox.so|646d96fec103d7cce2b24e442abffc449f264bf4
 
 # Bluetooth (A2DP)
 vendor/lib64/hw/audio.bluetooth_qti.default.so
