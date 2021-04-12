@@ -8,6 +8,7 @@ vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemon       u:
 vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemonExt    u:object_r:hal_fingerprint_hwservice:s0
 vendor.nxp.nxpese::INxpEse                                                    u:object_r:nxpese_hwservice:s0
 vendor.nxp.nxpnfc::INxpNfc                                                    u:object_r:nxpnfc_hwservice:s0
+vendor.qti.hardware.slmadapter::ISlmAdapter                                   u:object_r:vendor_hal_slmadapter_hwservice:s0
 vendor.synaptics.fingerprints.interfaces.extensions::ISensorTest              u:object_r:hal_fingerprint_hwservice:s0
 vendor.synaptics.fingerprints.interfaces.extensions::INavigation              u:object_r:hal_fingerprint_hwservice:s0
 vendor.synaptics.fingerprints.interfaces.extensions::IFpCollection            u:object_r:hal_fingerprint_hwservice:s0
