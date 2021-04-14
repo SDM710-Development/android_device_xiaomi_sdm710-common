@@ -408,33 +408,29 @@ vendor/firmware/ipa_fws.mdt|dd1c3a9352af84dda71f7201d3faeae1ceb78005
 # IRQ balance
 vendor/bin/msm_irqbalance
 
-# Listen
-vendor/lib64/hw/sound_trigger.primary.sdm710.so
-vendor/lib64/libcapiv2svacnn.so
-vendor/lib64/libcapiv2vop.so
-vendor/lib64/libgcs-calwrapper.so
-vendor/lib64/libgcs-ipc.so
-vendor/lib64/libgcs-osal.so
-vendor/lib64/libgcs.so
-vendor/lib64/libjnihelper.so
-vendor/lib64/liblistenjni.so
-vendor/lib64/liblistensoundmodel2.so
-vendor/lib64/libmulawdec.so
-vendor/lib64/librice.so
-vendor/lib/hw/sound_trigger.primary.sdm710.so
-vendor/lib/libadpcmdec.so
-vendor/lib/libcapiv2svacnn.so
-vendor/lib/libcapiv2vop.so
-vendor/lib/libgcs-calwrapper.so
-vendor/lib/libgcs-ipc.so
-vendor/lib/libgcs-osal.so
-vendor/lib/libgcs.so
-vendor/lib/libjnihelper.so
-vendor/lib/liblistenjni.so
-vendor/lib/liblistensoundmodel2.so
-vendor/lib/libmulawdec.so
-vendor/lib/librice.so
-vendor/lib/libsmwrapper.so
+# Listen - from grus - V12.5.1.0.RFBCNXM
+vendor/lib/hw/sound_trigger.primary.sdm710.so|d19d239ad243d5adebcace5fc0cb334e88d516e4
+vendor/lib/libadpcmdec.so|491fedbdcf9a395340ce4142c277156c0056bcf8
+vendor/lib/libcapiv2svacnn.so|da98f2be1e8bd1aba364610063e70c34cab844d2
+vendor/lib/libcapiv2vop.so|b47caa2eeec81e98de03439548d9b9199222eda7
+vendor/lib/libgcs-calwrapper.so|342dc3c853d12b85d821a1ce723ca4adebb20bd3
+vendor/lib/libgcs-ipc.so|59a33e09849c714517644e19f3c010431f4e272f
+vendor/lib/libgcs-osal.so|0e762ecaf6b0d59e5322323b0fef17e8c76d0b4a
+vendor/lib/libgcs.so|1bff64587bee298d4d3327c15e3da11984246ddf
+vendor/lib/libjnihelper.so|ef2c1ecf3a0e02125d78af8a16aea074d4337034
+vendor/lib/liblistensoundmodel2.so|158936bde01ff29142d3e47b38c4838004623307
+vendor/lib/libmulawdec.so|53257dee0befc2a353ceb84a906a680a33d745f1
+vendor/lib/libsmwrapper.so|fde373fc5a506666acfad83d7cf6d645cb226cc5
+vendor/lib64/hw/sound_trigger.primary.sdm710.so|122b62f014edd22abbeb611df4ada6783b4c2e39
+vendor/lib64/libcapiv2svacnn.so|a6b186beee18d45b92e14a8e1411e13e4d9330de
+vendor/lib64/libcapiv2vop.so|3a73591503cd935cb6e2e2175037fde5517c2e91
+vendor/lib64/libgcs-calwrapper.so|e55900f3d190ebb3e602e47de9cc5d602dd82763
+vendor/lib64/libgcs-ipc.so|9cb04aa345f30c44da5854c228944a107f74c3fc
+vendor/lib64/libgcs-osal.so|e5cd3ed3385b3797a67a8f4519eb59d63ae0a5d4
+vendor/lib64/libgcs.so|66101acdd9eca0ae527c8952f3c60b838e4a1173
+vendor/lib64/libjnihelper.so|fb8690fbb5b8fbb97ded1bd8d4f87285ec74cf41
+vendor/lib64/liblistensoundmodel2.so|55b9e9149a1452957027d3cd8e28828343d8a910
+vendor/lib64/libmulawdec.so|8a114d91458cee68b32186afe1a4b6315c0ffcd9
 
 # Mink-Lowi Interface daemon
 vendor/bin/mlid
