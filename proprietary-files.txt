@@ -1,90 +1,97 @@
 # Common proprietary files - from pyxis MIUI package V12.0.6.0.QFCEUXM
 
-# ADSP
-vendor/bin/adsprpcd
-vendor/lib64/libadsp_default_listener.so
-vendor/lib64/libadsprpc.so
-vendor/lib/libadsp_default_listener.so
-vendor/lib/libadsprpc.so
+# ADSP - from grus - V12.5.1.0.RFBCNXM
+vendor/bin/adsprpcd|b736b00857d64e74a3b9be887215124d186f95d5
+vendor/lib/libadsp_default_listener.so|0376a56ab5d88e5d118e37f6e6371b30746a97e2
+vendor/lib/libadsprpc.so|5416004898ac3e452394cbd856a50b8af55e926d
+vendor/lib64/libadsp_default_listener.so|0324e797f6fdd15680df7fdacc51f713e40b9806
+vendor/lib64/libadsprpc.so|ee51521a7439a382ce6d86bdc4787ef47f88a654
 
-# ADSP modules
-vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so
-vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so
-vendor/lib/rfsa/adsp/libVC1Dec.so
-vendor/lib/rfsa/adsp/libVC1DecDsp_skel.so
-vendor/lib/rfsa/adsp/libapps_mem_heap.so
-vendor/lib/rfsa/adsp/libdirac-capiv2.so
-vendor/lib/rfsa/adsp/libdspCV_skel.so
-vendor/lib/rfsa/adsp/libdsp_streamer_add_constant.so
-vendor/lib/rfsa/adsp/libdsp_streamer_skel.so
-vendor/lib/rfsa/adsp/libsns_device_mode_skel.so
-vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so
+# ADSP modules - from grus - V12.5.1.0.RFBCNXM
+vendor/lib/rfsa/adsp/libVC1Dec.so|732ede3ede9e6e1b09c439156f62a07d8fa0ee3e
+vendor/lib/rfsa/adsp/libVC1DecDsp_skel.so|eff059c5a29a44d205bd60ad24aecc46416e939e
+vendor/lib/rfsa/adsp/libapps_mem_heap.so|26ac189fbdd6a893172a2781b90cbaf96eba0c7e
+vendor/lib/rfsa/adsp/libsns_device_mode_skel.so|733a5b8861bb6eb1285bb8982992531c94800997
+vendor/lib/rfsa/adsp/libsns_low_lat_stream_skel.so|c30bb30eecf968e02f72c055d3cc13a7f769644f
 
-# Audio
-vendor/lib64/libaudioalsa.so
-vendor/lib64/libaudio_log_utils.so
-vendor/lib64/libaudioparsers.so
-vendor/lib64/libqtigef.so
-vendor/lib/vndk/libxlog.so
-vendor/lib/libadm.so
-vendor/lib/libaudioalsa.so
-vendor/lib/libaudio_log_utils.so
-vendor/lib/libaudioparsers.so
-vendor/lib/libqtigef.so
+# Audio - from grus - V12.5.1.0.RFBCNXM
+vendor/lib/libadm.so|fd0c0a2a1864023c221a23bc4587fb85134e4e28
+vendor/lib/libaudio_log_utils.so|df3362525f612e00988a16307c4a3781e564516d
+vendor/lib/libaudioalsa.so|89665aca431ac6de9f0848ff23fba585e70820e5
+vendor/lib/libaudioparsers.so|11ad61b7e57e57fe45929a66310c101984c3b341
+vendor/lib/libqtigef.so|759a87141061d2b9adbb05d2e829fac481c94cc1
+vendor/lib/vndk/libxlog.so|bdb3d8d8b37bd4e1e84f59d912457690e7388f2e
+vendor/lib64/libaudio_log_utils.so|987862da75a584802bc69d3d5fa94f03aedef27f
+vendor/lib64/libaudioalsa.so|5a3d2400b25d073be45cc777a2dada281d9e9aa9
+vendor/lib64/libaudioparsers.so|364bf4dbadc81ac2d44918c28d5f1ddc676bdee4
+vendor/lib64/libqtigef.so|44fa67fed2b432df92bfc840f555a15206c2265f
 
-# Audio extensions
-vendor/lib64/libcomprcapture.so
-vendor/lib64/libexthwplugin.so
-vendor/lib64/libhdmiedid.so
-vendor/lib/libcomprcapture.so
-vendor/lib/libexthwplugin.so
-vendor/lib/libhdmiedid.so
+# Audio extensions - from grus - V12.5.1.0.RFBCNXM
+vendor/lib/libcomprcapture.so|7f89dc4c34ca7b7c9d27780c25f34b13a07eb4b7
+vendor/lib/libexthwplugin.so|48e4e85c7946e58c35ae41385e9dc95ae3f0e4f8
+vendor/lib/libhdmiedid.so|1583adc0af81c71722f3dcad8239d8e0742aa09b
+vendor/lib64/libcomprcapture.so|4fe24af4578561fbeb6ac1a1e97bc4b6793c1803
+vendor/lib64/libexthwplugin.so|0c46ae2909167b6c30487289bf383153b06094f7
+vendor/lib64/libhdmiedid.so|10cf8e37e0a383046846bbde78696350a2c00095
 
-# Audio FX modules
-system/etc/permissions/audiosphere.xml
-system/framework/audiosphere.jar
-vendor/lib64/soundfx/libasphere.so
-vendor/lib64/soundfx/libdirac.so
-vendor/lib64/soundfx/libshoebox.so
-vendor/lib/soundfx/libasphere.so
-vendor/lib/soundfx/libdirac.so
-vendor/lib/soundfx/libshoebox.so
+# Audio FX modules - from grus - V12.5.1.0.RFBCNXM
+system/etc/permissions/audiosphere.xml|3c6d8f14bd99e52a424282fd5d0a5b9b06485dea
+system/framework/audiosphere.jar|c1679f5aca56f0cb24745b3f7d219acd04833bed
+vendor/lib/soundfx/libasphere.so|b16636ad3a2d5b4bf575012ed212b8e51269c7d5
+vendor/lib/soundfx/libmisoundfx.so|5a29f4b6d1200225756373682fa3ae407f7d96a1
+vendor/lib/soundfx/libshoebox.so|bdfa1159e0ca064f0f55cee1d5f29f4677f0c0df
+vendor/lib64/soundfx/libasphere.so|a404102354aebb0486c6a829d546e60e83b8217b
+vendor/lib64/soundfx/libshoebox.so|646d96fec103d7cce2b24e442abffc449f264bf4
 
-# Bluetooth (A2DP)
-vendor/lib64/hw/audio.bluetooth_qti.default.so
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
-vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
-vendor/lib64/btaudio_offload_if.so
-vendor/lib64/libbluetooth_audio_session_qti.so
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
-vendor/lib/hw/audio.bluetooth_qti.default.so
-vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
-vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
-vendor/lib/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
-vendor/lib/btaudio_offload_if.so
-vendor/lib/libbluetooth_audio_session_qti.so
-vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
+# Bluetooth - from miui_PYXIS_21.4.7_21170309bf_11.0
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|2401640a10df4de23f704b87c4adab2da9ed111d
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|a979981c55f3dcaf6cf2212e71b901ca4d58b959
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|02123c4f94173f81d8830821f28ba042efc097b4
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|1d191661a6aee776e3b2a851354dc2cbc819bfef
+vendor/lib64/libbtnv.so|07e031527e60ce5e62a5017fd1d7ff83ef1aafcf
+vendor/lib64/vendor.qti.hardware.fm@1.0.so|17e86e9a2054db733d955fcf1066f6e06a44fb21
+
+# Bluetooth (A2DP) - from grus - V12.5.1.0.RFBCNXM
+vendor/lib/btaudio_offload_if.so|689144ff1e853f5e1f8427ead1e3863763ccdd5e
+vendor/lib/hw/audio.bluetooth_qti.default.so|73e6a079e53924ada70c924c1dba4f19f0ad186d
+vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|5d7946bb01087f4a8dd954e4d0d34c007e38764c
+vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|61c91107a4032634f1520340e75f015e44fd8dbc
+vendor/lib/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|cd605197212985e56a3b0e978051c3e5ed74061a
+vendor/lib/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so|e7a9b0c5154652194e30550a84f1c530a43637a4
+vendor/lib/libbluetooth_audio_session_qti.so|c4711ba66b1fb9a88e80447b473acb6c39690b46
+vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so|7e4587a1ac13de4d1ee8463b3aae487346f31b12
+vendor/lib/vendor.qti.hardware.bluetooth_sar@1.1.so|fbce94fed6a22fd527506d14d10a4df785b8fa25
+vendor/lib64/btaudio_offload_if.so|7382efc1b7db3d4efc2b0d3f997ddb61d23a0d7e
+vendor/lib64/hw/audio.bluetooth_qti.default.so|733780792ffc0c5f12b3b759925b532f124edbaf
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so|19328b80b073ec184b18dadd65a3fd3a43a36e5d
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|a97a6c330c932176acee0bce820c6e737778aed4
+vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|2dd88fe287eb63058b5d2fe19277439b120882d2
+vendor/lib64/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so|5a907028e9f5c570e06dfae94d339e6aae523e29
+vendor/lib64/libbluetooth_audio_session_qti.so|100d7b88665180eec8eba9235e3480e1f0484c1e
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|d1443e04e24cb45dd06f5d222b22a699c9e82cb1
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|1671815a79dab0fde9248d0851085ec1ab314f64
 
 # Bluetooth (aptX) - from crosshatch - QP1A.190711.020
 product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
-# CDSP
-vendor/bin/cdsprpcd
-vendor/lib64/libcdsp_default_listener.so
-vendor/lib64/libcdsprpc.so
-vendor/lib64/libfastrpc_utf_stub.so
-vendor/lib64/libsdsprpc.so
-vendor/lib64/libsysmon_cdsp_skel.so
-vendor/lib64/libmdsprpc.so
-vendor/lib/libcdsp_default_listener.so
-vendor/lib/libcdsprpc.so
-vendor/lib/libfastcrc.so
-vendor/lib/libfastrpc_utf_stub.so
-vendor/lib/libsdsprpc.so
-vendor/lib/libsysmon_cdsp_skel.so
-vendor/lib/libmdsprpc.so
+# CDSP - from grus - V12.5.1.0.RFBCNXM
+vendor/bin/cdsprpcd|8f541eab74d52bff8d73f7f280e085c4bf706e99
+vendor/lib/libcdsp_default_listener.so|3af8e9fbe0b154574ac0a709d1af401960922471
+vendor/lib/libcdsprpc.so|10dee10f945e61310a6e6395537b7e66dc137f5e
+vendor/lib/libfastcrc.so|893b4b886cc892bb67291f064f2df6a4a67aa039
+vendor/lib/libfastrpc_utf_stub.so|b7df4310dec92972bd92116fed5e932d90825d76
+vendor/lib/libmdsprpc.so|68fb7732dd93dec1c87acc9570cb0ffceb4cad45
+vendor/lib/libsdsprpc.so|42c4b3a5bc618e2bbd5e6cf20c1a01d70a8234d5
+vendor/lib/libsysmon_cdsp_skel.so|d30f7863f72cbcb6d5f657ab780bb53e02e1aaa4
+vendor/lib/vendor.qti.hardware.dsp@1.0.so|e553aafebc4b5f2908fc03f29b086cd1261aa454
+vendor/lib64/libcdsp_default_listener.so|c639e68a44537450a7aabb3549ac9edb5b940641
+vendor/lib64/libcdsprpc.so|91c088c734f71506902db9a4c0b7f102996ac83a
+vendor/lib64/libfastrpc_utf_stub.so|f689fe4deb2f9b37aa6c008182e21895762e41cb
+vendor/lib64/libmdsprpc.so|4abbca2cb130cd3a558eb9d56e2d3332ee9620ed
+vendor/lib64/libsdsprpc.so|868910927b4011ec680ee6f79a1345848fe82f3a
+vendor/lib64/libsysmon_cdsp_skel.so|e5ba4d173b0e09d736b16474ed2f57874cb91916
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so|5f30d9c5fff738e6194a36a5b93372fa32ec0471
 
 # Charger
 vendor/bin/hvdcp_opti
@@ -296,14 +303,14 @@ vendor/lib64/libllvm-glnext.so|c11e3f0f5b6d21d1badcca3bc8cac947c781deeb
 vendor/lib64/libllvm-qcom.so|a80c58c8f316af15a7a2d089536f824836f6c056
 vendor/lib64/libpvr.so|ac4805ba7a7c78570a60340d01248d258046e456
 
-# Graphics (Adreno firmware)
-vendor/firmware/a615_zap.b00
-vendor/firmware/a615_zap.b01
-vendor/firmware/a615_zap.b02
-vendor/firmware/a615_zap.elf
-vendor/firmware/a615_zap.mdt
-vendor/firmware/a630_gmu.bin
-vendor/firmware/a630_sqe.fw
+# Graphics (Adreno firmware) - from grus - V12.5.1.0.RFBCNXM
+vendor/firmware/a615_zap.b00|f378b1e8c467fd07fa7c12e3a884ba9a3c226d73
+vendor/firmware/a615_zap.b01|2d552312c072f82b76314edc363f48534d8ec884
+vendor/firmware/a615_zap.b02|4ae54047f9629f2470a5d58f3940c5eb51298b96
+vendor/firmware/a615_zap.elf|244d1fc4a9c9368052564ad2ae6e424cb89558d2
+vendor/firmware/a615_zap.mdt|1fce789f6d67b965eea924d6783cb93db4f2230a
+vendor/firmware/a630_gmu.bin|32bb4acc7767c47ddb487ed7cb998d465ee462f2
+vendor/firmware/a630_sqe.fw|e25094f97b44244775cc38a9d909fba6bd4cf76b
 
 # Graphics (Vulkan) - from PNX - RKQ1.200906.002
 vendor/lib/hw/vulkan.adreno.so|b2680e5b899d75fa3f82b457635e15c6998202a4
@@ -400,46 +407,42 @@ vendor/lib/libqti-iopd-client.so
 vendor/lib/vendor.qti.hardware.iop@1.0.so
 vendor/lib/vendor.qti.hardware.iop@2.0.so
 
-# IPA firmware
-vendor/etc/init/ipa_fws.rc
-vendor/firmware/ipa_fws.b00
-vendor/firmware/ipa_fws.b01
-vendor/firmware/ipa_fws.b02
-vendor/firmware/ipa_fws.b03
-vendor/firmware/ipa_fws.b04
-vendor/firmware/ipa_fws.elf
-vendor/firmware/ipa_fws.mdt
+# IPA firmware - from grus - V12.5.1.0.RFBCNXM
+vendor/etc/init/ipa_fws.rc|f1826b81077f51470c97781823f109f12361ac8b
+vendor/firmware/ipa_fws.b00|b2fca0cfa8e0bda146247c77ee4e3b051340b5c8
+vendor/firmware/ipa_fws.b01|971444818d5a1e210fd249f1778605dd053c24c8
+vendor/firmware/ipa_fws.b02|f3d7897df5adfbb026a8b88b8364e76a778dc75b
+vendor/firmware/ipa_fws.b03|c07cfef57f8f694b4cee41e78700614efbedf2bc
+vendor/firmware/ipa_fws.b04|e3552692a635dceca369cab6d9349091b669c80a
+vendor/firmware/ipa_fws.elf|46ef0a12699ce370b7183def8410d1ac060d1e8c
+vendor/firmware/ipa_fws.mdt|dd1c3a9352af84dda71f7201d3faeae1ceb78005
 
 # IRQ balance
 vendor/bin/msm_irqbalance
 
-# Listen
-vendor/lib64/hw/sound_trigger.primary.sdm710.so
-vendor/lib64/libcapiv2svacnn.so
-vendor/lib64/libcapiv2vop.so
-vendor/lib64/libgcs-calwrapper.so
-vendor/lib64/libgcs-ipc.so
-vendor/lib64/libgcs-osal.so
-vendor/lib64/libgcs.so
-vendor/lib64/libjnihelper.so
-vendor/lib64/liblistenjni.so
-vendor/lib64/liblistensoundmodel2.so
-vendor/lib64/libmulawdec.so
-vendor/lib64/librice.so
-vendor/lib/hw/sound_trigger.primary.sdm710.so
-vendor/lib/libadpcmdec.so
-vendor/lib/libcapiv2svacnn.so
-vendor/lib/libcapiv2vop.so
-vendor/lib/libgcs-calwrapper.so
-vendor/lib/libgcs-ipc.so
-vendor/lib/libgcs-osal.so
-vendor/lib/libgcs.so
-vendor/lib/libjnihelper.so
-vendor/lib/liblistenjni.so
-vendor/lib/liblistensoundmodel2.so
-vendor/lib/libmulawdec.so
-vendor/lib/librice.so
-vendor/lib/libsmwrapper.so
+# Listen - from grus - V12.5.1.0.RFBCNXM
+vendor/lib/hw/sound_trigger.primary.sdm710.so|d19d239ad243d5adebcace5fc0cb334e88d516e4
+vendor/lib/libadpcmdec.so|491fedbdcf9a395340ce4142c277156c0056bcf8
+vendor/lib/libcapiv2svacnn.so|da98f2be1e8bd1aba364610063e70c34cab844d2
+vendor/lib/libcapiv2vop.so|b47caa2eeec81e98de03439548d9b9199222eda7
+vendor/lib/libgcs-calwrapper.so|342dc3c853d12b85d821a1ce723ca4adebb20bd3
+vendor/lib/libgcs-ipc.so|59a33e09849c714517644e19f3c010431f4e272f
+vendor/lib/libgcs-osal.so|0e762ecaf6b0d59e5322323b0fef17e8c76d0b4a
+vendor/lib/libgcs.so|1bff64587bee298d4d3327c15e3da11984246ddf
+vendor/lib/libjnihelper.so|ef2c1ecf3a0e02125d78af8a16aea074d4337034
+vendor/lib/liblistensoundmodel2.so|158936bde01ff29142d3e47b38c4838004623307
+vendor/lib/libmulawdec.so|53257dee0befc2a353ceb84a906a680a33d745f1
+vendor/lib/libsmwrapper.so|fde373fc5a506666acfad83d7cf6d645cb226cc5
+vendor/lib64/hw/sound_trigger.primary.sdm710.so|122b62f014edd22abbeb611df4ada6783b4c2e39
+vendor/lib64/libcapiv2svacnn.so|a6b186beee18d45b92e14a8e1411e13e4d9330de
+vendor/lib64/libcapiv2vop.so|3a73591503cd935cb6e2e2175037fde5517c2e91
+vendor/lib64/libgcs-calwrapper.so|e55900f3d190ebb3e602e47de9cc5d602dd82763
+vendor/lib64/libgcs-ipc.so|9cb04aa345f30c44da5854c228944a107f74c3fc
+vendor/lib64/libgcs-osal.so|e5cd3ed3385b3797a67a8f4519eb59d63ae0a5d4
+vendor/lib64/libgcs.so|66101acdd9eca0ae527c8952f3c60b838e4a1173
+vendor/lib64/libjnihelper.so|fb8690fbb5b8fbb97ded1bd8d4f87285ec74cf41
+vendor/lib64/liblistensoundmodel2.so|55b9e9149a1452957027d3cd8e28828343d8a910
+vendor/lib64/libmulawdec.so|8a114d91458cee68b32186afe1a4b6315c0ffcd9
 
 # Mink-Lowi Interface daemon
 vendor/bin/mlid
