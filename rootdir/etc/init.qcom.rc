@@ -368,6 +368,8 @@ on post-fs-data
 
     start vendor.qcrild
     start vendor.qcrild2
+    start vendor.dataqti
+    start vendor.dataadpl
 
 on property:ro.vendor.iocgrp.config=1
     mkdir /dev/blkio
