@@ -437,8 +437,10 @@ vendor/lib64/libjnihelper.so|fb8690fbb5b8fbb97ded1bd8d4f87285ec74cf41
 vendor/lib64/liblistensoundmodel2.so|55b9e9149a1452957027d3cd8e28828343d8a910
 vendor/lib64/libmulawdec.so|8a114d91458cee68b32186afe1a4b6315c0ffcd9
 
-# Mink-Lowi Interface daemon
-vendor/bin/mlid
+# Mink-Lowi Interface daemon - from pyxis - V12.5.1.0.RFCCNXM
+vendor/bin/mlid|1345e5df78c7fb2583af0c4e046ae6d21a4e75da
+vendor/lib/libminksocket.so|ca2b0e83ca681ff4f71f43d6627e7a3ec8f3d645
+vendor/lib64/libminksocket.so|fa81f5c47ee5a1f05fee71c464095bb1e89c26fd
 
 # Mlipay
 vendor/bin/mlipayd@1.1
