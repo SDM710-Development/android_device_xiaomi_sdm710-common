@@ -442,14 +442,14 @@ vendor/bin/mlid|1345e5df78c7fb2583af0c4e046ae6d21a4e75da
 vendor/lib/libminksocket.so|ca2b0e83ca681ff4f71f43d6627e7a3ec8f3d645
 vendor/lib64/libminksocket.so|fa81f5c47ee5a1f05fee71c464095bb1e89c26fd
 
-# Mlipay
-vendor/bin/mlipayd@1.1
-vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
-vendor/lib64/libmlipay.so
-vendor/lib64/libmlipay@1.1.so
-vendor/lib64/vendor.xiaomi.hardware.mlipay@1.0.so
-vendor/lib64/vendor.xiaomi.hardware.mlipay@1.1.so
-vendor/lib64/vendor.xiaomi.hardware.mtdservice@1.0.so
+# Mlipay - from pyxis - V12.5.1.0.RFCCNXM
+vendor/bin/mlipayd@1.1|7e9fff19648c3da3e76354ccfa1aeea70beaac10
+vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc|b5ab5bcd031fe4d9781b5911c0595eaeac8b80ea
+vendor/lib64/libmlipay.so|28a2040410ea7cb1d2e0d55bc4150aa6bd4dca9b
+vendor/lib64/libmlipay@1.1.so|8475b6f50781fc4dbec98ec7e36d3edf20e1c6ee
+vendor/lib64/vendor.xiaomi.hardware.mlipay@1.0.so|90d5822e77aa7e721c9ecbf26a0b546f3436666a
+vendor/lib64/vendor.xiaomi.hardware.mlipay@1.1.so|6e5367ce7c40eb710525db40f4b678bcabb9dcd9
+vendor/lib64/vendor.xiaomi.hardware.mtdservice@1.0.so|0babf1ad82114e59d53a567b22ed5df4c4c75568
 
 # Neural-networks - from grus - V12.5.1.0.RFBCNXM
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti|2f4c5509649e72b1085c9eabd92a2b0b32090c0e
