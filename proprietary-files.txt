@@ -763,9 +763,9 @@ vendor/lib64/libvpplibrary.so|051dff97c0b8f4d6cbb9923fbcfe12e12df6bb69
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so|f7769685d9c0c74f8c8419db028a5d5c3f65a9da
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so|ca1906012d0ab6dc9048aa49703833512308e6cf
 
-# WiFi
-vendor/bin/cnss-daemon
-vendor/bin/nv_mac
+# WiFi - from pyxis - V12.5.1.0.RFCCNXM
+vendor/bin/cnss-daemon|4518062fd83b9c14eb36b079c812bf0d6b0a0d12
+vendor/bin/nv_mac|6f88daf873f8d863219de9402f47dd1eecfeae46
 
 # WiFi Display - from PNX - RKQ1.200906.002
 -system/framework/WfdCommon.jar|aa7470dd5ccb2e2c695fd54c3aff01d21e2d7472
