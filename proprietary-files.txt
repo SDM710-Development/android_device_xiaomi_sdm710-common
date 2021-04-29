@@ -748,18 +748,18 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e157937
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|37a9af9fbdf5e3ec24129037d6f2fc16317ade23
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|960561ba01e28777e099294fb0a9a749e2b2a775
 
-# VPP - from PNX - RKQ1.200906.002
+# VPP - from pyxis - V12.5.1.0.RFCCNXM
 vendor/bin/vppservice|555301b19a86374900159423c88efd7bd9cea2f9
 vendor/etc/configstore/vpp.configstore.xml|d5095f33c326017a21fff186d19a2ce146b85d94
 vendor/etc/init/vppservice.rc|9daea1a00124d65ecb6978936785273edb74a8ed
-vendor/lib/libvppclient.so|3ec875c9813494878d3bbea32d65070fa68af0f1
+vendor/lib/libvppclient.so|a310e3c65ec4bc761dd4a57b97eed03247de219e
 vendor/lib/libvpphvx.so|a3869a611414316250b71be42b69638c31e9a8f9
-vendor/lib/libvpplibrary.so|c7c2e2a64ef4a1d4d4103130835da94f58eb2f4b
+vendor/lib/libvpplibrary.so|3c01e0e9f547767980ca767dbd0a8fb6c94bc2a5
 vendor/lib/vendor.qti.hardware.vpp@1.1.so|8df356bc93951b2072590ff17c5d7af08b4e8299
 vendor/lib/vendor.qti.hardware.vpp@1.2.so|edd5e3b33c51c31c8e9e54912269e893c4e3c730
-vendor/lib64/libvppclient.so|3cf0dc7ce3fa3adf9d05e674e3359fadd02a730c
+vendor/lib64/libvppclient.so|7f10a1dd8559f3b387e083c88d10099f0ebd025c
 vendor/lib64/libvpphvx.so|e1cfc643118f32a73d45c78929edc9815705229d
-vendor/lib64/libvpplibrary.so|3cdb980f51d0c0eecdb878eb869102c038b2f803
+vendor/lib64/libvpplibrary.so|051dff97c0b8f4d6cbb9923fbcfe12e12df6bb69
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so|f7769685d9c0c74f8c8419db028a5d5c3f65a9da
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so|ca1906012d0ab6dc9048aa49703833512308e6cf
 
