@@ -94,7 +94,7 @@ vendor/lib64/libsysmon_cdsp_skel.so|e5ba4d173b0e09d736b16474ed2f57874cb91916
 vendor/lib64/vendor.qti.hardware.dsp@1.0.so|5f30d9c5fff738e6194a36a5b93372fa32ec0471
 
 # Charger
-vendor/bin/hvdcp_opti
+vendor/bin/hvdcp_opti|4eab34baf6b49184b32a64cecb16ed2522ec44b5
 vendor/bin/init.qti.chg_policy.sh|132950e9cf9c1377d03766d126719e6912fc27c9
 vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc|3dab489feaf8d00e06894db7c92b462d701e4c98
 
