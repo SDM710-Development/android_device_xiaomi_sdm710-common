@@ -709,12 +709,12 @@ vendor/lib64/libscveObjectTracker_stub.so|e4e3db0b7674e326e07fa0a49211593cb7bc49
 vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so|2943b15443a8d1fe57ad5f6240c223d6598df5f4
 vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so|39c551c15ef3247c04172ca6892ce9df6ce38196
 
-# Soter
--vendor/app/SoterService/SoterService.apk
-vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
-vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.soter@1.0.so
+# Soter - from pyxis - V12.5.1.0.RFCCNXM
+-system/app/SoterService/SoterService.apk|6a4eabf9ed7303da6a17eb9e3483758158b41842
+vendor/bin/hw/vendor.qti.hardware.soter@1.0-service|a6ea6031c27889797b96fe29ba100924b79fe3fb
+vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc|76447a61ad5529949365eeb7e8ca000e48bd28ae
+vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so|18baeb26436cbf76c3989f133d2e4c88a298209a
+vendor/lib64/vendor.qti.hardware.soter@1.0.so|9424d8a625bbc9e399597ecb0ac80402fae7782c
 
 # Thermal engine
 vendor/bin/thermal-engine
