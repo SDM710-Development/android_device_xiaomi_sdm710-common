@@ -511,24 +511,29 @@ vendor/lib/libspcom.so|acec0b9bd1f9e31b3022f14975b0cc5566e4bb4a
 vendor/lib64/libperipheral_client.so|8cb65f4c93719767048dd7b1b845473fe6074ff7
 vendor/lib64/libspcom.so|1e82b29e1c128c6aef28f9f632f5cd0e04f5c3d9
 
-# Perf
-vendor/bin/hw/vendor.qti.hardware.perf@2.0-service
-vendor/etc/init/vendor.qti.hardware.perf@2.0-service.rc
-vendor/etc/perf/commonresourceconfigs.xml
-vendor/etc/perf/perfboostsconfig.xml
-vendor/etc/perf/perfconfigstore.xml
-vendor/etc/perf/targetconfig.xml
-vendor/etc/perf/targetresourceconfigs.xml
-vendor/lib64/libperfconfig.so
-vendor/lib64/libperfgluelayer.so
-vendor/lib64/libqti-perfd-client.so
-vendor/lib64/libqti-perfd.so
-vendor/lib64/libqti-util.so
-vendor/lib/libperfconfig.so
-vendor/lib/libperfgluelayer.so
-vendor/lib/libqti-perfd-client.so
-vendor/lib/libqti-perfd.so
-vendor/lib/libqti-util.so
+# Perf - from pyxis - V12.5.1.0.RFCCNXM
+vendor/bin/hw/vendor.qti.hardware.perf@2.2-service|bcc0537ccf8e9c9b45c56d0f4b5da4064a5b6e4c
+vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc|459b4c23550a56ac545f78c6d391f3d7dd9ba45b
+vendor/etc/lm/AdaptLaunchFeature.xml|f808f302e3e4110b7a8d54ea3a32b7c7574d6e5a
+vendor/etc/perf/commonresourceconfigs.xml|827c63cb52552af0c19a4735430f98334e1760bf
+vendor/etc/perf/perfboostsconfig.xml|649252a44794dd2c9e9a5e8871187f2122fd4863
+vendor/etc/perf/perfconfigstore.xml|95f986292059bb100c30ccf1c0140c062d13446f
+vendor/etc/perf/targetconfig.xml|788ced0689fe95a42e881ea86f3aefc0b4b64042
+vendor/etc/perf/targetresourceconfigs.xml|a9c91a3b0ad715cae8c7ea78d5d47dc7fd7c22f9
+vendor/lib/libperfconfig.so|a6e5536fad3158e78696efbb8ed8eb0cb7815e16
+vendor/lib/libperfgluelayer.so|52cf265b9dab53f798c8c48c70eee763e9543085
+vendor/lib/libqti-perfd-client.so|1b0c70391d684ad95c79bc24ecb5ac8096d39019
+vendor/lib/libqti-perfd.so|1870851617af7e1f87c95bfe77d375ba3f05d3d0
+vendor/lib/libqti-util.so|e0e2823d1f2414b171ed72245a147fef2b6a4e69
+vendor/lib64/libadaptlaunch.so|f63d64f33d118bc099bbd0415f987ad896a71e76
+vendor/lib64/liblearningmodule.so|6f54dc6234d3cf6ccf5971c9748d2178ad087ea6
+vendor/lib64/libmeters-ns.so|05a4e9661d9b727db7622ad6c8460ff305556a65
+vendor/lib64/libmeters.so|d5c9a4605bd2f631d6b0eb3c3cbb1f5fb8629114
+vendor/lib64/libperfconfig.so|7c11b2e9ca8e93f0cc45ed73e57a8ec5829b082b
+vendor/lib64/libperfgluelayer.so|77c14d1868b52f759f122441b5df7e5fe1e278e1
+vendor/lib64/libqti-perfd-client.so|d6502c16ab4dd7642641b6a8cbb061847ff5cb2d
+vendor/lib64/libqti-perfd.so|22ae99db39f1be4d3602c657bb7a5d96457f02d8
+vendor/lib64/libqti-util.so|003df67dcd57aaa67b7e80ad2640555dcebe5287
 
 # Power-off alarm - from pyxis - V12.5.1.0.RFCCNXM
 -product/app/PowerOffAlarm/PowerOffAlarm.apk|5885c09b8446d8b0c1f665bd9522792d79201cd7
