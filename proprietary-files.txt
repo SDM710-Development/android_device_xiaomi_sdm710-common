@@ -551,19 +551,19 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so|c7c418cfc889a89ea4f21bf828f626c75a
 # Power-off charging daemon - from pyxis - V12.5.1.0.RFCCNXM
 system/bin/charger:system/bin/chargeonlymode|a9365a39c92b59df01aa505e7532bc00232f5a33
 
-# QMI - from grus - V12.5.1.0.RFBCNXM
+# QMI - from pyxis - V12.5.1.0.RFCCNXM
 system/etc/permissions/qti_libpermissions.xml:system_ext/etc/permissions/qti_libpermissions.xml|593bcb72cce68ceb0a70f50bcae7d460114e7c62|ef3c88495f2f61a2d16e1445113a9d80f8db0e0a
 system/etc/permissions/qti_permissions.xml:system_ext/etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
 vendor/bin/irsc_util|c2cb91666e88000df258730cd4a0a81a207a2704
 vendor/lib/libdiag.so|c6f01ca626022999908475e8dd83aa0367111885
-vendor/lib/libdsi_netctrl.so|c481bd31508efd83c3d48a41d40d6b0681fac9af
+vendor/lib/libdsi_netctrl.so|4002a6b5a81884c81a6f159a92bb059ea5b2580e
 vendor/lib/libdsutils.so|f5baa2c6ef2e3845fd948cdbac8edad629b3c5ea
 vendor/lib/libidl.so|766a221129a8e5558ec13d8fb1cdc4577f7b10ba
 vendor/lib/libqcci_legacy.so|7433ef18c9f86858b72fb4bb956eab9efbafbc08
 vendor/lib/libqcmaputils.so|7cee3a7a45f52ab9c1729aba3bdc7168b739241b
-vendor/lib/libqdi.so|e468ab6a080030945f96dc6ce2ec79163f1f69e2
+vendor/lib/libqdi.so|f181099330c9bd7bc33fd26022552a7da009949f
 vendor/lib/libqdp.so|c890076e0a2039d593797cbcf574e0d9c3da1fa1
-vendor/lib/libqmi.so|3f46eb8f44940f5d20211484de27c1f25241cb16
+vendor/lib/libqmi.so|a1d6b2d42f9ab458484c4e3adc4d51edc25b8e4e
 vendor/lib/libqmi_cci.so|e8017fddc163ea5bdd1f7bb92c5db5c02b2d05e6
 vendor/lib/libqmi_client_helper.so|fff8df2704a5b2d889382c71eec21a7153f2a4e2
 vendor/lib/libqmi_client_qmux.so|9d49b4e43194d5351578ffc79f3b670ad8148cea
@@ -573,14 +573,14 @@ vendor/lib/libqmi_encdec.so|42f1d3da38170a5a69edaeb459db8425f455c625
 vendor/lib/libqminvapi.so|0bd8e8fce3a0353bb80e0c46955bd293abe89bf7
 vendor/lib/libqmiservices.so|4b8aece94c02b56474b6044e4bdef749a4d91822
 vendor/lib64/libdiag.so|e310c29ca02dbfe6d07fce8f9fefc01eafd23594
-vendor/lib64/libdsi_netctrl.so|4207ace83d8030425e6552cecba0f74c8794b604
+vendor/lib64/libdsi_netctrl.so|e3e4f04269f1efdb4a23f421eede53c1a2552b41
 vendor/lib64/libdsutils.so|4815422d4f67a2bfc86c5ca28c7fafb37e02a379
 vendor/lib64/libidl.so|485534cc8019d0a07b89b997fbf2eb88db29190f
 vendor/lib64/libqcci_legacy.so|b24c65dd780018687d7bbce5a7707141b259f0e5
 vendor/lib64/libqcmaputils.so|a5a4aeb0582ea3d43ea280a68b0f263710932e43
-vendor/lib64/libqdi.so|00ca58fa62dc5634514f9ed9d1ee406ddc9346e3
+vendor/lib64/libqdi.so|c6d743944f12a198880b28c9cfe711b29267c1b8
 vendor/lib64/libqdp.so|1cf4e724d796f389cdf56f15c9b23c6920f52bd1
-vendor/lib64/libqmi.so|e049fc84f2967d47e60e25d61a3032adcad01082
+vendor/lib64/libqmi.so|be9635bdd05362443a07aba451fa5353a5e0a2fa
 vendor/lib64/libqmi_cci.so|d35ef8e2412cb7f88887035a02ac83a10ebeaf1f
 vendor/lib64/libqmi_client_helper.so|ceaf386f300bafd2d8bc71d4dc2255ad13311986
 vendor/lib64/libqmi_client_qmux.so|3ec23f377161bb287625e52714190faa6ddf2e1e
