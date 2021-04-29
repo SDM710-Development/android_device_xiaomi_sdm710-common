@@ -716,10 +716,10 @@ vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc|76447a61ad5529949365eeb
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so|18baeb26436cbf76c3989f133d2e4c88a298209a
 vendor/lib64/vendor.qti.hardware.soter@1.0.so|9424d8a625bbc9e399597ecb0ac80402fae7782c
 
-# Thermal engine
-vendor/bin/thermal-engine
-vendor/lib64/libthermalclient.so
-vendor/lib/libthermalclient.so
+# Thermal engine - from pyxis - V12.5.1.0.RFCCNXM
+vendor/bin/thermal-engine|142f2705d2a5ca323145b14c16851bfdf7a1bdcc
+vendor/lib/libthermalclient.so|dc1655c135f1e37d743f454d7fba72372cc754d7
+vendor/lib64/libthermalclient.so|8daf4b680b432481c99eaa3b54a6da1d6348e2cb
 
 # Time services
 -vendor/app/TimeService/TimeService.apk
