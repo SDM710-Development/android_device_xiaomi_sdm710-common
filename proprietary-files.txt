@@ -721,12 +721,12 @@ vendor/bin/thermal-engine|142f2705d2a5ca323145b14c16851bfdf7a1bdcc
 vendor/lib/libthermalclient.so|dc1655c135f1e37d743f454d7fba72372cc754d7
 vendor/lib64/libthermalclient.so|8daf4b680b432481c99eaa3b54a6da1d6348e2cb
 
-# Time services
--vendor/app/TimeService/TimeService.apk
-vendor/bin/time_daemon
-vendor/etc/init/init.time_daemon.rc
-vendor/lib64/libtime_genoff.so
-vendor/lib/libtime_genoff.so
+# Time services - from pyxis - V12.5.1.0.RFCCNXM
+-vendor/app/TimeService/TimeService.apk|f6cf31050ffb820680b1120fe3139a9649ac81d4
+vendor/bin/time_daemon|e62d164b8c8b30743837896d4c5e8bca39b364e6
+vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
+vendor/lib/libtime_genoff.so|9f1e0fd1180207b3df81aa65c319b0d5a467d74c
+vendor/lib64/libtime_genoff.so|3f57de1aeb7aa113a0a579cebed85ab4405b9b49
 
 # Trusted Execution Environment connector
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
