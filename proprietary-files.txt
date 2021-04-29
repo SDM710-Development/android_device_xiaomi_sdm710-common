@@ -410,8 +410,8 @@ vendor/firmware/ipa_fws.b04|e3552692a635dceca369cab6d9349091b669c80a
 vendor/firmware/ipa_fws.elf|46ef0a12699ce370b7183def8410d1ac060d1e8c
 vendor/firmware/ipa_fws.mdt|dd1c3a9352af84dda71f7201d3faeae1ceb78005
 
-# IRQ balance
-vendor/bin/msm_irqbalance
+# IRQ balance - from pyxis - V12.5.1.0.RFCCNXM
+vendor/bin/msm_irqbalance|c0910fb319bb8287f176f26078241299455baad0
 
 # Listen - from grus - V12.5.1.0.RFBCNXM
 vendor/lib/hw/sound_trigger.primary.sdm710.so|d19d239ad243d5adebcace5fc0cb334e88d516e4
