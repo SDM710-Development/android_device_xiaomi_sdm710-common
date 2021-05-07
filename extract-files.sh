@@ -42,6 +42,10 @@ function blob_fixup() {
             ${PATCHELF} --replace-needed libcutils.so libcutils-v29.so "${2}"
             ${PATCHELF} --add-needed libcutils.so "${2}"
             ;;
+        vendor/lib*/sensors.ssc.so)
+            ${PATCHELF} --remove-needed vendor.qti.hardware.display.mapper@2.0.so "${2}"
+            ${PATCHELF} --remove-needed vendor.qti.hardware.display.mapper@3.0.so "${2}"
+            ;;
     esac
 }
 
