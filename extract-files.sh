@@ -38,6 +38,10 @@ function blob_fixup() {
         system_ext/lib64/libdpmframework.so)
             sed -i "s/libhidltransport.so/libcutils-v29.so\x00\x00\x00/" "${2}"
             ;;
+        vendor/lib*/sensors.ssc.so)
+            ${PATCHELF} --remove-needed vendor.qti.hardware.display.mapper@2.0.so "${2}"
+            ${PATCHELF} --remove-needed vendor.qti.hardware.display.mapper@3.0.so "${2}"
+            ;;
     esac
 }
 
