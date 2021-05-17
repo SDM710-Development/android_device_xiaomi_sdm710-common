@@ -262,12 +262,6 @@ vendor/lib/vendor.qti.esepowermanager@1.0.so|94f25d4c70dac7903000f4ea35af1483776
 vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so|9faebc46e57467c1a0801f2bcf5ce1e6dc6a1135
 vendor/lib64/vendor.qti.esepowermanager@1.0.so|a114629809e67015a14e5e367c6fb374adaafbc2
 
-# Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
-vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
-
 # Graphics (Adreno) - from PNX - RKQ1.200906.002
 vendor/lib/egl/eglSubDriverAndroid.so|cc5acc02889131a29b624b4c19ab90b8273f393d
 vendor/lib/egl/libEGL_adreno.so|ae30bbf20dc911308407da99cb263e8de6b2eecb
