@@ -195,6 +195,12 @@ on boot
     # Create directory used for display
     mkdir /mnt/vendor/persist/display 0770 system graphics
 
+    # Enable qcrild and data services on boot so process starts in main
+    enable vendor.qcrild
+    enable vendor.qcrild2
+    enable vendor.dataqti
+    enable vendor.dataadpl
+
     # Create vpp directory
     mkdir /mnt/vendor/persist/vpp 0770 media media
 
@@ -272,7 +278,6 @@ on post-fs-data
     mkdir /data/vendor/wifi/wigig_hostapd 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
-
 
     # Create the directories used by CnE subsystem
     mkdir /data/vendor/connectivity 0771 radio radio
@@ -368,11 +373,6 @@ on post-fs-data
 
     # Make MTU adjusting
     write /proc/sys/net/ipv4/tcp_mtu_probing 1
-
-    start vendor.qcrild
-    start vendor.qcrild2
-    start vendor.dataqti
-    start vendor.dataadpl
 
 on property:ro.vendor.iocgrp.config=1
     mkdir /dev/blkio
