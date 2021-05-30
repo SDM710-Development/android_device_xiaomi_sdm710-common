@@ -374,6 +374,9 @@ on post-fs-data
     # Make MTU adjusting
     write /proc/sys/net/ipv4/tcp_mtu_probing 1
 
+    # Init sensors
+    start vendor-sensor-sh
+
 on property:ro.vendor.iocgrp.config=1
     mkdir /dev/blkio
     mount cgroup none /dev/blkio blkio
@@ -561,9 +564,6 @@ service vendor.power /vendor/bin/hw/android.hardware.power-service-qti
     class hal
     user system
     group system input
-
-on property:vold.decrypt=trigger_restart_framework
-    start vendor-sensor-sh
 
 on boot && property:persist.vendor.usb.controller.default=*
     setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
