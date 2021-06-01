@@ -51,9 +51,11 @@ def OTA_InstallEnd(info):
 def AddTrustZoneAssertion(info, input_zip):
   android_info = info.input_zip.read("OTA/android-info.txt")
   m = re.search(r'require\s+version-trustzone\s*=\s*(\S+)', android_info)
-  if m:
-    versions = m.group(1).split('|')
-    if len(versions) and '*' not in versions:
-      cmd = 'assert(xiaomi.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1" || abort("ERROR: This package requires firmware from an Android 10 based MIUI build. Please upgrade firmware and retry!"););'
+  f = re.search(r'require\s+version-miui\s*=\s*(.+)', android_info)
+  if m and f:
+    versions_tz = m.group(1).split('|')
+    version_miui = f.group(1).rstrip()
+    if len(versions_tz) and '*' not in versions_tz:
+      cmd = 'assert(xiaomi.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions_tz]) + ') == "1" || abort("ERROR: This package requires firmware from MIUI ' + version_miui + ' build or newer. Please upgrade firmware and retry!"););'
       info.script.AppendExtra(cmd)
   return
