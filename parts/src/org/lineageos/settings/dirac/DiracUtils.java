@@ -17,11 +17,14 @@
 package org.lineageos.settings.dirac;
 
 import android.content.Context;
+import android.util.Log;
 
 public final class DiracUtils {
 
     protected static DiracSound mDiracSound;
     private static boolean mInitialized;
+    private static final String TAG = "DiracUtils";
+    private static final boolean DEBUG = true;
 
     public static void initialize() {
         if (!mInitialized) {
@@ -34,6 +37,7 @@ public final class DiracUtils {
     }
 
     protected static void setMusic(boolean enable) {
+        if (DEBUG) Log.d(TAG, "setMusic(" + enable + ")");
         mDiracSound.setMusic(enable ? 1 : 0);
     }
 
@@ -44,6 +48,7 @@ public final class DiracUtils {
     protected static void setLevel(String preset) {
         String[] level = preset.split("\\s*,\\s*");
 
+        if (DEBUG) Log.d(TAG, "setLevel(" + preset + ")");
         for (int band = 0; band <= level.length - 1; band++) {
             mDiracSound.setLevel(band, Float.valueOf(level[band]));
         }
@@ -56,10 +61,12 @@ public final class DiracUtils {
             selected += String.valueOf(temp);
             if (band != 6) selected += ",";
         }
+        if (DEBUG) Log.d(TAG, "getLevel() -> " + selected);
         return selected;
     }
 
     protected static void setHeadsetType(int paramInt) {
+         if (DEBUG) Log.d(TAG, "setHeadsetType(" + paramInt + ")");
          mDiracSound.setHeadsetType(paramInt);
     }
 }
