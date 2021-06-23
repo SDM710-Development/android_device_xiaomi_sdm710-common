@@ -51,17 +51,6 @@ public final class DiracUtils {
         }
     }
 
-    protected static String getLevel() {
-        String selected = "";
-        for (int band = 0; band <= 6; band++) {
-            int temp = (int) mDiracSound.getLevel(band);
-            selected += String.valueOf(temp);
-            if (band != 6) selected += ",";
-        }
-        if (DEBUG) Log.d(TAG, "getLevel() -> " + selected);
-        return selected;
-    }
-
     protected static void setHeadsetType(int paramInt) {
          if (DEBUG) Log.d(TAG, "setHeadsetType(" + paramInt + ")");
          mDiracSound.setHeadsetType(paramInt);
