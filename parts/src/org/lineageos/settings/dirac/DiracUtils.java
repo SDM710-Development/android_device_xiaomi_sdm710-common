@@ -29,9 +29,6 @@ public final class DiracUtils {
     public static void initialize() {
         if (!mInitialized) {
             mDiracSound = new DiracSound(0, 0);
-            mDiracSound.setMusic(mDiracSound.getMusic());
-            mDiracSound.setHeadsetType(mDiracSound.getHeadsetType());
-            setLevel(getLevel());
             mInitialized = true;
         }
     }
