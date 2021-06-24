@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">Blyuz</string>
+    <string name="dirac_preset_classical">Klassik</string>
+    <string name="dirac_preset_country">Mamlakat</string>
+    <string name="dirac_preset_dance">Raqs</string>
+    <string name="dirac_preset_electronic">Elektronik</string>
+    <string name="dirac_default">Standart</string>
+    <string name="dirac_preset_jazz">Jazz</string>
+    <string name="dirac_preset_metal">Metall</string>
+    <string name="dirac_preset_pop">Pop</string>
+    <string name="dirac_preset_rock">Rok</string>
+    <string name="dirac_headset_cancelling">Mi Shovqinni Kamaytirish 3.5mm</string>
+    <string name="dirac_headset_capsule">Mi Kapsula</string>
+    <string name="dirac_headset_earbuds">Mi naushniklar</string>
+    <string name="dirac_headset_general">Umumiy</string>
+    <string name="dirac_headset_general_inear">Oddiy quloqliklar</string>
+    <string name="dirac_headset_half_in_ear">Mi Half In-Ear</string>
+    <string name="dirac_headset_headphone">Mi Naushniklar</string>
+    <string name="dirac_headset_comfort">Mi Comfort</string>
+    <string name="dirac_headset_in_ear">Mi quloqliklari</string>
+    <string name="dirac_headset_in_ear2">Mi In-Ear 2</string>
+    <string name="dirac_headset_in_ear_2013">Mi In-Ear(2013)</string>
+    <string name="dirac_headset_in_ear_pro">Mi quloqliklari Pro</string>
+    <string name="dirac_headset_piston_1">Mi Piston-1</string>
+    <string name="dirac_headset_piston_2">Mi Porshen-2</string>
+    <string name="dirac_headset_piston_basic">Asosiy nashr</string>
+    <string name="dirac_headset_piston_color">Rangli nashr</string>
+    <string name="dirac_headset_piston_standard">Standart versiya</string>
+    <string name="dirac_headset_piston_youth">Yoshlar nashri</string>
+    <string name="dirac_headset_reduction_noise">Mi-shovqinni Kamaytirish C-turi</string>
+    <string name="dirac_headset_title">Naushniklar turi</string>
+    <string name="dirac_title">Mi Ovoz kuchaytirgichi</string>
+    <string name="dirac_preset_title">Tayyorlash</string>
+</resources>

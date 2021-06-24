@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">Blues</string>
+    <string name="dirac_preset_classical">Klasik</string>
+    <string name="dirac_preset_country">Yerel</string>
+    <string name="dirac_preset_dance">Dans</string>
+    <string name="dirac_preset_electronic">Elektronik</string>
+    <string name="dirac_default">Varsayılan</string>
+    <string name="dirac_preset_jazz">Caz</string>
+    <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_pop">Pop</string>
+    <string name="dirac_preset_rock">Rock</string>
+    <string name="dirac_headset_cancelling">Mi Gürültü Engelleme 3.5mm</string>
+    <string name="dirac_headset_capsule">Mi Kapsül</string>
+    <string name="dirac_headset_earbuds">Mi Kulaklıkları</string>
+    <string name="dirac_headset_general">Genel</string>
+    <string name="dirac_headset_general_inear">Genel Kulak-İçi</string>
+    <string name="dirac_headset_half_in_ear">Mi Yarı Kulak-İçi</string>
+    <string name="dirac_headset_headphone">Mi kulaklıkları</string>
+    <string name="dirac_headset_comfort">Mi Konfor</string>
+    <string name="dirac_headset_in_ear">Mi Kulak-İçi</string>
+    <string name="dirac_headset_in_ear2">Mi Kulak-İçi 2</string>
+    <string name="dirac_headset_in_ear_2013">Mi Kulak-İçi (2013)</string>
+    <string name="dirac_headset_in_ear_pro">Mi Kulak-İçi Pro</string>
+    <string name="dirac_headset_piston_1">Mi Piston-1</string>
+    <string name="dirac_headset_piston_2">Mi Piston-2</string>
+    <string name="dirac_headset_piston_basic">Temel sürüm</string>
+    <string name="dirac_headset_piston_color">Renkli Sürüm</string>
+    <string name="dirac_headset_piston_standard">Standart sürüm</string>
+    <string name="dirac_headset_piston_youth">Gençlik sürümü</string>
+    <string name="dirac_headset_reduction_noise">Mi Gürültü Engelleme Type-C</string>
+    <string name="dirac_headset_title">Kulaklık türünü seçin</string>
+    <string name="dirac_title">Mi Ses Yükseltici</string>
+    <string name="dirac_preset_title">Ön ayarlar</string>
+</resources>

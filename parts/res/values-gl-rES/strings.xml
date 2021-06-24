@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">Blues</string>
+    <string name="dirac_preset_classical">Clásica</string>
+    <string name="dirac_preset_country">Country</string>
+    <string name="dirac_preset_dance">Dance</string>
+    <string name="dirac_preset_electronic">Electrónica</string>
+    <string name="dirac_default">Predefinido</string>
+    <string name="dirac_preset_jazz">Jazz</string>
+    <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_pop">Pop</string>
+    <string name="dirac_preset_rock">Rock</string>
+    <string name="dirac_headset_cancelling">Cancelación de Mi Noise 3,5mm</string>
+    <string name="dirac_headset_capsule">Mi Capsule</string>
+    <string name="dirac_headset_earbuds">Mi Earbuds</string>
+    <string name="dirac_headset_general">Xeral</string>
+    <string name="dirac_headset_general_inear">Manos libres xeral</string>
+    <string name="dirac_headset_half_in_ear">Mi Half In-Ear</string>
+    <string name="dirac_headset_headphone">Auriculares Mi</string>
+    <string name="dirac_headset_comfort">Mi Comfort</string>
+    <string name="dirac_headset_in_ear">Mi In-Ear</string>
+    <string name="dirac_headset_in_ear2">Mi In-Ear 2</string>
+    <string name="dirac_headset_in_ear_2013">Mi In-Ear (2013)</string>
+    <string name="dirac_headset_in_ear_pro">Mi In-Ear Pro</string>
+    <string name="dirac_headset_piston_1">Mi piston-1</string>
+    <string name="dirac_headset_piston_2">Mi piston-2</string>
+    <string name="dirac_headset_piston_basic">Edición básica</string>
+    <string name="dirac_headset_piston_color">Edición a cor</string>
+    <string name="dirac_headset_piston_standard">Edición estándar</string>
+    <string name="dirac_headset_piston_youth">Edición mocidade</string>
+    <string name="dirac_headset_reduction_noise">Cancelación de Mi Noise TipoC</string>
+    <string name="dirac_headset_title">Seleccionar o tipo de auriculares</string>
+    <string name="dirac_title">Potenciador Mi Sound</string>
+    <string name="dirac_preset_title">Predefinido</string>
+</resources>

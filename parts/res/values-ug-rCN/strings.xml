@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">برۇس</string>
+    <string name="dirac_preset_classical">كىلاسسىك</string>
+    <string name="dirac_preset_country">يېزا</string>
+    <string name="dirac_preset_dance">ئۇسۇل مۇزىكىسى</string>
+    <string name="dirac_preset_electronic">ئېلېكتىرۇنلۇق</string>
+    <string name="dirac_default">يوق</string>
+    <string name="dirac_preset_jazz">جاز</string>
+    <string name="dirac_preset_metal">مېتال</string>
+    <string name="dirac_preset_pop">مودا</string>
+    <string name="dirac_preset_rock">روك</string>
+    <string name="dirac_headset_cancelling">شياۋمى شاۋقۇن تۆۋەنلىتىش3.5mm</string>
+    <string name="dirac_headset_capsule">شياۋمى كاپسۇلى</string>
+    <string name="dirac_headset_earbuds">قۇلاققا كەيدۈرۈش شەكىللىك</string>
+    <string name="dirac_headset_general">ئورتاق</string>
+    <string name="dirac_headset_general_inear">ئورتاق قۇلاققا سېلىش شەكىللىك</string>
+    <string name="dirac_headset_half_in_ear">قۇلاققا يېرىم كىرىدىغان تىڭشىغۇچ</string>
+    <string name="dirac_headset_headphone">شياۋمى بېشىغا كىيىش شەكىللىك</string>
+    <string name="dirac_headset_comfort">شىياۋمى قولاي نەشرى</string>
+    <string name="dirac_headset_in_ear">شياۋمى چەمبىرەك</string>
+    <string name="dirac_headset_in_ear2">شياۋمى چەمبىرەك2</string>
+    <string name="dirac_headset_in_ear_2013">قۇلاققا سېلىش شەكىللىك</string>
+    <string name="dirac_headset_in_ear_pro">شياۋمى چەمبىرەكPro</string>
+    <string name="dirac_headset_piston_1">شياۋمى پورشېن1</string>
+    <string name="dirac_headset_piston_2">شياۋمى پورشېن1</string>
+    <string name="dirac_headset_piston_basic">شياۋمى پورشېن ئاددى نەشرى</string>
+    <string name="dirac_headset_piston_color">شياۋمى پورشېن رەڭگارەڭ نۇسخىسى</string>
+    <string name="dirac_headset_piston_standard">شياۋمى پورشېن ئۆلچەملىك نەشرى</string>
+    <string name="dirac_headset_piston_youth">شياۋمى پورشېن ياشلار نەشرى</string>
+    <string name="dirac_headset_reduction_noise">شياۋمى شاۋقۇن چۈشۈرگۈچ typeC</string>
+    <string name="dirac_headset_title">تىڭشىغۇچ تەڭشىكى</string>
+    <string name="dirac_title">مى ئاۋاز ئاۋاز سۈپىتىنى كۆتۈرگۈچنى ئىشلىتىش</string>
+    <string name="dirac_preset_title">ئاڭلاش سېزىمى</string>
+</resources>

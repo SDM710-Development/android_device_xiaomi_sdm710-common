@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">ப்ளூஸ்</string>
+    <string name="dirac_preset_classical">கிளாசிக்கல்</string>
+    <string name="dirac_preset_country">கண்ட்ரி</string>
+    <string name="dirac_preset_dance">நடனம்</string>
+    <string name="dirac_preset_electronic">எலக்ட்ரானிக்</string>
+    <string name="dirac_default">இயல்புநிலை</string>
+    <string name="dirac_preset_jazz">ஜாஸ்</string>
+    <string name="dirac_preset_metal">மெட்டல்</string>
+    <string name="dirac_preset_pop">பாப்</string>
+    <string name="dirac_preset_rock">ராக்</string>
+    <string name="dirac_headset_cancelling">Mi இரைச்சல் குறைப்பு 3.5மிமீ</string>
+    <string name="dirac_headset_capsule">Mi கேப்ஸ்யூல்</string>
+    <string name="dirac_headset_earbuds">Mi earbuds</string>
+    <string name="dirac_headset_general">பொது</string>
+    <string name="dirac_headset_general_inear">பொதுவான இன்-இயர்</string>
+    <string name="dirac_headset_half_in_ear">Mi ஹாஃப் இன்-இயர்</string>
+    <string name="dirac_headset_headphone">Mi ஹெட்ஃபோன்கள்</string>
+    <string name="dirac_headset_comfort">Mi வசதி</string>
+    <string name="dirac_headset_in_ear">Mi இன்-இயர்</string>
+    <string name="dirac_headset_in_ear2">Mi இன்-இயர் 2</string>
+    <string name="dirac_headset_in_ear_2013">Mi இன்-இயர்(2013)</string>
+    <string name="dirac_headset_in_ear_pro">Mi இன்-இயர் ப்ரோ</string>
+    <string name="dirac_headset_piston_1">Mi பிஸ்டன்-1</string>
+    <string name="dirac_headset_piston_2">Mi பிஸ்டன்-2</string>
+    <string name="dirac_headset_piston_basic">அடிப்படை பதிப்பு</string>
+    <string name="dirac_headset_piston_color">கலர் பதிப்பு</string>
+    <string name="dirac_headset_piston_standard">இயல்பு பதிப்பு</string>
+    <string name="dirac_headset_piston_youth">யூத் எடிஷன்</string>
+    <string name="dirac_headset_reduction_noise">Mi இரைச்சல் குறைப்பு Type-C</string>
+    <string name="dirac_headset_title">ஹெட்ஃபோன் வகையைத் தேர்வுசெய்யவும்</string>
+    <string name="dirac_title">Mi சவுண்ட் என்ஹேன்சர்</string>
+    <string name="dirac_preset_title">முன்னமைவு</string>
+</resources>

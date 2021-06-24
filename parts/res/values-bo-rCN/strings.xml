@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">blues</string>
+    <string name="dirac_preset_classical">གནའ་ཉམས།</string>
+    <string name="dirac_preset_country">གྲོང་གསེབ།</string>
+    <string name="dirac_preset_dance">གར་དབྱངས།</string>
+    <string name="dirac_preset_electronic">གློག་རྡུལ་རོལ་དབྱངས།</string>
+    <string name="dirac_default">མེད།</string>
+    <string name="dirac_preset_jazz">རྗེར་སི།</string>
+    <string name="dirac_preset_metal">ལྕགས་རིགས།</string>
+    <string name="dirac_preset_pop">དར་གསོ།</string>
+    <string name="dirac_preset_rock">ཡོམ་འགུལ།</string>
+    <string name="dirac_headset_cancelling">ཞའོ་མཱི་འཛེར་འགོག mm3.5</string>
+    <string name="dirac_headset_capsule">ཞོའི་མཱི་སྤྱིན་ཐུམ།</string>
+    <string name="dirac_headset_earbuds">"ཚོར་འགུལ་རྣར་རྫང་དཔེ་ཚུལ། "</string>
+    <string name="dirac_headset_general">རྒྱུན་སྤྱོད།</string>
+    <string name="dirac_headset_general_inear">"རྒྱུན་སྤྱོད་རྣར་གཞུག་དཔེ་ཚུལ། "</string>
+    <string name="dirac_headset_half_in_ear">ཞའོ་མྰི་རྣ་ཕྱེད་འཇུག་གྲས།</string>
+    <string name="dirac_headset_headphone">"ཞའོ་མཱི་མགོར་གོན་དཔེ་ཚུལ། "</string>
+    <string name="dirac_headset_comfort">ཞའོ་མཱི་མགོ་འདོགས་སྟབས་བདེའི་པར་གཞི།</string>
+    <string name="dirac_headset_in_ear">"ཞའོ་མཱི་ལྕགས་སྐོར། "</string>
+    <string name="dirac_headset_in_ear2">ཞའོ་མྰི་ལྕགས་སྐོར2</string>
+    <string name="dirac_headset_in_ear_2013">ཚོར་ཟིམ་རྣར་གཞུག་དཔེ་ཚུལ།</string>
+    <string name="dirac_headset_in_ear_pro">ཞའོ་མཱི་ལྕགས་སྐོར།Pro</string>
+    <string name="dirac_headset_piston_1">ཞའོ་མཱི་མེ་འབུགས1</string>
+    <string name="dirac_headset_piston_2">ཞའོ་མཱི་མེ་འབུགས2</string>
+    <string name="dirac_headset_piston_basic">"ཞའོ་མཱི་མེ་འབུགས་པར་གཞི་སླ་འཇུག་རིགས། "</string>
+    <string name="dirac_headset_piston_color">"ཞའོ་མཱི་མེ་འབུགས་པར་གཞི་མཚར་སྡུག་རིགས། "</string>
+    <string name="dirac_headset_piston_standard">"ཞའོ་མཱི་མེ་འབུགས་ཚད་ལྡན་པར་གཞི། "</string>
+    <string name="dirac_headset_piston_youth">"ཞའོ་མཱི་མེ་འབུགས་ལང་ཚོའི་པར་གཞི། "</string>
+    <string name="dirac_headset_reduction_noise">ཞའོ་མཱི་གཙེར་གཅོག typeC</string>
+    <string name="dirac_headset_title">"ཉན་ཆས་རིགས་སྒྲིག་འགོད། "</string>
+    <string name="dirac_title">མཱི་སྒྲ་བེད་སྤྱད་དེ་སྒྲ་གཤིས་མཐོར་འདེགས་བྱེད་པ།</string>
+    <string name="dirac_preset_title">རྣ་ཤེས།</string>
+</resources>
