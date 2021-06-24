@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">布魯斯</string>
+    <string name="dirac_preset_classical">古典</string>
+    <string name="dirac_preset_country">鄉村</string>
+    <string name="dirac_preset_dance">舞曲</string>
+    <string name="dirac_preset_electronic">電子音樂</string>
+    <string name="dirac_default">無</string>
+    <string name="dirac_preset_jazz">爵士</string>
+    <string name="dirac_preset_metal">金屬</string>
+    <string name="dirac_preset_pop">流行</string>
+    <string name="dirac_preset_rock">搖滾</string>
+    <string name="dirac_headset_cancelling">小米降噪耳機 3.5mm</string>
+    <string name="dirac_headset_capsule">小米膠囊</string>
+    <string name="dirac_headset_earbuds">靈動耳塞式</string>
+    <string name="dirac_headset_general">通用</string>
+    <string name="dirac_headset_general_inear">通用入耳式</string>
+    <string name="dirac_headset_half_in_ear">小米半入耳式</string>
+    <string name="dirac_headset_headphone">小米頭戴式</string>
+    <string name="dirac_headset_comfort">小米頭戴式耳機輕鬆版</string>
+    <string name="dirac_headset_in_ear">小米圈鐵耳機</string>
+    <string name="dirac_headset_in_ear2">小米圈鐵耳機2</string>
+    <string name="dirac_headset_in_ear_2013">靈悅入耳式</string>
+    <string name="dirac_headset_in_ear_pro">小米圈鐵耳機Pro</string>
+    <string name="dirac_headset_piston_1">小米活塞1</string>
+    <string name="dirac_headset_piston_2">小米活塞2</string>
+    <string name="dirac_headset_piston_basic">小米活塞簡裝版</string>
+    <string name="dirac_headset_piston_color">小米活塞耳機炫彩版</string>
+    <string name="dirac_headset_piston_standard">小米活塞標準版</string>
+    <string name="dirac_headset_piston_youth">小米活塞青春版</string>
+    <string name="dirac_headset_reduction_noise">小米降噪耳機 typeC</string>
+    <string name="dirac_headset_title">耳機類型設定</string>
+    <string name="dirac_title">使用米音提升音質</string>
+    <string name="dirac_preset_title">聽感</string>
+</resources>

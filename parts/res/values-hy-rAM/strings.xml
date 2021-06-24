@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">Բլյուզ</string>
+    <string name="dirac_preset_classical">Դասական</string>
+    <string name="dirac_preset_country">Քանտրի</string>
+    <string name="dirac_preset_dance">Պար</string>
+    <string name="dirac_preset_electronic">Էլեկտրոնային</string>
+    <string name="dirac_default">Կանխադրված</string>
+    <string name="dirac_preset_jazz">Ջազ</string>
+    <string name="dirac_preset_metal">Մետալ</string>
+    <string name="dirac_preset_pop">Փոփ</string>
+    <string name="dirac_preset_rock">Ռոք</string>
+    <string name="dirac_headset_cancelling">Mi Աղմուկի Չեղարկում 3.5մմ</string>
+    <string name="dirac_headset_capsule">Mi Capsule</string>
+    <string name="dirac_headset_earbuds">Mi Earbuds</string>
+    <string name="dirac_headset_general">Սովորական</string>
+    <string name="dirac_headset_general_inear">Սովորական ներդրվող</string>
+    <string name="dirac_headset_half_in_ear">Mi Half In-Ear</string>
+    <string name="dirac_headset_headphone">Mi ականջակալներ</string>
+    <string name="dirac_headset_comfort">Mi Comfort</string>
+    <string name="dirac_headset_in_ear">Mi ներդրվող</string>
+    <string name="dirac_headset_in_ear2">Mi In-Ear 2</string>
+    <string name="dirac_headset_in_ear_2013">Mi ներդրվող (2013)</string>
+    <string name="dirac_headset_in_ear_pro">Mi ներդրվող Pro</string>
+    <string name="dirac_headset_piston_1">Mi piston-1</string>
+    <string name="dirac_headset_piston_2">Mi Piston-2</string>
+    <string name="dirac_headset_piston_basic">Հիմնական տարբերակ</string>
+    <string name="dirac_headset_piston_color">Գունավոր տարբերակ</string>
+    <string name="dirac_headset_piston_standard">Ստանդարտ տարբերակ</string>
+    <string name="dirac_headset_piston_youth">Երիտասարդական տարբերակ</string>
+    <string name="dirac_headset_reduction_noise">Mi Աղմուկի Չեղարկում Տիպ C</string>
+    <string name="dirac_headset_title">Ընտրել ականջակալների տեսակը</string>
+    <string name="dirac_title">Mi Ձայնի բարելավում</string>
+    <string name="dirac_preset_title">Նախնական կարգավորում</string>
+</resources>
