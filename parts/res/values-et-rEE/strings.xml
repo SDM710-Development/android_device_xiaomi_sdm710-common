@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">Bluus</string>
+    <string name="dirac_preset_classical">Klassikaline</string>
+    <string name="dirac_preset_country">Riik</string>
+    <string name="dirac_preset_dance">Tants</string>
+    <string name="dirac_preset_electronic">Elektrooniline</string>
+    <string name="dirac_default">Vaikimisi</string>
+    <string name="dirac_preset_jazz">Džäss</string>
+    <string name="dirac_preset_metal">Metral</string>
+    <string name="dirac_preset_pop">Pop</string>
+    <string name="dirac_preset_rock">Kivi</string>
+    <string name="dirac_headset_cancelling">Mi müra tühistamine 3.5mm</string>
+    <string name="dirac_headset_capsule">Mi Kapsul</string>
+    <string name="dirac_headset_earbuds">Mi Nööpkuularid</string>
+    <string name="dirac_headset_general">Üldidne</string>
+    <string name="dirac_headset_general_inear">Üldised kõrvasisesed</string>
+    <string name="dirac_headset_half_in_ear">Kõrvasisene Mi Half</string>
+    <string name="dirac_headset_headphone">Mi Kõrvaklapid</string>
+    <string name="dirac_headset_comfort">Mi Comfort</string>
+    <string name="dirac_headset_in_ear">Mi Kõrvasisesed</string>
+    <string name="dirac_headset_in_ear2">Kõrvasisene Mi 2</string>
+    <string name="dirac_headset_in_ear_2013">Mi Kõrvasisesed (2013)</string>
+    <string name="dirac_headset_in_ear_pro">Mi Kõrvasisesed Pro</string>
+    <string name="dirac_headset_piston_1">Mi Piston-1</string>
+    <string name="dirac_headset_piston_2">Mi Piston-2</string>
+    <string name="dirac_headset_piston_basic">Põhiväljalase</string>
+    <string name="dirac_headset_piston_color">Värviline väljalase</string>
+    <string name="dirac_headset_piston_standard">Standardväljalase</string>
+    <string name="dirac_headset_piston_youth">Noorte väljalase</string>
+    <string name="dirac_headset_reduction_noise">Mi müra tühistamise C-tüüp</string>
+    <string name="dirac_headset_title">Valige kõrvaklapitüüp</string>
+    <string name="dirac_title">Mi Heli Parandaja</string>
+    <string name="dirac_preset_title">Eelseade</string>
+</resources>

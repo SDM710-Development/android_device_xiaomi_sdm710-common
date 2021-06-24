@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">ব্লুজ</string>
+    <string name="dirac_preset_classical">ক্লাসিকাল</string>
+    <string name="dirac_preset_country">কান্ট্রি</string>
+    <string name="dirac_preset_dance">নাচ</string>
+    <string name="dirac_preset_electronic">ইলেক্ট্রনিক</string>
+    <string name="dirac_default">ডিফল্ট</string>
+    <string name="dirac_preset_jazz">জ্যাজ</string>
+    <string name="dirac_preset_metal">মেটাল</string>
+    <string name="dirac_preset_pop">পপ</string>
+    <string name="dirac_preset_rock">রক</string>
+    <string name="dirac_headset_cancelling">Mi কোলাহল বাতিল (3.5মি. মি.)</string>
+    <string name="dirac_headset_capsule">Mi ক্যাপসুল</string>
+    <string name="dirac_headset_earbuds">Mi ইয়ারবাড</string>
+    <string name="dirac_headset_general">সাধারণ</string>
+    <string name="dirac_headset_general_inear">সাধারণত কানে</string>
+    <string name="dirac_headset_half_in_ear">Mi হাফ ইন ইয়ার</string>
+    <string name="dirac_headset_headphone">Mi হেডফোন</string>
+    <string name="dirac_headset_comfort">Mi কমফর্ট</string>
+    <string name="dirac_headset_in_ear">Mi ইন-ইয়ার</string>
+    <string name="dirac_headset_in_ear2">Mi ইন-ইয়ার 2</string>
+    <string name="dirac_headset_in_ear_2013">"Mi  ইন- ইয়ার(2013)"</string>
+    <string name="dirac_headset_in_ear_pro">Mi ইন ইয়ার প্রো</string>
+    <string name="dirac_headset_piston_1">Mi পিসটন-১</string>
+    <string name="dirac_headset_piston_2">Mi পিসটন-২</string>
+    <string name="dirac_headset_piston_basic">বেসিক ভার্সন</string>
+    <string name="dirac_headset_piston_color">রঙ সম্পাদক</string>
+    <string name="dirac_headset_piston_standard">" আদর্শ ভার্সন"</string>
+    <string name="dirac_headset_piston_youth">যুবা ভার্সন</string>
+    <string name="dirac_headset_reduction_noise">Mi কোলাহল বাতিল টাইপ-C</string>
+    <string name="dirac_headset_title">হেডফোনের প্রকার বেছে নিন</string>
+    <string name="dirac_title">Mi সাউন্ড বিবর্ধক</string>
+    <string name="dirac_preset_title">প্রিসেট</string>
+</resources>

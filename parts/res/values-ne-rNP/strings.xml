@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">ब्लुज</string>
+    <string name="dirac_preset_classical">क्लासिकल</string>
+    <string name="dirac_preset_country">राष्ट्र</string>
+    <string name="dirac_preset_dance">नाच</string>
+    <string name="dirac_preset_electronic">इलेक्ट्रोनिक</string>
+    <string name="dirac_default">पूर्वनिर्धारित</string>
+    <string name="dirac_preset_jazz">ज्याज</string>
+    <string name="dirac_preset_metal">मेटल</string>
+    <string name="dirac_preset_pop">पप</string>
+    <string name="dirac_preset_rock">रक</string>
+    <string name="dirac_headset_cancelling">Mi हल्ला रद्द गर्दै 3.5मि. मि</string>
+    <string name="dirac_headset_capsule">Mi क्यापसुल</string>
+    <string name="dirac_headset_earbuds">Mi इयरबड्स</string>
+    <string name="dirac_headset_general">साधारण</string>
+    <string name="dirac_headset_general_inear">सामान्य कान-मा</string>
+    <string name="dirac_headset_half_in_ear">Mi हाल्फ इन ईयर</string>
+    <string name="dirac_headset_headphone">Mi हेडफोनहरू</string>
+    <string name="dirac_headset_comfort">Mi सुविधा</string>
+    <string name="dirac_headset_in_ear">Mi कान-मा</string>
+    <string name="dirac_headset_in_ear2">Mi इन-ईयर 2</string>
+    <string name="dirac_headset_in_ear_2013">Mi इन-ईयर (2०1३)</string>
+    <string name="dirac_headset_in_ear_pro">Mi कान-मा प्रो</string>
+    <string name="dirac_headset_piston_1">Mi पिस्टन-1</string>
+    <string name="dirac_headset_piston_2">Mi पिस्टन-2</string>
+    <string name="dirac_headset_piston_basic">मूल संस्करण</string>
+    <string name="dirac_headset_piston_color">रङ संस्करण</string>
+    <string name="dirac_headset_piston_standard">मानक संस्करण</string>
+    <string name="dirac_headset_piston_youth">युवा संस्करण</string>
+    <string name="dirac_headset_reduction_noise">Mi हल्ला रद्द गर्दै प्रकार-C</string>
+    <string name="dirac_headset_title">हेडफोन प्रकार छनोट गर्नुहोस्</string>
+    <string name="dirac_title">Mi आवाज एन्हान्सर</string>
+    <string name="dirac_preset_title">प्रिसेट</string>
+</resources>

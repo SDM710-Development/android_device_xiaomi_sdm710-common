@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">Blues</string>
+    <string name="dirac_preset_classical">ຄລາສສິກ</string>
+    <string name="dirac_preset_country">ຄັນທຣີ່</string>
+    <string name="dirac_preset_dance">ເຕັ້ນ</string>
+    <string name="dirac_preset_electronic">ເອເລັກໂຕຣນິກ</string>
+    <string name="dirac_default">ຄ່າເລີ່ມຕົ້ນ</string>
+    <string name="dirac_preset_jazz">Jazz</string>
+    <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_pop">Pop</string>
+    <string name="dirac_preset_rock">ຣັອກ</string>
+    <string name="dirac_headset_cancelling">Mi ຕັດສຽງລົບກວນ 3.5mm</string>
+    <string name="dirac_headset_capsule">Mi Capsule</string>
+    <string name="dirac_headset_earbuds">Mi Earbuds</string>
+    <string name="dirac_headset_general">​ທົ່ວ​ໄປ</string>
+    <string name="dirac_headset_general_inear">ຫູຟັງ In-Ear ທົ່ວໄປ</string>
+    <string name="dirac_headset_half_in_ear">Mi Half In-Ear</string>
+    <string name="dirac_headset_headphone">ຫູຟັງ Mi</string>
+    <string name="dirac_headset_comfort">Mi Comfort</string>
+    <string name="dirac_headset_in_ear">Mi In-Ear</string>
+    <string name="dirac_headset_in_ear2">Mi In-Ear 2</string>
+    <string name="dirac_headset_in_ear_2013">Mi In-Ear (2013)</string>
+    <string name="dirac_headset_in_ear_pro">Mi In-Ear Pro</string>
+    <string name="dirac_headset_piston_1">Mi Piston-1</string>
+    <string name="dirac_headset_piston_2">Mi Piston-2</string>
+    <string name="dirac_headset_piston_basic">ພື້ນຖານ</string>
+    <string name="dirac_headset_piston_color">ຮຸ່ນສີສັນ</string>
+    <string name="dirac_headset_piston_standard">ມາດຕະຖານ</string>
+    <string name="dirac_headset_piston_youth">ຮຸ່ນໄວໜຸ່ມ</string>
+    <string name="dirac_headset_reduction_noise">Mi ຕັດສຽງລົບກວນ Type-C</string>
+    <string name="dirac_headset_title">ເລືອກປະເພດຫູຟັງ</string>
+    <string name="dirac_title">ຕົວເພີ່ມປະສິດທິພາບສຽງ Mi</string>
+    <string name="dirac_preset_title">ຄ່າທີ່ຕັ້ງໄວ້</string>
+</resources>

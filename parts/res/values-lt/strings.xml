@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">Bliuzas</string>
+    <string name="dirac_preset_classical">Klasika</string>
+    <string name="dirac_preset_country">Kantri</string>
+    <string name="dirac_preset_dance">Šokių</string>
+    <string name="dirac_preset_electronic">Elektronika</string>
+    <string name="dirac_default">Numatytasis</string>
+    <string name="dirac_preset_jazz">Džiazas</string>
+    <string name="dirac_preset_metal">Metalas</string>
+    <string name="dirac_preset_pop">Pop</string>
+    <string name="dirac_preset_rock">Rokas</string>
+    <string name="dirac_headset_cancelling">„Mi“ triukšmo mažinimas (3.5mm)</string>
+    <string name="dirac_headset_capsule">Mi Kapsulė</string>
+    <string name="dirac_headset_earbuds">Mi Ausinės</string>
+    <string name="dirac_headset_general">Įprastos ausinės</string>
+    <string name="dirac_headset_general_inear">Paprastos įkišamos ausinės</string>
+    <string name="dirac_headset_half_in_ear">„Mi Half in Ear“</string>
+    <string name="dirac_headset_headphone">Mi Ausinės</string>
+    <string name="dirac_headset_comfort">Mi Komfortas</string>
+    <string name="dirac_headset_in_ear">Mi Įkišamos ausinės</string>
+    <string name="dirac_headset_in_ear2">„Mi In-Ear 2“</string>
+    <string name="dirac_headset_in_ear_2013">„Mi In-Ear“ (2013)</string>
+    <string name="dirac_headset_in_ear_pro">„Mi In-Ear Pro“</string>
+    <string name="dirac_headset_piston_1">„Mi Piston-1“</string>
+    <string name="dirac_headset_piston_2">„Mi Piston-2“</string>
+    <string name="dirac_headset_piston_basic">Įprastos kamštinės</string>
+    <string name="dirac_headset_piston_color">Spalvų Leidimas</string>
+    <string name="dirac_headset_piston_standard">Standartinis Leidimas</string>
+    <string name="dirac_headset_piston_youth">Jaunimo Leidimas</string>
+    <string name="dirac_headset_reduction_noise">„Mi“ triukšmo mažinimas (Tipas-C)</string>
+    <string name="dirac_headset_title">Pasirinkite ausinių tipą</string>
+    <string name="dirac_title">„Mi garso pagerinimas“</string>
+    <string name="dirac_preset_title">Ruošinys</string>
+</resources>

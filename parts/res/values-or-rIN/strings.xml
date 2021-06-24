@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dirac_preset_blues">ବ୍ଲୁଜ୍</string>
+    <string name="dirac_preset_classical">ଶାସ୍ତ୍ରୀୟ</string>
+    <string name="dirac_preset_country">କଣ୍ଟ୍ରୀ</string>
+    <string name="dirac_preset_dance">ନୃତ୍ୟ</string>
+    <string name="dirac_preset_electronic">ଇଲେକ୍ଟ୍ରୋନିକ୍</string>
+    <string name="dirac_default">ଡିଫଲ୍ଟ୍‌</string>
+    <string name="dirac_preset_jazz">ଜାଜ୍</string>
+    <string name="dirac_preset_metal">ମେଟାଲ୍</string>
+    <string name="dirac_preset_pop">ପପ୍‌</string>
+    <string name="dirac_preset_rock">ରକ୍</string>
+    <string name="dirac_headset_cancelling">Mi ଶବ୍ଦ ପ୍ରଦୂଷଣ ବାତିଲ କରୁଛି 3.5 mm</string>
+    <string name="dirac_headset_capsule">Mi କ୍ୟାପସୁଲ୍</string>
+    <string name="dirac_headset_earbuds">Mi ଇଅର୍‌ବଡ୍</string>
+    <string name="dirac_headset_general">ସାଧାରଣ</string>
+    <string name="dirac_headset_general_inear">ସାଧାରଣ ଇନ୍‍-ଇଅର୍‍</string>
+    <string name="dirac_headset_half_in_ear">Mi ହାଫ ଇନ-ଇଅର</string>
+    <string name="dirac_headset_headphone">Mi ହେଡ୍‌ଫୋନ୍</string>
+    <string name="dirac_headset_comfort">Mi କମ୍ଫର୍ଟ</string>
+    <string name="dirac_headset_in_ear">Mi ଇନ୍‌‍-ଇଅର୍‍</string>
+    <string name="dirac_headset_in_ear2">Mi ଇନ୍-ଇୟର 2</string>
+    <string name="dirac_headset_in_ear_2013">Mi ଇନ୍-ଇୟର(2013)</string>
+    <string name="dirac_headset_in_ear_pro">Mi ଇନ୍‌‍-ଇଅର୍‌ ପ୍ରୋ</string>
+    <string name="dirac_headset_piston_1">Mi ପିଷ୍ଟନ୍‍-1</string>
+    <string name="dirac_headset_piston_2">Mi ପିଷ୍ଟନ୍‍-2</string>
+    <string name="dirac_headset_piston_basic">ମୂଳ ସଂସ୍କରଣ</string>
+    <string name="dirac_headset_piston_color">ରଙ୍ଗ ସଂସ୍କରଣ</string>
+    <string name="dirac_headset_piston_standard">ମାନକ ସଂସ୍କରଣ</string>
+    <string name="dirac_headset_piston_youth">ଯୁବ ସଂସ୍କରଣ</string>
+    <string name="dirac_headset_reduction_noise">Mi ଶବ୍ଦ ପ୍ରଦୂଷଣ ବାତିଲ କରାଯାଉଛି C- ପ୍ରକାରର</string>
+    <string name="dirac_headset_title">ହେଡ୍‌ଫୋନ୍‌ ପ୍ରକାର ଚୟନ କରନ୍ତୁ</string>
+    <string name="dirac_title">Mi ଧ୍ୱନୀ ବର୍ଦ୍ଧକ</string>
+    <string name="dirac_preset_title">ପ୍ରିସେଟ୍‌</string>
+</resources>
