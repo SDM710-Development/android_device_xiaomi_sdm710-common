@@ -19,9 +19,9 @@
     <string name="dirac_title">Dirac sound enhancer</string>
     <string name="dirac_headset_title">Headset type</string>
     <string name="dirac_preset_title">Sound preset</string>
+    <string name="dirac_default">Default</string>
 
     <!-- Dirac settings: headset types -->
-    <string name="dirac_headset_default">Default</string>
     <string name="dirac_headset_earbuds">Mi Earbuds</string>
     <string name="dirac_headset_in_ear_2013">Mi In-Ear (2013)</string>
     <string name="dirac_headset_piston_1">Mi Piston 1</string>
@@ -45,7 +45,6 @@
     <string name="dirac_headset_earphone">Mi Earphones</string>
 
     <!-- Dirac settings: equalizer presets -->
-    <string name="dirac_preset_default">Default</string>
     <string name="dirac_preset_rock">Rock</string>
     <string name="dirac_preset_jazz">Jazz</string>
     <string name="dirac_preset_pop">Pop</string>
