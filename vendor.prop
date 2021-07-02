@@ -28,6 +28,7 @@ ro.vendor.audio.sdk.fluencetype=fluence
 ro.vendor.audio.sdk.ssr=false
 ro.vendor.audio.sos=true
 ro.vendor.audio.soundfx.usb=true
+ro.vendor.audio.soundfx.type=mi
 vendor.audio.apptype.multirec.enabled=false
 vendor.audio.dolby.ds2.enabled=false
 vendor.audio.dolby.ds2.hardbypass=false
