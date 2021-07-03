@@ -220,8 +220,6 @@ on boot
     chown system system /sys/class/drm/card0-DSI-1/disp_param
     chmod 0700 /sys/class/drm/card0-DSI-1/disp_param
 
-    chown system system /sys/class/thermal/thermal_message/sconfig
-
     # Sensors log dir
     mkdir /data/vendor/sensors
     chown system system /data/vendor/sensors
