@@ -58,16 +58,16 @@ on boot
     # For cpusets initialize for Silver only first and then Silver + Gold
     # Silver only configuration cannot work with 0-7
     write /dev/cpuset/top-app/cpus 0-5
-    write /dev/cpuset/audio-app/cpus 1-2
-    write /dev/cpuset/foreground/cpus 0-5
+    write /dev/cpuset/audio-app/cpus 2-3
+    write /dev/cpuset/foreground/cpus 4-5
     write /dev/cpuset/foreground/boost/cpus 0-5
-    write /dev/cpuset/background/cpus 0-5
+    write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-5
     write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/foreground/cpus 0-7
-    write /dev/cpuset/foreground/boost/cpus 0-7
-    write /dev/cpuset/background/cpus 0-7
-    write /dev/cpuset/system-background/cpus 0-7
+    write /dev/cpuset/foreground/cpus 4-7
+    write /dev/cpuset/foreground/boost/cpus 4-7
+    write /dev/cpuset/background/cpus 0-1
+    write /dev/cpuset/system-background/cpus 0-5
 
 on property:init.svc.vendor.charger=running
     setprop persist.sys.usb.config mass_storage
@@ -110,17 +110,17 @@ on enable-low-power
     write /proc/irq/default_smp_affinity "3f"
 
     # Core control parameters on silver
-    write /sys/devices/system/cpu/cpu0/core_ctl/not_preferred "0 0 0 0 1 1"
-    write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 4
-    write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 60
-    write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 40
+    write /sys/devices/system/cpu/cpu0/core_ctl/not_preferred "0 0 1 1 1 1"
+    write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 2
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 75
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 60
     write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 100
     write /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster 0
     write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 8
 
     # Setting b.L scheduler parameters
     write /proc/sys/kernel/sched_upmigrate 96
-    write /proc/sys/kernel/sched_downmigrate 90
+    write /proc/sys/kernel/sched_downmigrate 92
     write /proc/sys/kernel/sched_group_upmigrate 140
     write /proc/sys/kernel/sched_group_downmigrate 120
     write /proc/sys/kernel/sched_walt_rotate_big_tasks 1
@@ -129,18 +129,18 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
     write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 0
     write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq 1209600
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 576000
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq 1612800
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 1209600
 
     # Configure governor settings for big cluster
     write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor "schedutil"
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/up_rate_limit_us 0
     write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/down_rate_limit_us 0
-    write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_freq 1344400
-    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 652000
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1209600"
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
-    write /sys/module/cpu_boost/parameters/powerkey_input_boost_freq "0:1209600 1:0 2:0 3:0 4:0 5:0 6:2054400 7:0"
+    write /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_freq 1843200
+    write /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq 979200
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1612800"
+    write /sys/module/cpu_boost/parameters/input_boost_ms 80
+    write /sys/module/cpu_boost/parameters/powerkey_input_boost_freq "0:1209600 1:0 2:0 3:0 4:0 5:0 6:1843200 7:0"
     write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms 400
 
     # Sched_load_boost as -6 is equivalent to target load as 85.
@@ -187,7 +187,7 @@ on enable-low-power
     write /sys/class/devfreq/soc:qcom,mincpubw/governor "cpufreq"
 
     # Set cpuset parameters
-    write /dev/cpuset/background/cpus 0-5
+    write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-5
 
     # Turn off scheduler boost at the end
