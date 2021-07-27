@@ -2,6 +2,7 @@
 
 # ADSP
 vendor/bin/adsprpcd
+vendor/etc/init/vendor.qti.adsprpc-sscrpc-service.rc
 vendor/lib/libadsp_default_listener.so
 vendor/lib/libadsprpc.so
 vendor/lib64/libadsp_default_listener.so
@@ -78,9 +79,12 @@ product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
 # CDSP
 vendor/bin/cdsprpcd
+vendor/etc/init/vendor.qti.cdsprpc-service.rc
 vendor/lib/libcdsp_default_listener.so
 vendor/lib/libcdsprpc.so
 vendor/lib/libfastcrc.so
+vendor/lib/libfastcvdsp_stub.so
+vendor/lib/libfastcvopt.so
 vendor/lib/libfastrpc_utf_stub.so
 vendor/lib/libmdsprpc.so
 vendor/lib/libsdsprpc.so
@@ -88,6 +92,8 @@ vendor/lib/libsysmon_cdsp_skel.so
 vendor/lib/vendor.qti.hardware.dsp@1.0.so
 vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
+vendor/lib64/libfastcvdsp_stub.so
+vendor/lib64/libfastcvopt.so
 vendor/lib64/libfastrpc_utf_stub.so
 vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
