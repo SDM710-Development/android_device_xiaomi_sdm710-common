@@ -89,7 +89,6 @@ vendor/lib/libfastrpc_utf_stub.so
 vendor/lib/libmdsprpc.so
 vendor/lib/libsdsprpc.so
 vendor/lib/libsysmon_cdsp_skel.so
-vendor/lib/vendor.qti.hardware.dsp@1.0.so
 vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
 vendor/lib64/libfastcvdsp_stub.so
@@ -98,7 +97,6 @@ vendor/lib64/libfastrpc_utf_stub.so
 vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
 vendor/lib64/libsysmon_cdsp_skel.so
-vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
 # Charger
 vendor/bin/hvdcp_opti
@@ -262,6 +260,13 @@ vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 vendor/lib64/libtzdrmgenprov.so
+
+# DSP service
+vendor/bin/dspservice
+vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
+vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
+vendor/lib/vendor.qti.hardware.dsp@1.0.so
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
 # ESE
 vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
