@@ -1,4 +1,4 @@
-# Common proprietary files - from pyxis MIUI package V12.5.1.0.RFCCNXM china stable, unless pinned
+# Common proprietary files - from pyxis V12.5.2.0.RFCMIXM global, unless pinned
 
 # ADSP
 vendor/bin/adsprpcd
