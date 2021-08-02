@@ -45,7 +45,7 @@ class Light : public ILight {
     Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
 
   private:
-    void handleNotification(int led, const LightState& state, size_t index);
+    void handleLed(int led, const LightState& state, size_t index);
 
     template <typename T>
     void setLedParam(int led, const std::string& param, const T& value);
