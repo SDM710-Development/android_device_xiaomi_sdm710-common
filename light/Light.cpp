@@ -29,8 +29,8 @@ namespace V2_0 {
 namespace implementation {
 
 static constexpr int kDefaultMaxBrightness = 255;
-static constexpr int kRampSteps = 50;
-static constexpr int kRampMaxStepDurationMs = 5;
+static constexpr int kRampSteps = 20;
+static constexpr int kRampMaxStepDurationMs = 16;
 
 // Loop: off ... just 1 cycle
 //        on ... repeat
