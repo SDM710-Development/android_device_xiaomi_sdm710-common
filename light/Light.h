@@ -55,7 +55,7 @@ class Light : public ILight {
 
     std::mutex mLock;
     std::unordered_map<Type, lightHandler> mLights;
-    std::array<LightState, 2> mLightStates;
+    std::array<LightState, 3> mLightStates;
     std::vector<std::string> mLeds;
 };
 
