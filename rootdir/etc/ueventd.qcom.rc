@@ -361,6 +361,14 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/kmsg                                               0620   root       system
 
 # LED class devices
+/sys/class/leds/*        blink        0660    system    system
+/sys/class/leds/*        brightness   0640    system    system
+/sys/class/leds/*        duty_pcts    0660    system    system
+/sys/class/leds/*        start_idx    0660    system    system
+/sys/class/leds/*        pause_hi     0660    system    system
+/sys/class/leds/*        pause_lo     0660    system    system
+/sys/class/leds/*        ramp_step_ms 0660    system    system
+/sys/class/leds/wled     secure_mode  0660    system    graphics
 
 # NPU device
 /dev/msm_npu             0644   system     system
