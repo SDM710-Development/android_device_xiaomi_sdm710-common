@@ -364,6 +364,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/class/leds/*        blink        0660    system    system
 /sys/class/leds/*        brightness   0640    system    system
 /sys/class/leds/*        duty_pcts    0660    system    system
+/sys/class/leds/*        lut_flags    0660    system    system
 /sys/class/leds/*        start_idx    0660    system    system
 /sys/class/leds/*        pause_hi     0660    system    system
 /sys/class/leds/*        pause_lo     0660    system    system
