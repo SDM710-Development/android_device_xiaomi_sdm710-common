@@ -99,56 +99,6 @@ Light::Light() {
     }
 }
 
-void Light::handleBattery(int led, const LightState& state) {
-    // if number of leds is 1 then request brightness for RGB mix
-    // otherwise get brightness for color component
-    uint32_t brightness = getBrightness(mLeds.size() > 1 ? led : -1, state);
-
-    uint32_t onMs = state.flashMode == Flash::TIMED ? state.flashOnMs : 0;
-    uint32_t offMs = state.flashMode == Flash::TIMED ? state.flashOffMs : 0;
-
-    auto getScaledDutyPercent = [](int value) -> std::string {
-        std::string output;
-        for (int i = 0; i <= kRampSteps; i++) {
-            if (i != 0) {
-                output += ",";
-            }
-            if (i <= kRampSteps / 2) {
-                output += "0";
-            } else {
-                output += std::to_string((i - kRampSteps / 2) * 100 * value /
-                                         (kDefaultMaxBrightness * (kRampSteps/2)));
-            }
-        }
-        return output;
-    };
-
-    // Disable blinking to start
-    setLedParam(led, "blink", 0);
-
-    if (onMs > 0 && offMs > 0) {
-        uint32_t pauseLo, pauseHi, stepDuration;
-        stepDuration = 10;
-        if (stepDuration * kRampSteps > onMs) {
-            pauseHi = 0;
-        } else {
-            pauseHi = onMs - kRampSteps * stepDuration;
-            pauseLo = offMs - kRampSteps * stepDuration;
-        }
-
-        setLedParam(led, "start_idx", 0);
-        setLedParam(led, "duty_pcts", getScaledDutyPercent(brightness));
-        setLedParam(led, "pause_lo", pauseLo);
-        setLedParam(led, "pause_hi", pauseHi);
-        setLedParam(led, "ramp_step_ms", stepDuration);
-
-        // Start blinking
-        setLedParam(led, "blink", 1);
-    } else {
-        setLedParam(led, "brightness", brightness);
-    }
-}
-
 void Light::handleNotification(int led, const LightState& state, size_t index) {
     mLightStates.at(index) = state;
 

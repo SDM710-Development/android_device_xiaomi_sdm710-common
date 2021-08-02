@@ -45,7 +45,6 @@ class Light : public ILight {
     Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
 
   private:
-    void handleBattery(int led, const LightState& state);
     void handleNotification(int led, const LightState& state, size_t index);
 
     template <typename T>
