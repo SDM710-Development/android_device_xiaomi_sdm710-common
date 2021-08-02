@@ -83,12 +83,12 @@ Light::Light() {
     mLights.emplace(Type::ATTENTION, std::bind(&Light::handleLed,
                                                this, std::placeholders::_1,
                                                std::placeholders::_2, 0));
-    mLights.emplace(Type::BATTERY, std::bind(&Light::handleLed,
-                                             this, std::placeholders::_1,
-                                             std::placeholders::_2, 1));
     mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleLed,
                                                    this, std::placeholders::_1,
-                                                   std::placeholders::_2, 2));
+                                                   std::placeholders::_2, 1));
+    mLights.emplace(Type::BATTERY, std::bind(&Light::handleLed,
+                                             this, std::placeholders::_1,
+                                             std::placeholders::_2, 2));
 
     if (isLedExist("blue") && isLedExist("green") && isLedExist("red")) {
         mLeds.push_back("blue");
