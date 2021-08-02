@@ -80,13 +80,13 @@ static uint32_t getBrightness(int component, const LightState& state) {
 }
 
 Light::Light() {
-    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleNotification,
+    mLights.emplace(Type::ATTENTION, std::bind(&Light::handleLed,
                                                this, std::placeholders::_1,
                                                std::placeholders::_2, 0));
-    mLights.emplace(Type::BATTERY, std::bind(&Light::handleNotification,
+    mLights.emplace(Type::BATTERY, std::bind(&Light::handleLed,
                                              this, std::placeholders::_1,
                                              std::placeholders::_2, 1));
-    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleNotification,
+    mLights.emplace(Type::NOTIFICATIONS, std::bind(&Light::handleLed,
                                                    this, std::placeholders::_1,
                                                    std::placeholders::_2, 2));
 
@@ -99,9 +99,11 @@ Light::Light() {
     }
 }
 
-void Light::handleNotification(int led, const LightState& state, size_t index) {
+void Light::handleLed(int led, const LightState& state, size_t index) {
+    // Update light state with specified index
     mLightStates.at(index) = state;
 
+    // Select light state (lower index -> higher priority)
     LightState stateToUse = mLightStates.front();
     for (const auto& lightState : mLightStates) {
         if (lightState.color & 0xffffff) {
@@ -110,19 +112,17 @@ void Light::handleNotification(int led, const LightState& state, size_t index) {
         }
     }
 
-    // if number of leds is 1 then request brightness for RGB mix
+    // If number of leds is 1 then request brightness for RGB mix
     // otherwise get brightness for color component
-    uint32_t brightness = getBrightness(mLeds.size() > 1 ? led : -1, stateToUse);
-
-    uint32_t onMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOnMs : 0;
-    uint32_t offMs = stateToUse.flashMode == Flash::TIMED ? stateToUse.flashOffMs : 0;
+    uint32_t brightness = getBrightness(mLeds.size() > 1 ? led : -1,
+                                        stateToUse);
 
     auto getScaledDutyPercent = [](int value) -> std::string {
         std::string output;
         for (int i = 0; i <= kRampSteps; i++) {
-            if (i != 0) {
+            if (i != 0)
                 output += ",";
-            }
+
             output += std::to_string(i * 100 * value /
                                      (kDefaultMaxBrightness * kRampSteps));
         }
@@ -132,16 +132,19 @@ void Light::handleNotification(int led, const LightState& state, size_t index) {
     // Disable blinking to start
     setLedParam(led, "blink", 0);
 
-    if (onMs > 0 && offMs > 0) {
-        uint32_t pauseLo, pauseHi, stepDuration;
-        if (kRampMaxStepDurationMs * kRampSteps > onMs) {
-            stepDuration = onMs / kRampSteps;
-            pauseHi = 0;
-        } else {
-            stepDuration = kRampMaxStepDurationMs;
-            pauseHi = onMs - kRampSteps * stepDuration;
-            pauseLo = offMs - kRampSteps * stepDuration;
-        }
+    if (stateToUse.flashMode == Flash::TIMED) {
+        // Use default ramp step duration
+        int stepDuration = kRampMaxStepDurationMs;
+
+        // Check if default ramp step duration is too long for either
+        // flashOnMs or flashOffMs and modify it if so
+        int len = std::min(stateToUse.flashOnMs, stateToUse.flashOffMs);
+        if (len < stepDuration * kRampSteps)
+                stepDuration = len / kRampSteps;
+
+        // Compute pauses
+        int pauseHi = stateToUse.flashOnMs - stepDuration * kRampSteps;
+        int pauseLo = stateToUse.flashOffMs - stepDuration * kRampSteps;
 
         setLedParam(led, "start_idx", 0);
         setLedParam(led, "duty_pcts", getScaledDutyPercent(brightness));
