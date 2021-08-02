@@ -32,6 +32,31 @@ static constexpr int kDefaultMaxBrightness = 255;
 static constexpr int kRampSteps = 50;
 static constexpr int kRampMaxStepDurationMs = 5;
 
+// Loop: off ... just 1 cycle
+//        on ... repeat
+static constexpr int fLutLoop = 1;
+
+// Ramp up: off ... LED is initially ON (ramp down follows)
+//           on ... LED is initially OFF (ramp up follows)
+static constexpr int fLutRampUp = 2;
+
+// Reverse: off ... only single direction
+//                  (e.g. off -> ramp-up -> on -> off -> ramp-up -> ...)
+//           on ... full cycle
+//                  (e.g. off -> ramp-up -> on -> ramp-down -> off -> ...)
+static constexpr int fLutReverse = 4;
+
+// Pause Hi: off ... no pause after ramp-up
+//            on ... pause after ramp-up (configured pause_hi value)
+static constexpr int fLutPauseHi = 8;
+
+// Pause Lo: off ... no pause after ramp-down
+//            on ... pause after ramp-down (configured pause_lo value)
+static constexpr int fLutPauseLo = 16;
+
+// Default LUT flags: start with off, full cycle and repeat
+static constexpr int fLutDefault = fLutLoop | fLutRampUp | fLutReverse;
+
 static bool isLedExist(const std::string& led)
 {
     std::string path = "/sys/class/leds/";
