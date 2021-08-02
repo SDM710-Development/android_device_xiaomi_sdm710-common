@@ -158,6 +158,9 @@ void Light::handleLed(int led, const LightState& state, size_t index) {
     setLedParam(led, "blink", 0);
 
     if (stateToUse.flashMode == Flash::TIMED) {
+        // Use default flags for LUT
+        int lutFlags = fLutDefault;
+
         // Use default ramp step duration
         int stepDuration = kRampMaxStepDurationMs;
 
@@ -171,11 +174,16 @@ void Light::handleLed(int led, const LightState& state, size_t index) {
         int pauseHi = stateToUse.flashOnMs - stepDuration * kRampSteps;
         int pauseLo = stateToUse.flashOffMs - stepDuration * kRampSteps;
 
+        // Enable LUT pause flags if they should be used
+        lutFlags |= pauseHi ? fLutPauseHi : 0;
+        lutFlags |= pauseLo ? fLutPauseLo : 0;
+
         setLedParam(led, "start_idx", 0);
         setLedParam(led, "duty_pcts", getScaledDutyPercent(brightness));
         setLedParam(led, "pause_lo", pauseLo);
         setLedParam(led, "pause_hi", pauseHi);
         setLedParam(led, "ramp_step_ms", stepDuration);
+        setLedParam(led, "lut_flags", lutFlags);
 
         // Start blinking
         setLedParam(led, "blink", 1);
