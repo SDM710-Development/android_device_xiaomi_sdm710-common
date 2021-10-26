@@ -100,8 +100,10 @@ Light::Light() {
 }
 
 void Light::handleLed(int led, const LightState& state, size_t index) {
+    // Update light state with specified index
     mLightStates.at(index) = state;
 
+    // Select light state (lower index -> higher priority)
     LightState stateToUse = mLightStates.front();
     for (const auto& lightState : mLightStates) {
         if (lightState.color & 0xffffff) {
@@ -110,9 +112,10 @@ void Light::handleLed(int led, const LightState& state, size_t index) {
         }
     }
 
-    // if number of leds is 1 then request brightness for RGB mix
+    // If number of leds is 1 then request brightness for RGB mix
     // otherwise get brightness for color component
-    uint32_t brightness = getBrightness(mLeds.size() > 1 ? led : -1, stateToUse);
+    uint32_t brightness = getBrightness(mLeds.size() > 1 ? led : -1,
+                                        stateToUse);
 
     auto getScaledDutyPercent = [](int value) -> std::string {
         std::string output;
@@ -130,16 +133,18 @@ void Light::handleLed(int led, const LightState& state, size_t index) {
     setLedParam(led, "blink", 0);
 
     if (stateToUse.flashMode == Flash::TIMED) {
-        // If the flashOnMs duration is not long enough to fit ramping up and down
-        // at the default step duration, step duration is modified to fit.
-        int32_t stepDuration = kRampMaxStepDurationMs;
-        int32_t pauseHi = stateToUse.flashOnMs - (stepDuration * kRampSteps * 2);
-        int32_t pauseLo = stateToUse.flashOffMs;
+        // Use default ramp step duration
+        int stepDuration = kRampMaxStepDurationMs;
 
-        if (pauseHi < 0) {
-            stepDuration = stateToUse.flashOnMs / (kRampSteps * 2);
-            pauseHi = 0;
-        }
+        // Check if default ramp step duration is too long for either
+        // flashOnMs or flashOffMs and modify it if so
+        int len = std::min(stateToUse.flashOnMs, stateToUse.flashOffMs);
+        if (len < stepDuration * kRampSteps)
+                stepDuration = len / kRampSteps;
+
+        // Compute pauses
+        int pauseHi = stateToUse.flashOnMs - stepDuration * kRampSteps;
+        int pauseLo = stateToUse.flashOffMs - stepDuration * kRampSteps;
 
         setLedParam(led, "start_idx", 0);
         setLedParam(led, "duty_pcts", getScaledDutyPercent(brightness));
