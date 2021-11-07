@@ -138,7 +138,7 @@
       "Name": "CPUBWSampleMs",
       "Path": "/sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/sample_ms",
       "Values": [
-        "10",
+        "20",
         "4"
       ],
       "ResetOnInit": true
@@ -440,7 +440,7 @@
       "PowerHint": "CAMERA_STREAMING_MID",
       "Node": "CPUBWSampleMs",
       "Duration": 0,
-      "Value": "10"
+      "Value": "20"
     },
     {
       "PowerHint": "CAMERA_STREAMING_MID",
@@ -458,7 +458,7 @@
       "PowerHint": "CAMERA_STREAMING_HIGH",
       "Node": "CPUBWSampleMs",
       "Duration": 0,
-      "Value": "10"
+      "Value": "20"
     },
     {
       "PowerHint": "CAMERA_STREAMING_HIGH",
@@ -488,7 +488,7 @@
       "PowerHint": "CAMERA_STREAMING_LOW",
       "Node": "CPUBWSampleMs",
       "Duration": 0,
-      "Value": "10"
+      "Value": "20"
     },
     {
       "PowerHint": "CAMERA_STREAMING_LOW",
@@ -518,7 +518,7 @@
       "PowerHint": "CAMERA_STREAMING_SECURE",
       "Node": "CPUBWSampleMs",
       "Duration": 0,
-      "Value": "10"
+      "Value": "20"
     },
     {
       "PowerHint": "CAMERA_STREAMING_SECURE",
