@@ -35,6 +35,11 @@ printf "\n%s\n" "ifeq (\$(BOARD_HAVE_QCOM_FM),true)" >> "$PRODUCTMK"
 write_makefiles "$MY_DIR"/proprietary-files-fm.txt true
 echo "endif" >> "$PRODUCTMK"
 
+# NFC blobs
+printf "\n%s\n" "ifeq (\$(TARGET_HAS_NFC),true)" >> "$PRODUCTMK"
+write_makefiles "$MY_DIR"/proprietary-files-nfc.txt true
+echo "endif" >> "$PRODUCTMK"
+
 # Finish
 write_footers
 
