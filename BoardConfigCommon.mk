@@ -78,6 +78,12 @@ TARGET_SURFACEFLINGER_FOD_LIB := //$(COMMON_PATH):libfod_extension.xiaomi_sdm710
 TARGET_USES_FOD_ZPOS := true
 endif
 
+# FM
+ifeq ($(BOARD_HAVE_QCOM_FM),true)
+BOARD_HAS_QCA_FM_SOC := "cherokee"
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest_fm.xml
+endif
+
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := true
 BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true

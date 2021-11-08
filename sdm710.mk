@@ -198,6 +198,15 @@ PRODUCT_COPY_FILES += \
     vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 endif
 
+# FM
+ifeq ($(BOARD_HAVE_QCOM_FM),true)
+PRODUCT_PACKAGES += \
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio \
+    qcom.fmradio.xml
+endif
+
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@2.1-impl-qti \
