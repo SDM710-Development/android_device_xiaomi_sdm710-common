@@ -21,6 +21,7 @@ ro.config.vc_call_vol_steps=11
 ro.kernel.ebpf.supported=true
 
 # Bluetooth
+persist.bluetooth.a2dp_offload.disabled=true
 vendor.bluetooth.soc=cherokee
 
 # Camera
