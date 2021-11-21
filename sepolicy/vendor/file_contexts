@@ -2,7 +2,13 @@
 /dev/elliptic(.*)?                            u:object_r:sound_device:s0
 
 # Camera
-/(vendor|system/vendor)/bin/remosaic_daemon   u:object_r:remosaic_daemon_exec:s0
+/(vendor|system/vendor)/bin/remosaic_daemon                                 u:object_r:remosaic_daemon_exec:s0
+/(vendor|system/vendor)/lib(64)?/libal(CFR|hLDC|LDC|RnBRT_GL_GBWRAPPER)\.so u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libarcsoft_.*\.so                          u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libmialgoengine\.so                        u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libmibokeh_712\.so                         u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libmpbase\.so                              u:object_r:same_process_hal_file:s0
+/(vendor|system/vendor)/lib(64)?/libVD.*\.so                                u:object_r:same_process_hal_file:s0
 
 # Data files
 /data/vendor/fpc(/.*)?                        u:object_r:fingerprint_data_file:s0
