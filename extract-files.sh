@@ -26,10 +26,29 @@ function blob_fixup() {
         vendor/lib*/sensors.ssc.so)
             ${PATCHELF} --remove-needed vendor.qti.hardware.display.mapper@2.0.so "${2}"
             ${PATCHELF} --remove-needed vendor.qti.hardware.display.mapper@3.0.so "${2}"
+            ;& # Pass-through
+        vendor/bin/sensors.qti) ;&
+        vendor/lib/camera/components/com.qti.node.eisv2.so) ;&
+        vendor/lib/camera/components/com.qti.node.eisv3.so) ;&
+        vendor/lib/camera/components/com.qti.stats.aecwrapper.so) ;&
+        vendor/lib/camera/components/com.vidhance.node.eis.so) ;&
+        vendor/lib/hw/camera.qcom.so) ;&
+        vendor/lib/hw/com.qti.chi.override.so) ;&
+        vendor/lib/libcamera_nn_stub.so) ;&
+        vendor/lib/libsensorcal.so) ;&
+        vendor/lib/libsnsapi.so) ;&
+        vendor/lib/libsnsdiaglog.so) ;&
+        vendor/lib/libssc.so) ;&
+        vendor/lib/libswregistrationalgo.so) ;&
+        vendor/lib64/libsensorcal.so) ;&
+        vendor/lib64/libsnsdiaglog.so) ;&
+        vendor/lib64/libssc.so) ;&
+        vendor/lib64/sensors.ssc.so)
+            ${PATCHELF} --replace-needed "libprotobuf-cpp-full.so" "libprotobuf-cpp-full-v29.so" "${2}"
             ;;
-        vendor/lib*/sensors.ssc.so)
-            ${PATCHELF} --remove-needed vendor.qti.hardware.display.mapper@2.0.so "${2}"
-            ${PATCHELF} --remove-needed vendor.qti.hardware.display.mapper@3.0.so "${2}"
+        vendor/lib64/libwvhidl.so) ;&
+        vendor/lib64/mediadrm/libwvdrmengine.so)
+            ${PATCHELF} --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
             ;;
     esac
 }
