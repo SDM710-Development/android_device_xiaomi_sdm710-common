@@ -43,7 +43,8 @@ echo "endif" >> "$PRODUCTMK"
 # Finish
 write_footers
 
-if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
+if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" -o \
+     -s "${MY_DIR}/../${DEVICE}/proprietary-firmware.txt" ]; then
     # Reinitialize the helper for device
     setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
 
@@ -51,7 +52,12 @@ if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
     write_headers
 
     # The standard device blobs
-    write_makefiles "${MY_DIR}/../${DEVICE}/proprietary-files.txt" true
+    test -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" &&
+        write_makefiles "${MY_DIR}/../${DEVICE}/proprietary-files.txt" true
+
+    # The firmware blobs
+    test -s "${MY_DIR}/../${DEVICE}/proprietary-firmware.txt" &&
+        append_firmware_calls_to_makefiles
 
     # Finish
     write_footers
