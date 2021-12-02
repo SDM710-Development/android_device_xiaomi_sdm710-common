@@ -31,61 +31,31 @@ namespace livedisplay {
 namespace V2_0 {
 namespace implementation {
 
-static constexpr const char* kDispParamPath =
-        "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param";
-static constexpr const char* kHbmStatusPath =
-        "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm_status";
-
-static constexpr const char* kDispParamHbmOff = "0xF0000";
-static constexpr const char* kDispParamHbmOn = "0x10000";
-static constexpr const char* kDispParamHbmFodOff = "0xE0000";
-static constexpr const char* kDispParamHbmFodOn = "0x20000";
-
-bool hasAmoledPanel() {
-    std::string device = android::base::GetProperty("ro.product.device", "");
-    return device == "grus" || device == "pyxis" ||
-            device == "sirius" || device == "vela";
-}
-
-bool hasFingerprintOnDisplay() {
-    std::string device = android::base::GetProperty("ro.product.device", "");
-    return device == "grus" || device == "pyxis" ||
-            device == "vela";
-}
+static constexpr const char* kHbmPath =
+        "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm";
 
 bool SunlightEnhancement::isSupported() {
-    if (hasAmoledPanel()) {
-        std::ofstream disp_param_file(kDispParamPath);
-        std::ifstream hbm_status_file(kHbmStatusPath);
-        if (!disp_param_file.is_open()) {
-            LOG(ERROR) << "Failed to open " << kDispParamPath << ", error=" << errno
-                       << " (" << strerror(errno) << ")";
-        }
-        if (!hbm_status_file.is_open()) {
-            LOG(ERROR) << "Failed to open " << kHbmStatusPath << ", error=" << errno
-                       << " (" << strerror(errno) << ")";
-        }
-        return !disp_param_file.fail() && !hbm_status_file.fail();
+    std::ofstream hbm_file(kHbmPath);
+    if (!hbm_file.is_open()) {
+        LOG(ERROR) << "Failed to open " << kHbmPath << ", error=" << errno
+                   << " (" << strerror(errno) << ")";
     }
-    return false;
+
+    return !hbm_file.fail();
 }
 
 Return<bool> SunlightEnhancement::isEnabled() {
-    std::ifstream hbm_status_file(kHbmStatusPath);
+    std::ifstream hbm_file(kHbmPath);
     int result = -1;
-    hbm_status_file >> result;
-    return !hbm_status_file.fail() && result > 0;
+    hbm_file >> result;
+    return !hbm_file.fail() && result > 0;
 }
 
 Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
-    std::ofstream disp_param_file(kDispParamPath);
-    if (hasFingerprintOnDisplay()) {
-        disp_param_file << (enabled ? kDispParamHbmFodOn : kDispParamHbmFodOff);
-    } else {
-        disp_param_file << (enabled ? kDispParamHbmOn : kDispParamHbmOff);
-    }
-    LOG(DEBUG) << "setEnabled fail " << disp_param_file.fail();
-    return !disp_param_file.fail();
+    std::ofstream hbm_file(kHbmPath);
+    hbm_file << (enabled ? '1' : '0');
+    LOG(DEBUG) << "setEnabled fail " << hbm_file.fail();
+    return !hbm_file.fail();
 }
 
 }  // namespace implementation
