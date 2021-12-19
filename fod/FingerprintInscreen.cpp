@@ -37,6 +37,10 @@
 #define PARAM_NIT_630_FOD 1
 #define PARAM_NIT_NONE 0
 
+#define FOD_PRESSED_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_pressed"
+#define FOD_PRESSED_ON 1
+#define FOD_PRESSED_OFF 0
+
 #define FOD_STATUS_PATH "/sys/devices/virtual/touch/tp_dev/fod_status"
 #define FOD_STATUS_ON 1
 #define FOD_STATUS_OFF 0
@@ -185,10 +189,12 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 }
 
 Return<void> FingerprintInscreen::onPress() {
+    set(FOD_PRESSED_PATH, FOD_PRESSED_ON);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
+    set(FOD_PRESSED_PATH, FOD_PRESSED_OFF);
     return Void();
 }
 
