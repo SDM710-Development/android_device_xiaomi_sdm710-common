@@ -1,4 +1,4 @@
-on boot
+on init
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dc_dimming
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm
 
