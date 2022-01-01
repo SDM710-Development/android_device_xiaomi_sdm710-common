@@ -103,6 +103,10 @@ vendor.qcom.bluetooth.soc=cherokee
 # Charger
 ro.charger.enable_suspend=true
 
+# Chipset
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SDM710
+
 # CNE
 persist.vendor.cne.feature=1
 
