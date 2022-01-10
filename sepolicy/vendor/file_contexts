@@ -28,6 +28,10 @@
 /(vendor|system/vendor)/bin/mtd@1\.2             u:object_r:hal_mtdservice_default_exec:s0
 /(vendor|system/vendor)/bin/nv_mac               u:object_r:wcnss_service_exec:s0
 
+# FOD
+/sys/devices/platform/soc/soc:qcom,dsi-display.*/fod_pressed u:object_r:sysfs_fod:s0
+/sys/devices/platform/soc/soc:qcom,dsi-display.*/fod_ui u:object_r:sysfs_fod:s0
+
 # Fingerprint devices
 /dev/goodix_fp                                u:object_r:fingerprint_device:s0
 /dev/vfsspi                                   u:object_r:fingerprint_device:s0
@@ -42,9 +46,9 @@
 /sys/devices/platform/soc/[0-9]+\.spi/spi_master/spi[0-9]+/spi[0-9]+\.0/nstandby   u:object_r:sysfs_gps:s0
 
 # Graphics nodes
-/sys/class/kgsl(/.*)?                         u:object_r:sysfs_kgsl:s0
-/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/disp_param        u:object_r:sysfs_graphics:s0
-/sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/hbm_status        u:object_r:sysfs_graphics:s0
+/sys/class/kgsl(/.*)?                                           u:object_r:sysfs_kgsl:s0
+/sys/devices/platform/soc/soc:qcom,dsi-display.*/dc_dimming     u:object_r:sysfs_graphics:s0
+/sys/devices/platform/soc/soc:qcom,dsi-display.*/hbm            u:object_r:sysfs_graphics:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/panel_info        u:object_r:sysfs_graphics:s0
 
 # Industrial I/O nodes
@@ -62,7 +66,7 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_sdm710                            u:object_r:hal_light_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr                                      u:object_r:hal_power_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_sdm710   u:object_r:hal_lineage_fod_sdm710_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.xiaomi_sdm710                        u:object_r:hal_lineage_livedisplay_qti_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.1-service\.xiaomi_sdm710                        u:object_r:hal_lineage_livedisplay_qti_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi                                      u:object_r:hal_ir_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock			       u:object_r:hal_power_stats_default_exec:s0
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "SunlightEnhancementService"
+#define LOG_TAG "AntiFlickerService"
 
-#include <fstream>
+#include "AntiFlicker.h"
 
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 #include <android-base/strings.h>
 #include <utils/Errors.h>
-
-#include "SunlightEnhancement.h"
+#include <fstream>
 
 namespace vendor {
 namespace lineage {
@@ -31,31 +30,31 @@ namespace livedisplay {
 namespace V2_1 {
 namespace implementation {
 
-static constexpr const char* kHbmPath =
-        "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm";
+static constexpr const char* kDcDimmingPath =
+        "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/dc_dimming";
 
-bool SunlightEnhancement::isSupported() {
-    std::ofstream hbm_file(kHbmPath);
-    if (!hbm_file.is_open()) {
-        LOG(ERROR) << "Failed to open " << kHbmPath << ", error=" << errno
-                   << " (" << strerror(errno) << ")";
+bool AntiFlicker::isSupported() {
+    std::ofstream dc_dimming_file(kDcDimmingPath);
+    if (!dc_dimming_file.is_open()) {
+        LOG(ERROR) << "Failed to open " << kDcDimmingPath << ", error="
+                   << errno << " (" << strerror(errno) << ")";
     }
 
-    return !hbm_file.fail();
+    return !dc_dimming_file.fail();
 }
 
-Return<bool> SunlightEnhancement::isEnabled() {
-    std::ifstream hbm_file(kHbmPath);
+Return<bool> AntiFlicker::isEnabled() {
+    std::ifstream dc_dimming_file(kDcDimmingPath);
     int result = -1;
-    hbm_file >> result;
-    return !hbm_file.fail() && result > 0;
+    dc_dimming_file >> result;
+    return !dc_dimming_file.fail() && result > 0;
 }
 
-Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
-    std::ofstream hbm_file(kHbmPath);
-    hbm_file << (enabled ? '1' : '0');
-    LOG(DEBUG) << "setEnabled fail " << hbm_file.fail();
-    return !hbm_file.fail();
+Return<bool> AntiFlicker::setEnabled(bool enabled) {
+    std::ofstream dc_dimming_file(kDcDimmingPath);
+    dc_dimming_file << (enabled ? '1' : '0');
+    LOG(DEBUG) << "setEnabled fail " << dc_dimming_file.fail();
+    return !dc_dimming_file.fail();
 }
 
 }  // namespace implementation

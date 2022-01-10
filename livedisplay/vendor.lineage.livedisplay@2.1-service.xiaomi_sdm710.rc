@@ -1,0 +1,8 @@
+on init
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dc_dimming
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm
+
+service vendor.livedisplay-hal-2-1 /vendor/bin/hw/vendor.lineage.livedisplay@2.1-service.xiaomi_sdm710
+    class hal
+    user system
+    group system
