@@ -476,6 +476,14 @@ Return<void> BiometricsFingerprint::onFingerUp() {
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
 }
 
+Return<void> BiometricsFingerprint::onShowUdfpsOverlay() {
+    return Void();
+}
+
+Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
+    return Void();
+}
+
 }  // namespace implementation
 }  // namespace V2_3
 }  // namespace fingerprint
