@@ -35,4 +35,16 @@
 
     <!-- Whether device has a notch -->
     <bool name="config_haveNotch">true</bool>
+
+    <!-- Color of the UDFPS pressed view -->
+    <color name="config_udfpsColor">#00ffffff</color>
+
+    <!-- HBM type of UDFPS overlay.
+            0 - GLOBAL HBM
+            1 - LOCAL HBM
+    -->
+    <integer name="config_udfps_hbm_type">0</integer>
+
+    <!-- Udfps vendor code -->
+    <integer name="config_udfps_vendor_code">22</integer>
 </resources>
