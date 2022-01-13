@@ -338,7 +338,7 @@ fingerprint_device_t* getDeviceForVendor(const char* class_name) {
 
 fingerprint_device_t* getFingerprintDevice() {
     fingerprint_device_t* fp_device;
-    std::string vendor_modules[] = {"fpc", "goodix", "goodix_fod", "syna"};
+    std::string vendor_modules[] = {"fpc", "goodix", "goodix_fod"};
 
     for (const auto& vendor : vendor_modules) {
         if ((fp_device = getDeviceForVendor(vendor.c_str())) == nullptr) {
@@ -472,8 +472,8 @@ Return<void> BiometricsFingerprint::onFingerDown(uint32_t /* x */, uint32_t /* y
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
-    return Void();
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
+    return Void();
 }
 
 Return<void> BiometricsFingerprint::onShowUdfpsOverlay() {
