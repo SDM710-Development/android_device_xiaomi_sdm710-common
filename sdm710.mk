@@ -197,16 +197,14 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm710
+    android.hardware.biometrics.fingerprint@2.3-service.xiaomi_sdm710
+    android.hardware.biometrics.fingerprint@2.3.vendor \
+    vendor.goodix.hardware.biometrics.fingerprint@2.1.vendor
 
 ifeq ($(TARGET_HAS_FOD),true)
 PRODUCT_PACKAGES += \
     libkeymaster_messages.vendor \
-    libkeymaster_portable.vendor \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_sdm710
-
-#PRODUCT_COPY_FILES += \
-#    vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+    libkeymaster_portable.vendor
 endif
 
 # FM
