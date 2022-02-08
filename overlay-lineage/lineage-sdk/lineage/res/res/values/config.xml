@@ -24,10 +24,13 @@
          "oldname:newname", one per entry. -->
     <string-array name="config_displayModeMappings" translatable="false">
         <item>38-default-OLED:standard</item>
+        <item>38oled_native:standard</item>
         <item>01-warm:reading</item>
         <item>02-cool:dynamic</item>
-        <item>P3_CE:dci_p3</item>
+        <item>P3_ce_0821:dci_p3</item>
+        <item>smart_MC:dci_p3</item>
         <item>srgb_d65:srgb</item>
+        <item>03srgb_d65:srgb</item>
     </string-array>
 
     <!-- Should we filter any display modes which are unampped? -->
