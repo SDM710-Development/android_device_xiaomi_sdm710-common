@@ -79,7 +79,7 @@ TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
 # Fingerprint on display
 ifeq ($(TARGET_HAS_FOD),true)
-TARGET_SURFACEFLINGER_FOD_LIB := //$(COMMON_PATH):libfod_extension.xiaomi_sdm710
+TARGET_SURFACEFLINGER_UDFPS_LIB := //$(COMMON_PATH):libudfps_extension.xiaomi_sdm710
 TARGET_USES_FOD_ZPOS := true
 endif
 
